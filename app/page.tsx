@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="text-center px-4">
+    <div className="text-center px-4 animate-fadeInUp">
       <h1 className="text-4xl font-semibold mb-4">
         Prime Motors SRL
       </h1>
