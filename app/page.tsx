@@ -4,14 +4,17 @@ import { useState } from 'react';
 
 type Lang = 'en' | 'ro' | 'ru';
 
-const messages: Record<Lang, { subtitle: string }> = {
+const messages: Record<Lang, { title: string; subtitle: string }> = {
   en: {
+    title: 'Coming Soon',
     subtitle: 'Our website is currently in development.',
   },
   ro: {
+    title: 'În curând',
     subtitle: 'Site-ul nostru este în curs de dezvolare',
   },
   ru: {
+    title: 'Скоро',
     subtitle: 'Наш сайт в процессе обновления.',
   },
 };
@@ -41,7 +44,7 @@ export default function Home() {
         {/* Center content */}
         <section className="text-center space-y-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
-            Coming Soon
+            {t.title}
           </h1>
 
           <p className="text-sm sm:text-base text-zinc-400">{t.subtitle}</p>
