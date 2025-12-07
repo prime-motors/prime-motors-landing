@@ -69,24 +69,14 @@ export function ContactSection({ t }: Props) {
           </div>
 
           <div className="flex items-stretch">
-            <div className="relative h-64 w-full overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 md:h-auto">
-              {/* simple placeholder map-like gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900" />
-              <div className="relative z-10 flex h-full flex-col items-center justify-center space-y-2 text-center text-xs text-zinc-300">
-                <span className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">
-                  Prime Motors SRL
-                </span>
-                <p>{ADDRESS_LINE}</p>
-                <p>Chișinău, Moldova</p>
-                <a
-                  href={GOOGLE_MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 rounded-full bg-zinc-100 px-4 py-1.5 text-[11px] font-medium text-black hover:bg-white"
-                >
-                  {t('contact.mapCta')}
-                </a>
-              </div>
+            <div className="relative h-64 w-full overflow-hidden rounded-2xl border border-zinc-800 md:h-auto">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2721.42525280391!2d28.902128577017383!3d46.99262247114009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97b0039ece0f5%3A0x6024d44ee7e32b46!2sPrime%20Motors%20SRL!5e0!3m2!1sen!2s!4v1765138236049!5m2!1sen!2s"
+                className="absolute inset-0 h-full w-full border-0"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
