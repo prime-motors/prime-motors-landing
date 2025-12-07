@@ -6,7 +6,7 @@ import { SiteFooter } from '@/components/layout/SiteFooter';
 /* import { HeroCarousel } from '@/components/hero/HeroCarousel'; */
 /* import { ServicesSection } from '@/components/sections/ServicesSection'; */
 /* import { AboutSection } from '@/components/sections/AboutSection'; */
-/* import { ContactSection } from '@/components/sections/ContactSection'; */
+import { ContactSection } from '@/components/sections/ContactSection';
 
 export default function HomePage() {
   const { lang, setLang, t } = useI18n();
@@ -17,7 +17,7 @@ export default function HomePage() {
       {/* <HeroCarousel t={t} /> */}
       {/* <ServicesSection t={t} /> */}
       {/* <AboutSection t={t} /> */}
-      {/* <ContactSection t={t} /> */}
+      <ContactSection t={t} />
       <SiteFooter t={t} />
     </main>
   );
