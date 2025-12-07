@@ -10,7 +10,7 @@ export const ADDRESS_LINE = 'str. Uzinelor 104, Chișinău, Moldova';
 export const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/LgS6EzLbN3YswuvQ7';
 
 export const WORKING_HOURS = {
-  monFri: '09:00 – 18:30',
-  sat: '09:00 – 13:30',
+  monFri: '09:00 – 18:00',
+  sat: '09:00 – 13:00',
   sun: 'Zi liberă / Closed',
 };
