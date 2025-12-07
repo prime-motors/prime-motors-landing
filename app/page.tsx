@@ -1,90 +1,24 @@
 'use client';
 
-import { useState } from 'react';
+import { useI18n } from '@/lib/i18n';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { SiteFooter } from '@/components/layout/SiteFooter';
+/* import { HeroCarousel } from '@/components/hero/HeroCarousel'; */
+/* import { ServicesSection } from '@/components/sections/ServicesSection'; */
+/* import { AboutSection } from '@/components/sections/AboutSection'; */
+/* import { ContactSection } from '@/components/sections/ContactSection'; */
 
-type Lang = 'en' | 'ro' | 'ru';
-
-const messages: Record<Lang, { title: string; subtitle: string }> = {
-  en: {
-    title: 'Coming Soon',
-    subtitle: 'Our website is currently in development.',
-  },
-  ro: {
-    title: 'În curând',
-    subtitle: 'Site-ul nostru este în curs de dezvolare',
-  },
-  ru: {
-    title: 'Скоро',
-    subtitle: 'Наш сайт в процессе обновления.',
-  },
-};
-
-export default function Home() {
-  const [lang] = useState<Lang>(() => {
-    if (typeof window === 'undefined') return 'en';
-
-    const browserLang = window.navigator.language.toLowerCase();
-
-    if (browserLang.startsWith('ro')) return 'ro';
-    if (browserLang.startsWith('ru')) return 'ru';
-    return 'en';
-  });
-
-  const t = messages[lang];
+export default function HomePage() {
+  const { lang, setLang, t } = useI18n();
 
   return (
-    <main className="min-h-screen w-full bg-black text-white flex items-center justify-center px-6">
-      <div className="w-full max-w-3xl space-y-10 animate-fade-in">
-        {/* Top label */}
-        <header className="flex flex-col items-center space-y-1 text-[11px] sm:text-xs tracking-[0.18em] uppercase text-zinc-500">
-          <div className="font-medium">Prime Motors SRL</div>
-          <div className="text-zinc-600">Autoservice · Chișinău, Moldova</div>
-        </header>
-
-        {/* Center content */}
-        <section className="text-center space-y-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
-            {t.title}
-          </h1>
-
-          <p className="text-sm sm:text-base text-zinc-400">{t.subtitle}</p>
-        </section>
-
-        {/* Contacts */}
-        <footer className="text-center text-xs sm:text-sm text-zinc-500 space-y-2">
-          <p>
-            <span className="text-zinc-400">Phone</span>{' '}
-            <a
-              href="tel:+37360004260"
-              className="text-zinc-300 hover:text-white"
-            >
-              +373 60004260
-            </a>
-          </p>
-
-          <p>
-            <span className="text-zinc-400">Email</span>{' '}
-            <a
-              href="mailto:contact@primemotors.md"
-              className="text-zinc-300 hover:text-white"
-            >
-              contact@primemotors.md
-            </a>
-          </p>
-
-          <p>
-            <span className="text-zinc-400">Address</span>{' '}
-            <a
-              href="https://maps.app.goo.gl/6qYC9jaJzjPpNnup7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-300 hover:text-white"
-            >
-              str. Uzinelor 104, Chișinău
-            </a>
-          </p>
-        </footer>
-      </div>
+    <main className="min-h-screen bg-black text-white">
+      <SiteHeader lang={lang} onLangChange={setLang} t={t} />
+      {/* <HeroCarousel t={t} /> */}
+      {/* <ServicesSection t={t} /> */}
+      {/* <AboutSection t={t} /> */}
+      {/* <ContactSection t={t} /> */}
+      <SiteFooter t={t} />
     </main>
   );
 }
