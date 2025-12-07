@@ -27,6 +27,9 @@ export function SiteHeader({ lang, onLangChange, t }: Props) {
         </a>
 
         <nav className="hidden items-center space-x-6 text-xs md:flex">
+          <a href="#home" className="text-zinc-400 transition hover:text-white">
+            {t('nav.home')}
+          </a>
           <a
             href="#services"
             className="text-zinc-400 transition hover:text-white"
