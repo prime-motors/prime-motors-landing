@@ -3,7 +3,7 @@ import {
   ADDRESS_LINE,
   EMAIL,
   GOOGLE_MAPS_URL,
-  PHONE_DISPLAY,
+  COMPANY_PHONE_DISPLAY,
   PHONE_TEL,
 } from '@/lib/constants';
 
@@ -35,7 +35,7 @@ export function ContactSection({ t }: Props) {
                 href={`tel:${PHONE_TEL}`}
                 className="text-zinc-100 hover:text-white"
               >
-                {PHONE_DISPLAY}
+                {COMPANY_PHONE_DISPLAY}
               </a>
             </p>
 

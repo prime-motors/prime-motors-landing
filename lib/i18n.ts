@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 
 export type Lang = 'en' | 'ro' | 'ru';
@@ -21,9 +19,13 @@ type TranslationShape = {
     contact: string;
   };
   hero: {
-    badge: string;
-    title: string;
-    subtitle: string;
+    eyebrow: string;
+    titleMain: string;
+    descriptionMain: string;
+    titleTransmission: string;
+    descriptionTransmission: string;
+    titleElectronics: string;
+    descriptionElectronics: string;
     cta: string;
   };
   about: {
@@ -74,10 +76,17 @@ export const translations: AllTranslations = {
       contact: 'Date de contact',
     },
     hero: {
-      badge: 'Service auto specializat în hibride și electrice',
-      title: 'Service Auto pentru Mașini Hibride și Electrice în Chișinău',
-      subtitle:
-        'Diagnosticare, întreținere și reparații pentru autovehicule hibride și electrice, cutii automate și electronică modernă.',
+      eyebrow: 'Service auto hibrid & electric',
+      titleMain:
+        'Service auto pentru vehicule hibride și electrice în Chișinău',
+      descriptionMain:
+        'Diagnostică, întreținere și reparații pentru vehicule hibride și electrice, cutii automate și electronică modernă.',
+      titleTransmission: 'Servicii pentru cutii de viteze automate',
+      descriptionTransmission:
+        'Schimb de ulei, diagnostică și reparații pentru cutii automate și CVT.',
+      titleElectronics: 'Diagnostică electronică avansată',
+      descriptionElectronics:
+        'Diagnostică computerizată pentru sisteme hibride, unități ECU, ABS, airbag și altele.',
       cta: 'Programează o consultație',
     },
     about: {
@@ -242,10 +251,16 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
       contact: 'Contact',
     },
     hero: {
-      badge: 'Hybrid & electric car service',
-      title: 'Hybrid and Electric Car Service in Chișinău',
-      subtitle:
+      eyebrow: 'Hybrid & Electric Car Service',
+      titleMain: 'Hybrid and Electric Car Service in Chișinău',
+      descriptionMain:
         'Diagnostics, maintenance and repair for hybrid and electric vehicles, automatic transmissions and modern electronics.',
+      titleTransmission: 'Automatic transmission service and repair',
+      descriptionTransmission:
+        'Professional diagnostics, oil changes and repairs for modern automatic and CVT gearboxes.',
+      titleElectronics: 'Modern vehicle electronics diagnostics',
+      descriptionElectronics:
+        'Advanced computer diagnostics for hybrid systems, ECUs, ABS, airbag units and more.',
       cta: 'Schedule a consultation',
     },
     about: {
@@ -305,10 +320,16 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
       contact: 'Контакты',
     },
     hero: {
-      badge: 'Сервис гибридных и электрических авто',
-      title: 'Сервис гибридных и электрических авто в Кишинёве',
-      subtitle:
-        'Диагностика, обслуживание и ремонт гибридных и электрических автомобилей, автоматических коробок и современной электроники.',
+      eyebrow: 'Сервис гибридных и электрических авто',
+      titleMain: 'Сервис гибридных и электрических автомобилей в Кишинэу',
+      descriptionMain:
+        'Диагностика, обслуживание и ремонт гибридных и электрических авто, автоматических коробок передач и современной электроники.',
+      titleTransmission: 'Сервис и ремонт АКПП и вариаторов',
+      descriptionTransmission:
+        'Профессиональная диагностика, замена масла и ремонт современных автоматических коробок.',
+      titleElectronics: 'Диагностика современной электроники авто',
+      descriptionElectronics:
+        'Компьютерная диагностика гибридных систем, блоков управления, ABS, подушек безопасности и других систем.',
       cta: 'Записаться на консультацию',
     },
     about: {
@@ -360,7 +381,7 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
       rights: '© 2019 - 2025, Prime Motors. Все права защищены.',
     },
   },
-};
+} as const;
 
 // For brevity we only defined full RO service bodies above.
 // In the UI we will take RO long text when lang !== 'ro' is not critical,

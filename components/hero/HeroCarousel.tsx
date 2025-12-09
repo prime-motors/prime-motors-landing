@@ -1,104 +1,128 @@
-'use client';
-
 import { useEffect, useState } from 'react';
-import type { TFunction } from '@/lib/i18n';
+import type { Lang, TFunction } from '@/lib/i18n';
 import {
   COMPANY_NAME,
-  COMPANY_TAGLINE,
-  PHONE_DISPLAY,
-  PHONE_TEL,
+  COMPANY_LOCATION_LINE,
+  COMPANY_PHONE_DISPLAY,
 } from '@/lib/constants';
 
-type Props = {
+type HeroCarouselProps = {
+  lang: Lang;
   t: TFunction;
 };
 
 type Slide = {
-  id: number;
-  imageClass: string;
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  cta: string;
 };
 
-const SLIDES: Slide[] = [
-  { id: 0, imageClass: 'bg-[url("/hero1.jpg")]' },
-  { id: 1, imageClass: 'bg-[url("/hero2.jpg")]' },
-  { id: 2, imageClass: 'bg-[url("/hero3.jpg")]' },
-];
+const AUTO_INTERVAL_MS = 8000;
 
-export function HeroCarousel({ t }: Props) {
+export function HeroCarousel({ lang, t }: HeroCarouselProps) {
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(
-      () => setIndex((prev) => (prev + 1) % SLIDES.length),
-      6000,
-    );
-    return () => clearInterval(interval);
-  }, []);
+  const slides: Slide[] = [
+    {
+      id: 'main',
+      eyebrow: t('hero.eyebrow'),
+      title: t('hero.titleMain'),
+      description: t('hero.descriptionMain'),
+      cta: t('hero.cta'),
+    },
+    {
+      id: 'electronics',
+      eyebrow: t('hero.eyebrow'),
+      title: t('hero.titleElectronics'),
+      description: t('hero.descriptionElectronics'),
+      cta: t('hero.cta'),
+    },
+    {
+      id: 'transmission',
+      eyebrow: t('hero.eyebrow'),
+      title: t('hero.titleTransmission'),
+      description: t('hero.descriptionTransmission'),
+      cta: t('hero.cta'),
+    },
+  ];
 
-  const active = SLIDES[index];
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, AUTO_INTERVAL_MS);
+    return () => clearInterval(timer);
+  }, [lang, slides.length]);
+
+  const slide = slides[index];
 
   return (
     <section
       id="home"
-      className="relative flex min-h-[70vh] items-center justify-center overflow-hidden border-b border-zinc-800 bg-black md:min-h-[80vh]"
+      className="border-b border-zinc-900 bg-black px-4 py-16 sm:py-20 md:py-24"
     >
-      {/* Background */}
       <div
-        className={`pointer-events-none absolute inset-0 bg-cover bg-center opacity-40 ${active.imageClass}`}
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black" />
-
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-4 py-16 md:flex-row md:items-center md:py-24">
-        <div className="w-full space-y-6 md:w-3/5">
-          <div className="inline-flex items-center space-x-3 text-[11px] uppercase tracking-[0.18em] text-zinc-500">
-            <span className="h-[1px] w-8 bg-zinc-600" />
-            <span>{t('hero.badge')}</span>
+        className="
+          mx-auto
+          max-w-6xl
+          flex
+          flex-col
+          gap-10
+          md:flex-row
+          md:items-stretch 
+          min-h-[400px]
+          sm:min-h-[460px]
+          md:min-h-[500px]
+        "
+      >
+        {/* LEFT: TEXT */}
+        <div className="max-w-xl space-y-6 self-start">
+          {' '}
+          {/* top-aligned */}
+          {/* Eyebrow */}
+          <div className="flex items-center space-x-3">
+            <span className="h-px w-8 bg-zinc-700"></span>
+            <span className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
+              {slide.eyebrow}
+            </span>
           </div>
-
-          <h1 className="text-3xl font-semibold leading-tight md:text-5xl">
-            {t('hero.title')}
+          {/* Title */}
+          <h1 className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
+            {slide.title}
           </h1>
-
-          <p className="max-w-xl text-sm text-zinc-300 md:text-base">
-            {t('hero.subtitle')}
+          {/* Description */}
+          <p className="max-w-lg text-sm text-zinc-400 sm:text-base">
+            {slide.description}
           </p>
-
-          <div className="flex flex-wrap items-center gap-4">
+          {/* CTA + COMPANY INFO */}
+          <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center">
             <a
-              href={`tel:${PHONE_TEL}`}
-              className="rounded-full bg-zinc-100 px-6 py-2 text-sm font-medium text-black transition hover:bg-white"
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black shadow-sm transition hover:bg-zinc-200"
             >
-              {t('hero.cta')}
+              {slide.cta}
             </a>
-            <div className="text-xs text-zinc-400">
+
+            <div className="space-y-0.5 text-xs text-zinc-400">
               <div className="font-medium text-zinc-200">{COMPANY_NAME}</div>
-              <div>{COMPANY_TAGLINE}</div>
-              <div>
-                Tel:{' '}
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  className="text-zinc-100 hover:text-white"
-                >
-                  {PHONE_DISPLAY}
-                </a>
-              </div>
+              <div>{COMPANY_LOCATION_LINE}</div>
+              <div>Tel: {COMPANY_PHONE_DISPLAY}</div>
             </div>
           </div>
         </div>
 
-        {/* Simple slide dots */}
-        <div className="mt-10 flex w-full justify-center md:mt-0 md:w-2/5 md:justify-end">
+        {/* RIGHT: DOTS */}
+        <div className="flex flex-1 items-center justify-center md:justify-end self-center">
           <div className="flex items-center space-x-2">
-            {SLIDES.map((s) => (
+            {slides.map((s, i) => (
               <button
                 key={s.id}
                 type="button"
-                onClick={() => setIndex(s.id)}
-                className={`h-1.5 w-6 rounded-full transition ${
-                  s.id === index
-                    ? 'bg-zinc-100'
-                    : 'bg-zinc-700 hover:bg-zinc-500'
+                onClick={() => setIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  i === index ? 'w-6 bg-zinc-100' : 'w-4 bg-zinc-700'
                 }`}
               />
             ))}

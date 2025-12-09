@@ -2,7 +2,7 @@ import type { TFunction } from '@/lib/i18n';
 import {
   ADDRESS_LINE,
   EMAIL,
-  PHONE_DISPLAY,
+  COMPANY_PHONE_DISPLAY,
   PHONE_TEL,
   WORKING_HOURS,
 } from '@/lib/constants';
@@ -85,7 +85,7 @@ export function SiteFooter({ t }: Props) {
                   href={`tel:${PHONE_TEL}`}
                   className="text-zinc-200 hover:text-white"
                 >
-                  {PHONE_DISPLAY}
+                  {COMPANY_PHONE_DISPLAY}
                 </a>
               </p>
               <p>

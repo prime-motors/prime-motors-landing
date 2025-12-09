@@ -1,6 +1,4 @@
-'use client';
-
-import { COMPANY_NAME, COMPANY_TAGLINE } from '@/lib/constants';
+import { COMPANY_NAME, COMPANY_LOCATION_LINE } from '@/lib/constants';
 import type { Lang, TFunction } from '@/lib/i18n';
 import { LanguageToggle } from '@/components/ui/LanguageToggle';
 
@@ -22,7 +20,9 @@ export function SiteHeader({ lang, onLangChange, t }: Props) {
             <span className="text-sm font-semibold tracking-wide">
               {COMPANY_NAME}
             </span>
-            <span className="text-[11px] text-zinc-500">{COMPANY_TAGLINE}</span>
+            <span className="text-[11px] text-zinc-500">
+              {COMPANY_LOCATION_LINE}
+            </span>
           </div>
         </a>
 

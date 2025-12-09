@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import type { TFunction } from '@/lib/i18n';
 import { translations } from '@/lib/i18n';
