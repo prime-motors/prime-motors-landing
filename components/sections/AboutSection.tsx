@@ -18,13 +18,12 @@ export function AboutSection({ t }: Props) {
               {t('about.text')}
             </p>
           </div>
+
           <div className="space-y-4 rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5 text-xs text-zinc-300">
-            <p>
-              ✓ Specializați în hibride, electrice și electronică auto avansată
-            </p>
-            <p>✓ Diagnoză computerizată de ultimă generație</p>
-            <p>✓ Piese de schimb de calitate și intervenții documentate</p>
-            <p>✓ Servicii adaptate nevoilor fiecărui client</p>
+            <p>✓ {t('about.bullet1')}</p>
+            <p>✓ {t('about.bullet2')}</p>
+            <p>✓ {t('about.bullet3')}</p>
+            <p>✓ {t('about.bullet4')}</p>
           </div>
         </div>
       </div>

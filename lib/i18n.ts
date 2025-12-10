@@ -31,6 +31,10 @@ type TranslationShape = {
   about: {
     title: string;
     text: string;
+    bullet1: string;
+    bullet2: string;
+    bullet3: string;
+    bullet4: string;
   };
   services: {
     title: string;
@@ -92,6 +96,11 @@ export const translations: AllTranslations = {
     about: {
       title: 'Despre Prime Motors',
       text: 'Prime Motors SRL este un service auto modern din Chișinău, specializat în întreținerea și repararea autovehiculelor hibride, electrice și a sistemelor electronice complexe. Combinăm experiența tehnică cu echipamente de ultimă generație pentru a oferi soluții sigure și durabile pentru orice marcă de mașină.',
+      bullet1:
+        'Specializați în hibride, electrice și electronică auto avansată',
+      bullet2: 'Diagnoză computerizată de ultimă generație',
+      bullet3: 'Piese de schimb de calitate și intervenții documentate',
+      bullet4: 'Servicii adaptate nevoilor fiecărui client',
     },
     services: {
       title: 'Serviciile noastre',
@@ -266,6 +275,11 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
     about: {
       title: 'About Prime Motors',
       text: 'Prime Motors SRL is a modern auto service in Chișinău, focused on hybrid, electric and electronics-intensive vehicles. Our certified technicians and advanced equipment allow us to diagnose and repair even the most complex systems, for any brand, quickly and safely.',
+      bullet1:
+        'Specialised in hybrid, electric and advanced automotive electronics',
+      bullet2: 'State-of-the-art computer diagnostics',
+      bullet3: 'Quality spare parts and fully documented work',
+      bullet4: 'Services tailored to each customer’s needs',
     },
     services: {
       title: 'Our services',
@@ -396,6 +410,11 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
     about: {
       title: 'О Prime Motors',
       text: 'Prime Motors SRL — современный автосервис в Кишинёве, специализирующийся на гибридных, электрических и высокоэлектрифицированных автомобилях. Мы используем сертифицированное оборудование и опыт наших мастеров, чтобы безопасно и качественно обслуживать автомобили любых марок.',
+      bullet1:
+        'Специализация на гибридных, электрических авто и современной электронике',
+      bullet2: 'Современная компьютерная диагностика',
+      bullet3: 'Качественные запчасти и прозрачная фиксация всех работ',
+      bullet4: 'Индивидуальный подход к каждому клиенту',
     },
     services: {
       title: 'Наши услуги',
