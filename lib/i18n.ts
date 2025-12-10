@@ -62,9 +62,11 @@ type TranslationShape = {
     monFriLabel: string;
     satLabel: string;
     sunLabel: string;
+    sunClosed: string;
     phoneLabel: string;
     emailLabel: string;
     addressLabel: string;
+    addressLine: string;
     rights: string;
   };
 };
@@ -257,9 +259,11 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
       monFriLabel: 'Luni – Vineri',
       satLabel: 'Sâmbătă',
       sunLabel: 'Duminică',
+      sunClosed: 'Zi liberă',
       phoneLabel: 'Tel:',
       emailLabel: 'Email:',
       addressLabel: 'Adresă:',
+      addressLine: 'str. Uzinelor 104, Chișinău, Moldova',
       rights: '© 2019 - 2025, Prime Motors. Toate drepturile rezervate.',
     },
   },
@@ -403,9 +407,11 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
       monFriLabel: 'Mon – Fri',
       satLabel: 'Saturday',
       sunLabel: 'Sunday',
+      sunClosed: 'Closed',
       phoneLabel: 'Phone:',
       emailLabel: 'Email:',
       addressLabel: 'Address:',
+      addressLine: 'str. Uzinelor 104, Chișinău, Moldova',
       rights: '© 2019 - 2025, Prime Motors. All rights reserved.',
     },
   },
@@ -553,9 +559,11 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
       monFriLabel: 'Понедельник – Пятница',
       satLabel: 'Суббота',
       sunLabel: 'Воскресенье',
+      sunClosed: 'Закрыто',
       phoneLabel: 'Телефон:',
       emailLabel: 'Электронная почта:',
       addressLabel: 'Адрес:',
+      addressLine: 'ул. Узинелор 104, Кишинёв, Молдова',
       rights: '© 2019 - 2025, Prime Motors. Все права защищены.',
     },
   },

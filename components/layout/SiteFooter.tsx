@@ -73,8 +73,8 @@ export function SiteFooter({ lang, t }: Props) {
                 {WORKING_HOURS.sat}
               </p>
               <p>
-                <span className="text-zinc-300">{t('footer.sunLabel')}:</span>{' '}
-                {WORKING_HOURS.sun}
+                <span className="text-zinc-300">{t('footer.sunLabel')}</span>{' '}
+                <span>{t('footer.sunClosed')}</span>
               </p>
             </div>
 
@@ -103,7 +103,7 @@ export function SiteFooter({ lang, t }: Props) {
                 <span className="text-zinc-300">
                   {t('footer.addressLabel')}
                 </span>{' '}
-                <span>{ADDRESS_LINE}</span>
+                <span>{t('footer.addressLine')}</span>
               </p>
             </div>
           </div>
