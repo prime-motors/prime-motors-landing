@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { RIGHTS_YEARS } from './constants';
 
 export type Lang = 'en' | 'ro' | 'ru';
 
@@ -12,6 +13,9 @@ type ServiceItem = {
 };
 
 type TranslationShape = {
+  common: {
+    addressLine: string;
+  };
   nav: {
     home: string;
     services: string;
@@ -66,7 +70,6 @@ type TranslationShape = {
     phoneLabel: string;
     emailLabel: string;
     addressLabel: string;
-    addressLine: string;
     rights: string;
   };
 };
@@ -79,6 +82,9 @@ type AllTranslations = Record<Lang, TranslationShape>;
 
 export const translations: AllTranslations = {
   ro: {
+    common: {
+      addressLine: 'str. Uzinelor 104, Chișinău, Moldova',
+    },
     nav: {
       home: 'Acasă',
       services: 'Servicii',
@@ -263,8 +269,7 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
       phoneLabel: 'Tel:',
       emailLabel: 'Email:',
       addressLabel: 'Adresă:',
-      addressLine: 'str. Uzinelor 104, Chișinău, Moldova',
-      rights: '© 2019 - 2025, Prime Motors. Toate drepturile rezervate.',
+      rights: `© ${RIGHTS_YEARS}, Prime Motors. Toate drepturile rezervate.`,
     },
   },
 
@@ -272,6 +277,9 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
   // ENGLISH
   // ------------------------------
   en: {
+    common: {
+      addressLine: 'str. Uzinelor 104, Chișinău, Moldova',
+    },
     nav: {
       home: 'Home',
       services: 'Services',
@@ -411,8 +419,7 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
       phoneLabel: 'Phone:',
       emailLabel: 'Email:',
       addressLabel: 'Address:',
-      addressLine: 'str. Uzinelor 104, Chișinău, Moldova',
-      rights: '© 2019 - 2025, Prime Motors. All rights reserved.',
+      rights: `© ${RIGHTS_YEARS}, Prime Motors. All rights reserved.`,
     },
   },
 
@@ -420,6 +427,9 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
   // RUSSIAN
   // ------------------------------
   ru: {
+    common: {
+      addressLine: 'ул. Узинелор 104, Кишинёв, Молдова',
+    },
     nav: {
       home: 'Главная',
       services: 'Услуги',
@@ -563,8 +573,7 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
       phoneLabel: 'Телефон:',
       emailLabel: 'Электронная почта:',
       addressLabel: 'Адрес:',
-      addressLine: 'ул. Узинелор 104, Кишинёв, Молдова',
-      rights: '© 2019 - 2025, Prime Motors. Все права защищены.',
+      rights: `© ${RIGHTS_YEARS}, Prime Motors. Все права защищены.`,
     },
   },
 } as const;

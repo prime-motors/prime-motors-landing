@@ -1,6 +1,5 @@
 import type { TFunction } from '@/lib/i18n';
 import {
-  ADDRESS_LINE,
   EMAIL,
   GOOGLE_MAPS_URL,
   COMPANY_PHONE_DISPLAY,
@@ -54,7 +53,7 @@ export function ContactSection({ t }: Props) {
             <h3 className="mt-4 text-sm font-semibold text-zinc-100">
               {t('contact.addressLabel')}
             </h3>
-            <p className="text-zinc-300">{ADDRESS_LINE}</p>
+            <p className="text-zinc-300">{t('common.addressLine')}</p>
 
             <div className="mt-5">
               <a

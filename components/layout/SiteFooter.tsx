@@ -1,6 +1,5 @@
 import type { TFunction, Lang } from '@/lib/i18n';
 import {
-  ADDRESS_LINE,
   EMAIL,
   COMPANY_PHONE_DISPLAY,
   PHONE_TEL,
@@ -103,7 +102,7 @@ export function SiteFooter({ lang, t }: Props) {
                 <span className="text-zinc-300">
                   {t('footer.addressLabel')}
                 </span>{' '}
-                <span>{t('footer.addressLine')}</span>
+                <span>{t('common.addressLine')}</span>
               </p>
             </div>
           </div>
