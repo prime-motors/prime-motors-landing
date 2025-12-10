@@ -18,7 +18,7 @@ export default function HomePage() {
       <ServicesSection lang={lang} t={t} />
       <AboutSection t={t} />
       <ContactSection t={t} />
-      <SiteFooter t={t} />
+      <SiteFooter lang={lang} t={t} />
     </main>
   );
 }

@@ -1,4 +1,4 @@
-import type { TFunction } from '@/lib/i18n';
+import type { TFunction, Lang } from '@/lib/i18n';
 import {
   ADDRESS_LINE,
   EMAIL,
@@ -6,16 +6,19 @@ import {
   PHONE_TEL,
   WORKING_HOURS,
 } from '@/lib/constants';
+import { translations } from '@/lib/i18n';
 
 type Props = {
+  lang: Lang;
   t: TFunction;
 };
 
-export function SiteFooter({ t }: Props) {
+export function SiteFooter({ lang, t }: Props) {
   const news = t('footer.newsItems') as unknown as {
     title: string;
     date: string;
   }[];
+  const servicesList = translations[lang].footer.servicesList;
 
   return (
     <footer className="mt-16 border-t border-zinc-800 bg-gradient-to-b from-black to-zinc-950">
@@ -33,12 +36,9 @@ export function SiteFooter({ t }: Props) {
               {t('footer.servicesTitle')}
             </h3>
             <ul className="space-y-1 text-xs text-zinc-400">
-              <li>• Deservire tehnică și reparații</li>
-              <li>• Sisteme hibride și electrice</li>
-              <li>• Diagnosticare computerizată</li>
-              <li>• Sistem de frânare</li>
-              <li>• Electricitate auto</li>
-              <li>• Tren de rulare</li>
+              {servicesList.map((item, idx) => (
+                <li key={idx}>• {item}</li>
+              ))}
             </ul>
           </div>
 

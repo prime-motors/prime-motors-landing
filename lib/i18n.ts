@@ -55,6 +55,7 @@ type TranslationShape = {
     aboutTitle: string;
     aboutText: string;
     servicesTitle: string;
+    servicesList: string[];
     newsTitle: string;
     scheduleTitle: string;
     newsItems: { title: string; date: string }[];
@@ -224,6 +225,14 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
       aboutText:
         'Prime Motors este un service auto ce are ca domeniu principal de activitate întreținerea și repararea autovehiculelor hibride și electrice. (Înlocuiți acest text cu descrierea finală pentru Prime Motors.)',
       servicesTitle: 'Serviciile noastre',
+      servicesList: [
+        'Deservirea tehnică și reparația auto',
+        'Servicii sisteme hibride și electrice',
+        'Diagnosticarea computerizată',
+        'Reparații ale sistemului de frânare',
+        'Electricitate',
+        'Reparații ale trenului de rulare',
+      ],
       newsTitle: 'Ultimele noutăți',
       scheduleTitle: 'Program de lucru',
       newsItems: [
@@ -364,6 +373,14 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
       aboutText:
         'Prime Motors is a specialized workshop for hybrid and electric vehicles, combining experience with modern diagnostic technology to offer safe, durable repairs.',
       servicesTitle: 'Our services',
+      servicesList: [
+        'General maintenance and repair',
+        'Hybrid and electric system services',
+        'Computer diagnostics',
+        'Brake system repair',
+        'Electrical services',
+        'Drivetrain and suspension repair',
+      ],
       newsTitle: 'Latest news',
       scheduleTitle: 'Working hours',
       newsItems: [
@@ -499,6 +516,14 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
       aboutText:
         'Prime Motors — специализированный сервис по ремонту гибридных и электрических авто. Мы предлагаем точную диагностику и надёжный ремонт с использованием современных технологий.',
       servicesTitle: 'Наши услуги',
+      servicesList: [
+        'Техническое обслуживание и ремонт автомобилей',
+        'Услуги по обслуживанию гибридных и электрических систем',
+        'Компьютерная диагностика',
+        'Ремонт тормозной системы',
+        'Электрика',
+        'Ремонт ходовой части',
+      ],
       newsTitle: 'Последние новости',
       scheduleTitle: 'График работы',
       newsItems: [
