@@ -270,10 +270,71 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
     services: {
       title: 'Our services',
       subtitle:
-        'From routine maintenance to complex repairs, we keep your vehicle safe and reliable.',
+        'We provide a complete range of services to maintain and repair your vehicle.',
       readMore: 'Read more',
-      readLess: 'Show less',
-      items: [], // we reuse RO structure but with EN in component for brevity
+      readLess: 'Read less',
+      items: [
+        {
+          id: 'general',
+          title: 'General maintenance & repairs',
+          short:
+            'Routine maintenance, computer diagnostics and full repairs for any type of vehicle.',
+          long: `
+Welcome to our auto service for general maintenance and repairs. Our experienced technicians handle everything from routine servicing and oil changes to complex mechanical repairs.
+
+We work with all types of vehicles and focus on reliability, safety and long-term performance. Whether you need a quick check or major repairs, we are here to keep your car in perfect working condition.`.trim(),
+        },
+        {
+          id: 'hybridElectric',
+          title: 'Hybrid & electric systems service',
+          short:
+            'Diagnostics and repair for hybrid and electric drive systems, batteries and charging.',
+          long: `
+We are specialized in service and repair for hybrid and electric vehicles. Using modern equipment and trained technicians, we diagnose and repair hybrid drive systems, high-voltage batteries and charging systems.
+
+We also offer scheduled maintenance to keep hybrid and electric systems healthy and to prevent expensive failures in the future.`.trim(),
+        },
+        {
+          id: 'diagnostics',
+          title: 'Computer diagnostics',
+          short:
+            'Advanced diagnostics for all electronic systems – engine, ABS, airbag, hybrid modules.',
+          long: `
+Modern vehicles rely on complex electronics. With advanced diagnostic tools we can quickly read fault codes, analyze live data and accurately identify both electronic and mechanical issues.
+
+Computer diagnostics are also included in our preventive maintenance, helping us detect potential problems early and avoid costly repairs later on.`.trim(),
+        },
+        {
+          id: 'brakes',
+          title: 'Brake system repairs',
+          short:
+            'Inspection and complete service for discs, pads and brake fluid – safety first.',
+          long: `
+Your brake system is critical for safety. We inspect, service and repair brake components such as pads, discs and hydraulic lines, and we replace brake fluid when needed.
+
+After every repair we test the system to make sure your vehicle brakes efficiently and predictably in all situations.`.trim(),
+        },
+        {
+          id: 'electricity',
+          title: 'Auto electrical services',
+          short:
+            'Battery, alternator, wiring and electrical consumers – reliable electrical systems.',
+          long: `
+We handle all types of electrical problems: battery and alternator issues, poor charging, lighting faults, wiring problems and more.
+
+With modern diagnostic tools we find faults quickly and repair them correctly, restoring the comfort and safety features your car depends on.`.trim(),
+        },
+        {
+          id: 'drivetrain',
+          title: 'Suspension & drivetrain repairs',
+          short:
+            'Suspension, steering and running gear for a stable, comfortable ride.',
+          long: `
+We repair suspension, steering and other drivetrain components that affect comfort, stability and tire wear.
+
+If you notice vibrations, noises, unstable behavior in corners or uneven tire wear, our technicians can diagnose the cause and restore the vehicle’s handling and safety.`.trim(),
+        },
+      ],
     },
     contact: {
       title: 'Get in touch',
@@ -339,10 +400,71 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
     services: {
       title: 'Наши услуги',
       subtitle:
-        'Полный комплекс услуг по обслуживанию и ремонту вашего автомобиля.',
+        'Мы предлагаем полный комплекс работ по обслуживанию и ремонту вашего автомобиля.',
       readMore: 'Подробнее',
       readLess: 'Свернуть',
-      items: [],
+      items: [
+        {
+          id: 'general',
+          title: 'Техническое обслуживание и ремонт',
+          short:
+            'Плановое ТО, компьютерная диагностика и полный ремонт для любых типов автомобилей.',
+          long: `
+Добро пожаловать в наш автосервис. Мы выполняем плановое техническое обслуживание, замену масел и фильтров, а также сложный механический ремонт.
+
+Работаем со всеми типами автомобилей и уделяем особое внимание надежности и безопасности. Нужна быстрая проверка или серьёзный ремонт — мы готовы помочь.`.trim(),
+        },
+        {
+          id: 'hybridElectric',
+          title: 'Сервисы для гибридных и электрических авто',
+          short:
+            'Диагностика и ремонт гибридных систем, высоковольтных батарей и систем зарядки.',
+          long: `
+Наш сервис специализируется на обслуживании гибридных и электрических автомобилей. Используем современное оборудование и обученных специалистов.
+
+Мы диагностируем и ремонтируем гибридные приводы, проверяем и заменяем высоковольтные батареи и системы зарядки, а также выполняем плановое обслуживание, чтобы избежать дорогих поломок в будущем.`.trim(),
+        },
+        {
+          id: 'diagnostics',
+          title: 'Компьютерная диагностика',
+          short:
+            'Продвинутая диагностика электронных систем: двигатель, ABS, подушки безопасности, гибридные модули.',
+          long: `
+Современные автомобили насыщены электроникой. С помощью профессиональных диагностических сканеров мы быстро считываем ошибки, анализируем параметры и точно определяем неисправности.
+
+Компьютерная диагностика также используется как профилактика, чтобы вовремя обнаружить потенциальные проблемы и избежать дорогостоящего ремонта.`.trim(),
+        },
+        {
+          id: 'brakes',
+          title: 'Ремонт тормозной системы',
+          short:
+            'Проверка и обслуживание дисков, колодок и тормозной жидкости — ваша безопасность прежде всего.',
+          long: `
+Тормозная система напрямую отвечает за вашу безопасность. Мы проверяем и ремонтируем тормозные механизмы, заменяем колодки и диски, обновляем тормозную жидкость.
+
+После ремонта мы обязательно проверяем эффективность тормозов, чтобы вы чувствовали себя уверенно на дороге.`.trim(),
+        },
+        {
+          id: 'electricity',
+          title: 'Автоэлектрика',
+          short:
+            'Аккумулятор, генератор, проводка и электрооборудование — решаем любые задачи по электрике.',
+          long: `
+Мы занимаемся всеми видами электрических неисправностей: проблемы с зарядкой, запуском двигателя, освещением, проводкой и другими потребителями.
+
+Современное диагностическое оборудование помогает быстро находить причину и качественно устранять неисправности.`.trim(),
+        },
+        {
+          id: 'drivetrain',
+          title: 'Ремонт ходовой части',
+          short:
+            'Подвеска, рулевое управление и элементы ходовой для комфортной и стабильной езды.',
+          long: `
+Мы ремонтируем элементы подвески и рулевого управления, которые отвечают за комфорт и устойчивость автомобиля.
+
+Если вы чувствуете вибрации, стуки, неустойчивость в поворотах или видите неравномерный износ шин, мы найдём причину и восстановим правильную работу ходовой части.`.trim(),
+        },
+      ],
     },
     contact: {
       title: 'Свяжитесь с нами',

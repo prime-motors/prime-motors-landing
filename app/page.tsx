@@ -15,7 +15,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-black text-white">
       <SiteHeader lang={lang} onLangChange={setLang} t={t} />
       <HeroCarousel lang={lang} t={t} />
-      <ServicesSection t={t} />
+      <ServicesSection lang={lang} t={t} />
       <AboutSection t={t} />
       <ContactSection t={t} />
       <SiteFooter t={t} />

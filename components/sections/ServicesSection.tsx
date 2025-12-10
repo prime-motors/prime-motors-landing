@@ -1,14 +1,17 @@
 import { useState } from 'react';
-import type { TFunction } from '@/lib/i18n';
+import type { Lang, TFunction } from '@/lib/i18n';
 import { translations } from '@/lib/i18n';
 
 type Props = {
+  lang: Lang;
   t: TFunction;
 };
 
-export function ServicesSection({ t }: Props) {
-  // We reuse the RO list for structure; titles are in RO (fits your market).
-  const roItems = translations.ro.services.items;
+export function ServicesSection({ lang, t }: Props) {
+  // Use services list for the current language, fallback to RO
+  const items =
+    translations[lang]?.services?.items ?? translations.ro.services.items;
+
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
@@ -27,7 +30,7 @@ export function ServicesSection({ t }: Props) {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {roItems.map((service) => {
+          {items.map((service) => {
             const isOpen = openId === service.id;
             return (
               <article
