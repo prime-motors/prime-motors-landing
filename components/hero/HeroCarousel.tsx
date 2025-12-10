@@ -19,7 +19,7 @@ type Slide = {
   cta: string;
 };
 
-const AUTO_INTERVAL_MS = 8000;
+const AUTO_INTERVAL_MS = 6000;
 
 export function HeroCarousel({ lang, t }: HeroCarouselProps) {
   const [index, setIndex] = useState(0);
@@ -77,7 +77,18 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
         "
       >
         {/* LEFT: TEXT + CTA pinned to bottom */}
-        <div className="flex flex-1 max-w-xl flex-col justify-between">
+        <div
+          className="
+            flex
+            flex-1
+            flex-col
+            justify-between
+            max-w-xl
+            min-h-[420px]
+            sm:min-h-[460px]
+            md:min-h-0
+          "
+        >
           {/* Top text block */}
           <div className="space-y-6">
             {/* Eyebrow */}
