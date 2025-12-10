@@ -80,7 +80,7 @@ export function SiteFooter({ lang, t }: Props) {
 
             <div className="mt-3 space-y-1 text-xs text-zinc-400">
               <p>
-                <span className="text-zinc-300">Tel:</span>{' '}
+                <span className="text-zinc-300">{t('footer.phoneLabel')}</span>{' '}
                 <a
                   href={`tel:${PHONE_TEL}`}
                   className="text-zinc-200 hover:text-white"
@@ -88,8 +88,9 @@ export function SiteFooter({ lang, t }: Props) {
                   {COMPANY_PHONE_DISPLAY}
                 </a>
               </p>
+
               <p>
-                <span className="text-zinc-300">Email:</span>{' '}
+                <span className="text-zinc-300">{t('footer.emailLabel')}</span>{' '}
                 <a
                   href={`mailto:${EMAIL}`}
                   className="text-zinc-200 hover:text-white"
@@ -97,8 +98,11 @@ export function SiteFooter({ lang, t }: Props) {
                   {EMAIL}
                 </a>
               </p>
+
               <p>
-                <span className="text-zinc-300">Adresă:</span>{' '}
+                <span className="text-zinc-300">
+                  {t('footer.addressLabel')}
+                </span>{' '}
                 <span>{ADDRESS_LINE}</span>
               </p>
             </div>
