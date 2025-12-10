@@ -65,38 +65,42 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
       <div
         className="
           mx-auto
-          max-w-6xl
           flex
+          max-w-6xl
           flex-col
           gap-10
           md:flex-row
-          md:items-stretch 
+          md:items-stretch
           min-h-[400px]
           sm:min-h-[460px]
-          md:min-h-[500px]
+          md:min-h-[520px]
         "
       >
-        {/* LEFT: TEXT */}
-        <div className="max-w-xl space-y-6 self-start">
-          {' '}
-          {/* top-aligned */}
-          {/* Eyebrow */}
-          <div className="flex items-center space-x-3">
-            <span className="h-px w-8 bg-zinc-700"></span>
-            <span className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
-              {slide.eyebrow}
-            </span>
+        {/* LEFT: TEXT + CTA pinned to bottom */}
+        <div className="flex flex-1 max-w-xl flex-col justify-between">
+          {/* Top text block */}
+          <div className="space-y-6">
+            {/* Eyebrow */}
+            <div className="flex items-center space-x-3">
+              <span className="h-px w-8 bg-zinc-700" />
+              <span className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
+                {slide.eyebrow}
+              </span>
+            </div>
+
+            {/* Title */}
+            <h1 className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
+              {slide.title}
+            </h1>
+
+            {/* Description */}
+            <p className="max-w-lg text-sm text-zinc-400 sm:text-base">
+              {slide.description}
+            </p>
           </div>
-          {/* Title */}
-          <h1 className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
-            {slide.title}
-          </h1>
-          {/* Description */}
-          <p className="max-w-lg text-sm text-zinc-400 sm:text-base">
-            {slide.description}
-          </p>
-          {/* CTA + COMPANY INFO */}
-          <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center">
+
+          {/* Bottom CTA + company info */}
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <a
               href="#contact"
               className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black shadow-sm transition hover:bg-zinc-200"
@@ -112,8 +116,8 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
           </div>
         </div>
 
-        {/* RIGHT: DOTS */}
-        <div className="flex flex-1 items-center justify-center md:justify-end self-center">
+        {/* RIGHT: DOTS centered vertically */}
+        <div className="flex flex-1 items-center justify-center md:justify-end">
           <div className="flex items-center space-x-2">
             {slides.map((s, i) => (
               <button
