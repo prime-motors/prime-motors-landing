@@ -4,6 +4,7 @@ import {
   COMPANY_NAME,
   COMPANY_LOCATION_LINE,
   COMPANY_PHONE_DISPLAY,
+  PHONE_TEL,
 } from '@/lib/constants';
 
 type HeroCarouselProps = {
@@ -113,17 +114,20 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
           {/* Bottom CTA + company info */}
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <a
-              href="#contact"
+              href={`tel:${PHONE_TEL}`}
               className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black shadow-sm transition hover:bg-zinc-200"
             >
               {slide.cta}
             </a>
 
-            <div className="space-y-0.5 text-xs text-zinc-400">
+            <a
+              href={`tel:${PHONE_TEL}`}
+              className="block space-y-0.5 text-xs text-zinc-400 hover:text-zinc-200 transition"
+            >
               <div className="font-medium text-zinc-200">{COMPANY_NAME}</div>
               <div>{COMPANY_LOCATION_LINE}</div>
               <div>Tel: {COMPANY_PHONE_DISPLAY}</div>
-            </div>
+            </a>
           </div>
         </div>
 
