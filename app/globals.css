@@ -40,37 +40,3 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
-
-/* ----------------------------------------------
-   ELEGANT APPLE-STYLE ANIMATIONS
----------------------------------------------- */
-
-/* Soft fade-in */
-@keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-
-/* Thin, slow underline motion — optional */
-@keyframes line-move {
-  0% {
-    transform: translateX(-120%);
-  }
-  100% {
-    transform: translateX(120%);
-  }
-}
-
-.animate-line {
-  animation: line-move 3.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
-}
