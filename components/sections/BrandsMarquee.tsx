@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { TFunction } from '@/lib/i18n';
+import styles from './BrandsMarquee.module.css';
 
 type Brand = {
   name: string;
@@ -46,51 +47,50 @@ export function BrandsMarquee({ t }: Props) {
         </div>
 
         {/* MARQUEE */}
-        <div className="relative mt-8 overflow-hidden rounded-2xl border border-zinc-900 bg-zinc-950/60">
-          {/* edge fades */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-black to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-black to-transparent" />
-
+        <div
+          className={`relative mt-8 overflow-hidden rounded-2xl border border-zinc-900 bg-zinc-950/60 ${styles.marqueeMask}`}
+        >
           <div className="py-6">
-            <div className="marquee group">
-              {/* FIRST GROUP */}
-              <div className="marquee__group">
-                {BRANDS.map((brand) => (
-                  <div
-                    key={brand.name}
-                    className="relative h-10 w-20 shrink-0"
-                    title={brand.name}
-                  >
-                    <Image
-                      src={brand.src}
-                      alt={brand.name}
-                      fill
-                      unoptimized
-                      sizes="80px"
-                      className="object-contain invert opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-                    />
-                  </div>
-                ))}
-              </div>
+            {/* pause on hover is handled by module */}
+            <div className={`${styles.pauseOnHover}`}>
+              <div className={styles.marquee}>
+                <div className={styles.marqueeGroup}>
+                  {BRANDS.map((brand) => (
+                    <div
+                      key={brand.name}
+                      className="relative h-10 w-20 shrink-0"
+                      title={brand.name}
+                    >
+                      <Image
+                        src={brand.src}
+                        alt={brand.name}
+                        fill
+                        unoptimized
+                        sizes="80px"
+                        className="object-contain invert opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                      />
+                    </div>
+                  ))}
+                </div>
 
-              {/* DUPLICATE GROUP */}
-              <div className="marquee__group" aria-hidden="true">
-                {BRANDS.map((brand) => (
-                  <div
-                    key={`${brand.name}-dup`}
-                    className="relative h-10 w-20 shrink-0"
-                    title={brand.name}
-                  >
-                    <Image
-                      src={brand.src}
-                      alt={brand.name}
-                      fill
-                      unoptimized
-                      sizes="80px"
-                      className="object-contain invert opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-                    />
-                  </div>
-                ))}
+                <div className={styles.marqueeGroup} aria-hidden="true">
+                  {BRANDS.map((brand) => (
+                    <div
+                      key={`${brand.name}-dup`}
+                      className="relative h-10 w-20 shrink-0"
+                      title={brand.name}
+                    >
+                      <Image
+                        src={brand.src}
+                        alt={brand.name}
+                        fill
+                        unoptimized
+                        sizes="80px"
+                        className="object-contain invert opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -98,44 +98,6 @@ export function BrandsMarquee({ t }: Props) {
 
         <p className="mt-4 text-xs text-zinc-500">{t('brands.note')}</p>
       </div>
-
-      {/* STYLES */}
-      <style jsx>{`
-        @keyframes marquee {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(-100%);
-          }
-        }
-
-        .marquee {
-          display: flex;
-          width: max-content;
-          overflow: hidden;
-        }
-
-        .marquee__group {
-          display: flex;
-          align-items: center;
-          gap: 24px;
-          padding-right: 24px;
-          animation: marquee 28s linear infinite;
-          will-change: transform;
-        }
-
-        /* Pause on hover */
-        .group:hover .marquee__group {
-          animation-play-state: paused;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .marquee__group {
-            animation: none;
-          }
-        }
-      `}</style>
     </section>
   );
 }

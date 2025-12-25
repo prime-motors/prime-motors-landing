@@ -1,0 +1,53 @@
+/* Fade edges using mask (no overlay elements) */
+.marqueeMask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  overflow: hidden;
+}
+
+.marqueeGroup {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover */
+.pauseOnHover:hover .marqueeGroup {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeGroup {
+    animation: none;
+  }
+}
+
