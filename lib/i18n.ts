@@ -72,6 +72,12 @@ type TranslationShape = {
     addressLabel: string;
     rights: string;
   };
+  brands: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    note: string;
+  };
 };
 
 type AllTranslations = Record<Lang, TranslationShape>;
@@ -271,6 +277,13 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
       addressLabel: 'Adresă:',
       rights: `© ${RIGHTS_YEARS}, Prime Motors. Toate drepturile rezervate.`,
     },
+    brands: {
+      eyebrow: 'MĂRCI',
+      title: 'Lucrăm cu cele mai populare mărci',
+      subtitle:
+        'Service pentru hibride, electrice și sisteme moderne — de la diagnosticare până la reparații complexe.',
+      note: 'Nu vezi marca ta aici? Sună-ne — cel mai probabil o putem deservi.',
+    },
   },
 
   // ------------------------------
@@ -420,6 +433,13 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
       emailLabel: 'Email:',
       addressLabel: 'Address:',
       rights: `© ${RIGHTS_YEARS}, Prime Motors. All rights reserved.`,
+    },
+    brands: {
+      eyebrow: 'BRANDS',
+      title: 'We service popular car brands',
+      subtitle:
+        'Hybrid, EV, and modern electronics service — from diagnostics to complex repairs.',
+      note: 'Don’t see your brand? Call us — we can probably service it.',
     },
   },
 
@@ -574,6 +594,13 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
       emailLabel: 'Электронная почта:',
       addressLabel: 'Адрес:',
       rights: `© ${RIGHTS_YEARS}, Prime Motors. Все права защищены.`,
+    },
+    brands: {
+      eyebrow: 'МАРКИ',
+      title: 'Обслуживаем популярные марки',
+      subtitle:
+        'Сервис для гибридов, электромобилей и современной электроники — от диагностики до сложных ремонтов.',
+      note: 'Нет вашей марки? Позвоните — скорее всего, мы обслуживаем и её.',
     },
   },
 } as const;

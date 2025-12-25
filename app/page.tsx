@@ -7,6 +7,7 @@ import { HeroCarousel } from '@/components/hero/HeroCarousel';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { ContactSection } from '@/components/sections/ContactSection';
+import { BrandsMarquee } from '@/components/sections/BrandsMarquee';
 
 export default function HomePage() {
   const { lang, setLang, t } = useI18n();
@@ -15,6 +16,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-black text-white">
       <SiteHeader lang={lang} onLangChange={setLang} t={t} />
       <HeroCarousel lang={lang} t={t} />
+      <BrandsMarquee t={t} />
       <ServicesSection lang={lang} t={t} />
       <AboutSection t={t} />
       <ContactSection t={t} />
