@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { Lang, TFunction } from '@/lib/i18n';
 import { LanguageToggle } from '@/components/ui/LanguageToggle';
+import styles from './SiteHeader.module.css';
 
 type Props = {
   lang: Lang;
@@ -10,12 +11,16 @@ type Props = {
 
 export function SiteHeader({ lang, onLangChange, t }: Props) {
   return (
-    <header className="sticky top-0 z-30 border-b border-zinc-800/70 bg-black/80 backdrop-blur">
+    <header
+      className={`sticky top-0 z-30 border-b border-zinc-800/70 bg-black/80 backdrop-blur ${styles.header}`}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         {/* Brand */}
-        <a href="#home" className="group flex items-center">
+        <a href="#home" className={styles.brand}>
           {/* PM badge */}
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/60 text-sm font-semibold tracking-wide text-white">
+          <div
+            className={`flex h-11 w-11 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/60 text-sm font-semibold tracking-wide text-white ${styles.pmBadge}`}
+          >
             PM
           </div>
 
@@ -25,31 +30,34 @@ export function SiteHeader({ lang, onLangChange, t }: Props) {
               alt="Prime Motors logo"
               fill
               priority
-              className="object-contain scale-[2]"
+              className={`object-contain scale-[2] ${styles.logo}`}
             />
           </div>
         </a>
 
         {/* Navigation */}
         <nav className="hidden items-center space-x-6 text-xs md:flex">
-          <a href="#home" className="text-zinc-400 transition hover:text-white">
+          <a
+            href="#home"
+            className={`text-zinc-400 transition hover:text-white ${styles.navLink}`}
+          >
             {t('nav.home')}
           </a>
           <a
             href="#services"
-            className="text-zinc-400 transition hover:text-white"
+            className={`text-zinc-400 transition hover:text-white ${styles.navLink}`}
           >
             {t('nav.services')}
           </a>
           <a
             href="#about"
-            className="text-zinc-400 transition hover:text-white"
+            className={`text-zinc-400 transition hover:text-white ${styles.navLink}`}
           >
             {t('nav.about')}
           </a>
           <a
             href="#contact"
-            className="text-zinc-400 transition hover:text-white"
+            className={`text-zinc-400 transition hover:text-white ${styles.navLink}`}
           >
             {t('nav.contact')}
           </a>

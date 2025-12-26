@@ -1,0 +1,81 @@
+/* 1) Subtle header settle-in */
+.header {
+  animation: headerIn 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes headerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2) Brand micro-interactions */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pmBadge {
+  transition: transform 220ms ease, border-color 220ms ease;
+  will-change: transform;
+}
+
+.logo {
+  opacity: 0.85;
+  transition: opacity 220ms ease, transform 220ms ease;
+  will-change: transform;
+}
+
+.brand:hover .pmBadge {
+  transform: scale(1.05);
+  border-color: rgb(161 161 170); /* zinc-400 */
+}
+
+.brand:hover .logo {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* 3) Nav underline glide */
+.navLink {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms ease, opacity 240ms ease;
+  opacity: 0;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    animation: none;
+  }
+  .pmBadge,
+  .logo,
+  .navLink::after {
+    transition: none;
+  }
+}
