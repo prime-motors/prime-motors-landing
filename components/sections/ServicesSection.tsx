@@ -17,7 +17,7 @@ export function ServicesSection({ lang, t }: Props) {
   return (
     <section
       id="services"
-      className="border-b border-zinc-800 bg-black py-16 md:py-20"
+      className="scroll-mt-55 md:scroll-mt-24 border-b border-zinc-800 bg-black py-16 md:py-20"
     >
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-8 space-y-2 text-center">

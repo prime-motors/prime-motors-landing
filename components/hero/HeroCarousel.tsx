@@ -61,7 +61,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
   return (
     <section
       id="home"
-      className="border-b border-zinc-900 bg-black px-4 py-16 sm:py-20 md:py-24"
+      className="scroll-mt-55 md:scroll-mt-24 border-b border-zinc-900 bg-black px-4 py-16 sm:py-20 md:py-24"
     >
       <div
         className="
