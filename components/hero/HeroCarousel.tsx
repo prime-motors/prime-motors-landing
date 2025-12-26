@@ -107,9 +107,17 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
         styles.heroVignette,
       ].join(' ')}
     >
+      {/* ✅ PRELOAD all background images so they never lag behind text */}
+      <div className="hidden" aria-hidden>
+        {slides.map((s) => (
+          <Image key={s.id} src={s.bgSrc} alt="" width={1} height={1} />
+        ))}
+      </div>
+
       {/* Background images */}
       <div className={styles.bgLayer} aria-hidden>
-        <AnimatePresence mode="wait" initial={false}>
+        {/* ✅ IMPORTANT FIX: use sync so next image mounts immediately and crossfades */}
+        <AnimatePresence mode="sync" initial={false}>
           <motion.div
             key={slide.id}
             className={styles.bgImage}
