@@ -81,7 +81,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
 
   const slide = slides[index];
 
-  // Text motion (slide-to-slide, not "mount loading")
+  // Text motion (slide-to-slide)
   const container: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -107,7 +107,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
         styles.heroVignette,
       ].join(' ')}
     >
-      {/* ✅ PRELOAD all background images so they never lag behind text */}
+      {/* Preload all background images so they never lag behind text */}
       <div className="hidden" aria-hidden>
         {slides.map((s) => (
           <Image key={s.id} src={s.bgSrc} alt="" width={1} height={1} />
@@ -116,11 +116,11 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
 
       {/* Background images */}
       <div className={styles.bgLayer} aria-hidden>
-        {/* ✅ IMPORTANT FIX: use sync so next image mounts immediately and crossfades */}
+        {/* Crossfade: sync so next bg mounts immediately */}
         <AnimatePresence mode="sync" initial={false}>
           <motion.div
             key={slide.id}
-            className={styles.bgImage}
+            className={`${styles.bgImage} ${styles.bgDrift}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -130,7 +130,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
               src={slide.bgSrc}
               alt={slide.bgAlt}
               fill
-              priority={slide.id === 'electronics'} // first slide loads instantly
+              priority={slide.id === 'electronics'}
               sizes="100vw"
               className="object-cover"
               style={{ objectPosition: slide.bgPosition ?? 'center' }}
@@ -146,70 +146,78 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
         <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-stretch min-h-[400px] sm:min-h-[460px] md:min-h-[520px]">
           {/* LEFT */}
           <div className="flex flex-1 flex-col justify-between max-w-xl min-h-[420px] sm:min-h-[460px] md:min-h-0">
-            {/* Initial entrance (CSS like SiteHeader) */}
-            <div className={styles.heroIn}>
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={slide.id}
-                  variants={container}
-                  initial="hidden"
-                  animate="show"
-                  exit={{ opacity: 0, y: -6, transition: { duration: 0.2 } }}
-                  className="space-y-6"
-                >
-                  {/* Eyebrow */}
+            {/* ✅ Glass panel wrapper */}
+            <div className={styles.leftPanel}>
+              {/* Initial entrance (CSS like SiteHeader) */}
+              <div className={styles.heroIn}>
+                <AnimatePresence mode="wait" initial={false}>
                   <motion.div
-                    variants={item}
-                    className="flex items-center space-x-3"
+                    key={slide.id}
+                    variants={container}
+                    initial="hidden"
+                    animate="show"
+                    exit={{ opacity: 0, y: -6, transition: { duration: 0.2 } }}
+                    className="space-y-6"
                   >
-                    <span className="h-px w-8 bg-zinc-700" />
-                    <span className="text-[11px] uppercase tracking-[0.24em] text-zinc-300/70">
-                      {slide.eyebrow}
-                    </span>
+                    {/* Eyebrow */}
+                    <motion.div
+                      variants={item}
+                      className="flex items-center space-x-3"
+                    >
+                      <span className="h-px w-8 bg-zinc-700" />
+                      <span className="text-[11px] uppercase tracking-[0.24em] text-zinc-300/70">
+                        {slide.eyebrow}
+                      </span>
+                    </motion.div>
+
+                    {/* Title (tighter leading = more premium) */}
+                    <motion.h1
+                      variants={item}
+                      className="text-3xl font-semibold leading-[1.05] sm:text-4xl md:text-5xl"
+                    >
+                      {slide.title}
+                    </motion.h1>
+
+                    {/* Description (better rhythm) */}
+                    <motion.p
+                      variants={item}
+                      className="max-w-lg text-sm leading-relaxed text-zinc-300/70 sm:text-base"
+                    >
+                      {slide.description}
+                    </motion.p>
                   </motion.div>
+                </AnimatePresence>
+              </div>
 
-                  {/* Title */}
-                  <motion.h1
-                    variants={item}
-                    className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl"
+              {/* CTA */}
+              <div className={styles.ctaIn}>
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <motion.a
+                    href={`tel:${PHONE_TEL}`}
+                    whileHover={
+                      reduceMotion ? undefined : { y: -1, scale: 1.01 }
+                    }
+                    whileTap={reduceMotion ? undefined : { scale: 0.99 }}
+                    transition={{ duration: 0.2 }}
+                    className={[
+                      'inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black shadow-sm hover:bg-zinc-200',
+                      styles.ctaShine,
+                    ].join(' ')}
                   >
-                    {slide.title}
-                  </motion.h1>
+                    {slide.cta}
+                  </motion.a>
 
-                  {/* Description */}
-                  <motion.p
-                    variants={item}
-                    className="max-w-lg text-sm text-zinc-300/70 sm:text-base"
+                  <a
+                    href={`tel:${PHONE_TEL}`}
+                    className="block space-y-0.5 text-xs text-zinc-300/70 hover:text-zinc-100 transition"
                   >
-                    {slide.description}
-                  </motion.p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* CTA */}
-            <div className={styles.ctaIn}>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <motion.a
-                  href={`tel:${PHONE_TEL}`}
-                  whileHover={reduceMotion ? undefined : { y: -1, scale: 1.01 }}
-                  whileTap={reduceMotion ? undefined : { scale: 0.99 }}
-                  transition={{ duration: 0.2 }}
-                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black shadow-sm hover:bg-zinc-200"
-                >
-                  {slide.cta}
-                </motion.a>
-
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  className="block space-y-0.5 text-xs text-zinc-300/70 hover:text-zinc-100 transition"
-                >
-                  <div className="font-medium text-zinc-100">
-                    {COMPANY_NAME}
-                  </div>
-                  <div>{COMPANY_LOCATION_LINE}</div>
-                  <div>Tel: {COMPANY_PHONE_DISPLAY}</div>
-                </a>
+                    <div className="font-medium text-zinc-100">
+                      {COMPANY_NAME}
+                    </div>
+                    <div>{COMPANY_LOCATION_LINE}</div>
+                    <div>Tel: {COMPANY_PHONE_DISPLAY}</div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -226,18 +234,16 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                     type="button"
                     onClick={() => setIndex(i)}
                     aria-label={`Go to slide ${i + 1}`}
-                    className={`relative h-2 overflow-hidden rounded-full transition-all ${
+                    className={`relative h-2 overflow-hidden rounded-full transition-all hover:brightness-125 ${
                       active ? 'w-10 bg-zinc-800/70' : 'w-6 bg-zinc-900/70'
                     }`}
                   >
-                    {/* base track */}
                     <span
                       className={`absolute inset-0 rounded-full ${
                         active ? 'bg-zinc-700/60' : 'bg-zinc-700/35'
                       }`}
                     />
 
-                    {/* progress fill for active dot */}
                     {active && !reduceMotion && (
                       <motion.span
                         key={`progress-${slide.id}`}
