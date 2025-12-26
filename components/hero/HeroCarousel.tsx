@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import type { Lang, TFunction } from '@/lib/i18n';
@@ -22,6 +23,9 @@ type Slide = {
   title: string;
   description: string;
   cta: string;
+  bgSrc: string;
+  bgAlt: string;
+  bgPosition?: string;
 };
 
 const AUTO_INTERVAL_MS = 6000;
@@ -34,18 +38,14 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
   const slides: Slide[] = useMemo(
     () => [
       {
-        id: 'main',
-        eyebrow: t('hero.eyebrow'),
-        title: t('hero.titleMain'),
-        description: t('hero.descriptionMain'),
-        cta: t('hero.cta'),
-      },
-      {
         id: 'electronics',
         eyebrow: t('hero.eyebrow'),
         title: t('hero.titleElectronics'),
         description: t('hero.descriptionElectronics'),
         cta: t('hero.cta'),
+        bgSrc: '/hero-carousel/image_1766714644866.jpg',
+        bgAlt: 'Vehicle electronics diagnostics',
+        bgPosition: 'center 40%',
       },
       {
         id: 'transmission',
@@ -53,22 +53,35 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
         title: t('hero.titleTransmission'),
         description: t('hero.descriptionTransmission'),
         cta: t('hero.cta'),
+        bgSrc: '/hero-carousel/image_1766714695938.jpg',
+        bgAlt: 'Automatic transmission service',
+        bgPosition: 'center 45%',
+      },
+      {
+        id: 'service',
+        eyebrow: t('hero.eyebrow'),
+        title: t('hero.titleMain'),
+        description: t('hero.descriptionMain'),
+        cta: t('hero.cta'),
+        bgSrc: '/hero-carousel/image_1766714775374.jpg',
+        bgAlt: 'Professional auto service workshop',
+        bgPosition: 'center 35%',
       },
     ],
     [t],
   );
 
+  // Auto-advance
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
     }, AUTO_INTERVAL_MS);
-
     return () => clearInterval(timer);
   }, [lang, slides.length]);
 
   const slide = slides[index];
 
-  // Only used for slide changes (not initial mount)
+  // Text motion (slide-to-slide, not "mount loading")
   const container: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -88,41 +101,44 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
     <section
       id="home"
       className={[
-        'scroll-mt-55 md:scroll-mt-24 border-b border-zinc-900 bg-black px-4 py-16 sm:py-20 md:py-24',
+        'relative scroll-mt-55 md:scroll-mt-24 border-b border-zinc-900 px-4 py-16 sm:py-20 md:py-24',
         styles.heroBase,
         styles.heroGrain,
         styles.heroVignette,
       ].join(' ')}
     >
-      <div className="relative z-10">
-        <div
-          className="
-            mx-auto
-            flex
-            max-w-6xl
-            flex-col
-            gap-10
-            md:flex-row
-            md:items-stretch
-            min-h-[400px]
-            sm:min-h-[460px]
-            md:min-h-[520px]
-          "
-        >
-          {/* LEFT */}
-          <div
-            className="
-              flex
-              flex-1
-              flex-col
-              justify-between
-              max-w-xl
-              min-h-[420px]
-              sm:min-h-[460px]
-              md:min-h-0
-            "
+      {/* Background images */}
+      <div className={styles.bgLayer} aria-hidden>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={slide.id}
+            className={styles.bgImage}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: EASE }}
           >
-            {/* ✅ Initial entrance like header (CSS, instant & lint-safe) */}
+            <Image
+              src={slide.bgSrc}
+              alt={slide.bgAlt}
+              fill
+              priority={slide.id === 'electronics'} // first slide loads instantly
+              sizes="100vw"
+              className="object-cover"
+              style={{ objectPosition: slide.bgPosition ?? 'center' }}
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        <div className={styles.bgOverlay} />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-stretch min-h-[400px] sm:min-h-[460px] md:min-h-[520px]">
+          {/* LEFT */}
+          <div className="flex flex-1 flex-col justify-between max-w-xl min-h-[420px] sm:min-h-[460px] md:min-h-0">
+            {/* Initial entrance (CSS like SiteHeader) */}
             <div className={styles.heroIn}>
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
@@ -130,11 +146,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                   variants={container}
                   initial="hidden"
                   animate="show"
-                  exit={
-                    reduceMotion
-                      ? { opacity: 0 }
-                      : { opacity: 0, y: -6, transition: { duration: 0.2 } }
-                  }
+                  exit={{ opacity: 0, y: -6, transition: { duration: 0.2 } }}
                   className="space-y-6"
                 >
                   {/* Eyebrow */}
@@ -143,7 +155,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                     className="flex items-center space-x-3"
                   >
                     <span className="h-px w-8 bg-zinc-700" />
-                    <span className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
+                    <span className="text-[11px] uppercase tracking-[0.24em] text-zinc-300/70">
                       {slide.eyebrow}
                     </span>
                   </motion.div>
@@ -159,7 +171,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                   {/* Description */}
                   <motion.p
                     variants={item}
-                    className="max-w-lg text-sm text-zinc-400 sm:text-base"
+                    className="max-w-lg text-sm text-zinc-300/70 sm:text-base"
                   >
                     {slide.description}
                   </motion.p>
@@ -167,7 +179,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
               </AnimatePresence>
             </div>
 
-            {/* CTA + company info (optional staged entrance) */}
+            {/* CTA */}
             <div className={styles.ctaIn}>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <motion.a
@@ -182,9 +194,9 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
 
                 <a
                   href={`tel:${PHONE_TEL}`}
-                  className="block space-y-0.5 text-xs text-zinc-400 hover:text-zinc-200 transition"
+                  className="block space-y-0.5 text-xs text-zinc-300/70 hover:text-zinc-100 transition"
                 >
-                  <div className="font-medium text-zinc-200">
+                  <div className="font-medium text-zinc-100">
                     {COMPANY_NAME}
                   </div>
                   <div>{COMPANY_LOCATION_LINE}</div>
@@ -194,7 +206,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
             </div>
           </div>
 
-          {/* RIGHT: dots + progress */}
+          {/* RIGHT: dots + loading/progress bar */}
           <div className="flex flex-1 items-center justify-center md:justify-end">
             <div className="flex items-center space-x-2">
               {slides.map((s, i) => {
@@ -206,16 +218,18 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                     type="button"
                     onClick={() => setIndex(i)}
                     aria-label={`Go to slide ${i + 1}`}
-                    className={`relative h-2 rounded-full transition-all ${
-                      active ? 'w-10 bg-zinc-800' : 'w-6 bg-zinc-900'
+                    className={`relative h-2 overflow-hidden rounded-full transition-all ${
+                      active ? 'w-10 bg-zinc-800/70' : 'w-6 bg-zinc-900/70'
                     }`}
                   >
+                    {/* base track */}
                     <span
                       className={`absolute inset-0 rounded-full ${
-                        active ? 'bg-zinc-700' : 'bg-zinc-800'
+                        active ? 'bg-zinc-700/60' : 'bg-zinc-700/35'
                       }`}
                     />
 
+                    {/* progress fill for active dot */}
                     {active && !reduceMotion && (
                       <motion.span
                         key={`progress-${slide.id}`}
