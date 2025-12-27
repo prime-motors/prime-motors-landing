@@ -2,6 +2,7 @@
    Hero visual system
    Premium dark background with imagery, overlay, grain, vignette, entrance
    + subtle premium upgrades (glass panel, drift, CTA shine)
+   + no-jump layout (fixed top content area)
    ========================================================================== */
 
 .heroBase {
@@ -24,7 +25,7 @@
   filter: saturate(0.9) contrast(1.05);
 }
 
-/* ✅ Subtle cinematic drift */
+/* Subtle cinematic drift */
 .bgDrift {
   animation: bgDrift 10s ease-in-out infinite;
   will-change: transform;
@@ -58,7 +59,7 @@
     );
 }
 
-/* --- Film grain --- */
+/* Film grain */
 .heroGrain::after {
   content: '';
   position: absolute;
@@ -72,7 +73,7 @@
   opacity: 0.75;
 }
 
-/* --- Vignette --- */
+/* Vignette */
 .heroVignette::before {
   content: '';
   position: absolute;
@@ -88,7 +89,7 @@
   );
 }
 
-/* ✅ Glass left panel (big premium bump) */
+/* Glass left panel */
 .leftPanel {
   border-radius: 22px;
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -101,6 +102,10 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   padding: 22px;
+
+  /* ✅ important: fixed layout so CTA doesn't jump */
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {
@@ -109,7 +114,40 @@
   }
 }
 
-/* --- Hero entrance (like SiteHeader) --- */
+/* ✅ Reserve stable space for text area */
+.topContent {
+  flex: 1;
+  min-height: 260px;
+}
+
+@media (min-width: 640px) {
+  .topContent {
+    min-height: 230px;
+  }
+}
+
+@media (min-width: 768px) {
+  .topContent {
+    min-height: 260px;
+  }
+}
+
+/* Optional: clamp lines to avoid extreme language overflow */
+.titleClamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+}
+
+.descClamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+}
+
+/* Hero entrance (like SiteHeader) */
 .heroIn {
   animation: heroIn 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
@@ -142,7 +180,7 @@
   }
 }
 
-/* ✅ CTA shine */
+/* CTA shine */
 .ctaShine {
   position: relative;
   overflow: hidden;

@@ -146,10 +146,10 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
         <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-stretch min-h-[400px] sm:min-h-[460px] md:min-h-[520px]">
           {/* LEFT */}
           <div className="flex flex-1 flex-col justify-between max-w-xl min-h-[420px] sm:min-h-[460px] md:min-h-0">
-            {/* ✅ Glass panel wrapper */}
+            {/* Glass panel wrapper */}
             <div className={styles.leftPanel}>
-              {/* Initial entrance (CSS like SiteHeader) */}
-              <div className={styles.heroIn}>
+              {/* Top content area (fixed height => no jump) */}
+              <div className={`${styles.heroIn} ${styles.topContent}`}>
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.div
                     key={slide.id}
@@ -170,18 +170,18 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                       </span>
                     </motion.div>
 
-                    {/* Title (tighter leading = more premium) */}
+                    {/* Title */}
                     <motion.h1
                       variants={item}
-                      className="text-3xl font-semibold leading-[1.05] sm:text-4xl md:text-5xl"
+                      className={`text-3xl font-semibold leading-[1.05] sm:text-4xl md:text-5xl ${styles.titleClamp}`}
                     >
                       {slide.title}
                     </motion.h1>
 
-                    {/* Description (better rhythm) */}
+                    {/* Description */}
                     <motion.p
                       variants={item}
-                      className="max-w-lg text-sm leading-relaxed text-zinc-300/70 sm:text-base"
+                      className={`max-w-lg text-sm leading-relaxed text-zinc-300/70 sm:text-base ${styles.descClamp}`}
                     >
                       {slide.description}
                     </motion.p>
@@ -189,9 +189,9 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                 </AnimatePresence>
               </div>
 
-              {/* CTA */}
+              {/* CTA pinned below (won’t move now) */}
               <div className={styles.ctaIn}>
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <motion.a
                     href={`tel:${PHONE_TEL}`}
                     whileHover={
