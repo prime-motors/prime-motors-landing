@@ -135,7 +135,7 @@ export const translations: AllTranslations = {
           long: `Bine ați venit la auto service-ul nostru de deservire tehnică și reparație auto!  Suntem o echipă de profesioniști calificați cu experiență vastă în domeniul auto. Ne străduim să oferim clienților noștri cea mai bună experiență de deservire tehnică și reparație auto, astfel încât să se poată bucura de o mașină în stare perfectă de funcționare.   Indiferent de tipul de vehicul pe care îl aveți, suntem pregătiți să oferim servicii complete de deservire tehnică și reparație auto. De la întreținerea de rutină și diagnoza computerizată, până la reparații majore și servicii de mentenanță, suntem aici pentru a ne asigura că mașina dumneavoastră funcționează la cel mai înalt nivel.`,
         },
         {
-          id: 'hybrid',
+          id: 'hybridElectric',
           title: 'Servicii sisteme hibride și electrice',
           short:
             'Diagnosticare, întreținere și reparații pentru vehicule hibride și electrice.',
@@ -369,7 +369,7 @@ Your brake system is critical for safety. We inspect, service and repair brake c
 After every repair we test the system to make sure your vehicle brakes efficiently and predictably in all situations.`.trim(),
         },
         {
-          id: 'electricity',
+          id: 'electric',
           title: 'Auto electrical services',
           short:
             'Battery, alternator, wiring and electrical consumers – reliable electrical systems.',
@@ -379,7 +379,7 @@ We handle all types of electrical problems: battery and alternator issues, poor 
 With modern diagnostic tools we find faults quickly and repair them correctly, restoring the comfort and safety features your car depends on.`.trim(),
         },
         {
-          id: 'drivetrain',
+          id: 'suspension',
           title: 'Suspension & drivetrain repairs',
           short:
             'Suspension, steering and running gear for a stable, comfortable ride.',
@@ -526,7 +526,7 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
 После ремонта мы обязательно проверяем эффективность тормозов, чтобы вы чувствовали себя уверенно на дороге.`.trim(),
         },
         {
-          id: 'electricity',
+          id: 'electric',
           title: 'Автоэлектрика',
           short:
             'Аккумулятор, генератор, проводка и электрооборудование — решаем любые задачи по электрике.',
@@ -536,7 +536,7 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
 Современное диагностическое оборудование помогает быстро находить причину и качественно устранять неисправности.`.trim(),
         },
         {
-          id: 'drivetrain',
+          id: 'suspension',
           title: 'Ремонт ходовой части',
           short:
             'Подвеска, рулевое управление и элементы ходовой для комфортной и стабильной езды.',
