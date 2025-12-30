@@ -36,6 +36,8 @@ jobs:
 
       - name: Build static site
         run: pnpm build
+        env:
+          NEXT_PUBLIC_FACEBOOK_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_FACEBOOK_PIXEL_ID }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
