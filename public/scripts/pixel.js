@@ -1,5 +1,10 @@
 const PIXEL_ID = document.currentScript.getAttribute('data-pixel-id');
 
+if (!PIXEL_ID) {
+  console.warn('Facebook Pixel ID missing — pixel not initialized');
+  return;
+}
+
 function initializeFacebookPixel(f, b, e, v, n, t, s) {
   if (f.fbq) return;
   n = f.fbq = function () {

@@ -9,11 +9,14 @@ const FacebookPixel = () => {
   const [loaded, setLoaded] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    if (!loaded) return;
+  const enabled = Boolean(pixel.FB_PIXEL_ID);
 
+  useEffect(() => {
+    if (!enabled || !loaded) return;
     pixel.pageview();
-  }, [pathname, loaded]);
+  }, [pathname, loaded, enabled]);
+
+  if (!enabled) return null;
 
   return (
     <div>
