@@ -26,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning // supress Grammarly hydration mismatch warnings
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full bg-black text-white`}
       >
         {children}
