@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import FacebookPixel from '@/components/FacebookPixel';
+import { GoogleTagManager, FacebookPixel } from '@/components/tracking';
 import './globals.css';
 
 const geistSans = Geist({
@@ -31,6 +31,7 @@ export default function RootLayout({
       >
         {children}
         <FacebookPixel />
+        <GoogleTagManager />
       </body>
     </html>
   );
