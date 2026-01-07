@@ -1,4 +1,4 @@
-export const COMPANY_NAME = 'Prime Motors SRL';
+export const COMPANY_NAME = 'Prime Motors';
 export const COMPANY_LOCATION_LINE = 'Autoservice · Chișinău, Moldova';
 export const COMPANY_PHONE_DISPLAY = '+373 60004260';
 export const PHONE_TEL = '+37360004260';

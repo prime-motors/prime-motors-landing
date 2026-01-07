@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Prime Motors SRL',
+  title: 'Prime Motors',
   description: 'Official landing page of Prime Motors',
 };
 
