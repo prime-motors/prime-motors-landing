@@ -92,15 +92,15 @@
 /* Glass left panel */
 .leftPanel {
   border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.38),
-    rgba(0, 0, 0, 0.12)
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.05)
   );
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   padding: 22px;
 
   /* ✅ important: fixed layout so CTA doesn't jump */
