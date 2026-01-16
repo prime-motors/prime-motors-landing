@@ -99,8 +99,7 @@ export const translations: AllTranslations = {
     },
     hero: {
       eyebrow: 'Service auto hibrid & electric',
-      titleMain:
-        'Service auto pentru vehicule hibride și electrice în Chișinău',
+      titleMain: 'Service auto pentru vehicule hibride și electrice',
       descriptionMain:
         'Diagnostică, întreținere și reparații pentru vehicule hibride și electrice, cutii automate și electronică modernă.',
       titleTransmission: 'Servicii pentru cutii de viteze automate',
@@ -301,7 +300,7 @@ Suntem dedicați să oferim cele mai bune servicii de reparații ale trenului de
     },
     hero: {
       eyebrow: 'Hybrid & Electric Car Service',
-      titleMain: 'Hybrid and Electric Car Service in Chișinău',
+      titleMain: 'Hybrid and Electric Car Service',
       descriptionMain:
         'Diagnostics, maintenance and repair for hybrid and electric vehicles, automatic transmissions and modern electronics.',
       titleTransmission: 'Automatic transmission service and repair',
@@ -458,7 +457,7 @@ If you notice vibrations, noises, unstable behavior in corners or uneven tire we
     },
     hero: {
       eyebrow: 'Сервис гибридных и электрических авто',
-      titleMain: 'Сервис гибридных и электрических автомобилей в Кишинэу',
+      titleMain: 'Сервис гибридных и электрических автомобилей',
       descriptionMain:
         'Диагностика, обслуживание и ремонт гибридных и электрических авто, автоматических коробок передач и современной электроники.',
       titleTransmission: 'Сервис и ремонт АКПП и вариаторов',
