@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import type { Lang, TFunction } from '@/lib/i18n';
+import type { TFunction } from '@/lib/i18n';
 import {
   COMPANY_NAME,
   COMPANY_LOCATION_LINE,
@@ -13,7 +13,6 @@ import {
 import styles from './HeroCarousel.module.css';
 
 type HeroCarouselProps = {
-  lang: Lang;
   t: TFunction;
 };
 
@@ -31,9 +30,11 @@ type Slide = {
 const AUTO_INTERVAL_MS = 6000;
 const EASE = [0.2, 0.8, 0.2, 1] as const;
 
-export function HeroCarousel({ lang, t }: HeroCarouselProps) {
+export function HeroCarousel({ t }: HeroCarouselProps) {
   const reduceMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
+
+  const timeoutRef = useRef<number | null>(null);
 
   const slides: Slide[] = useMemo(
     () => [
@@ -71,13 +72,28 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
     [t],
   );
 
-  // Auto-advance
+  const clearAuto = () => {
+    if (timeoutRef.current) {
+      window.clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
+  const next = useCallback(() => {
+    setIndex((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
+
+  const goTo = (i: number) => {
+    setIndex(i);
+  };
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, AUTO_INTERVAL_MS);
-    return () => clearInterval(timer);
-  }, [lang, slides.length]);
+    clearAuto();
+
+    timeoutRef.current = window.setTimeout(next, AUTO_INTERVAL_MS);
+
+    return clearAuto;
+  }, [index, slides.length, next]);
 
   const slide = slides[index];
 
@@ -97,9 +113,21 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
       : { opacity: 1, y: 0, transition: { duration: 0.35, ease: EASE } },
   };
 
+  // Click anywhere on hero -> next slide (but ignore clicks on buttons/links)
+  const onHeroClickCapture: React.MouseEventHandler<HTMLElement> = (e) => {
+    const el = e.target as HTMLElement | null;
+    if (!el) return;
+
+    // Don’t hijack clicks on interactive elements
+    if (el.closest('a,button,input,textarea,select,[role="button"]')) return;
+
+    next();
+  };
+
   return (
     <section
       id="home"
+      onClickCapture={onHeroClickCapture}
       className={[
         'relative scroll-mt-55 md:scroll-mt-24 border-b border-[color:var(--border)] px-4 py-16 sm:py-20 md:py-24',
         styles.heroBase,
@@ -116,7 +144,6 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
 
       {/* Background images */}
       <div className={styles.bgLayer} aria-hidden>
-        {/* Crossfade: sync so next bg mounts immediately */}
         <AnimatePresence mode="sync" initial={false}>
           <motion.div
             key={slide.id}
@@ -146,9 +173,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
         <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-stretch min-h-[400px] sm:min-h-[460px] md:min-h-[520px]">
           {/* LEFT */}
           <div className="flex flex-1 flex-col justify-between max-w-xl min-h-[420px] sm:min-h-[460px] md:min-h-0">
-            {/* Glass panel wrapper */}
             <div className={styles.leftPanel}>
-              {/* Top content area (fixed height => no jump) */}
               <div className={`${styles.heroIn} ${styles.topContent}`}>
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.div
@@ -159,7 +184,6 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                     exit={{ opacity: 0, y: -6, transition: { duration: 0.2 } }}
                     className="space-y-6"
                   >
-                    {/* Eyebrow */}
                     <motion.div
                       variants={item}
                       className="flex items-center space-x-3"
@@ -170,7 +194,6 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                       </span>
                     </motion.div>
 
-                    {/* Title */}
                     <motion.h1
                       variants={item}
                       className={`text-3xl font-semibold leading-[1.05] sm:text-4xl md:text-5xl ${styles.titleClamp}`}
@@ -178,7 +201,6 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                       {slide.title}
                     </motion.h1>
 
-                    {/* Description */}
                     <motion.p
                       variants={item}
                       className={`max-w-lg text-sm leading-relaxed text-[color:var(--muted)] sm:text-base ${styles.descClamp}`}
@@ -189,7 +211,6 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                 </AnimatePresence>
               </div>
 
-              {/* CTA pinned below (won’t move now) */}
               <div className={styles.ctaIn}>
                 <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <motion.a
@@ -222,7 +243,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
             </div>
           </div>
 
-          {/* RIGHT: dots + loading/progress bar */}
+          {/* RIGHT: dots + progress */}
           <div className="flex flex-1 items-center justify-center md:justify-end">
             <div className="flex items-center space-x-2">
               {slides.map((s, i) => {
@@ -232,7 +253,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                   <button
                     key={s.id}
                     type="button"
-                    onClick={() => setIndex(i)}
+                    onClick={() => goTo(i)} // timer resets because index changes
                     aria-label={`Go to slide ${i + 1}`}
                     className={`relative h-2 overflow-hidden rounded-full transition-all hover:brightness-125 ${
                       active ? 'w-10 bg-white/15' : 'w-6 bg-white/10'
@@ -246,7 +267,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
 
                     {active && !reduceMotion && (
                       <motion.span
-                        key={`progress-${slide.id}`}
+                        key={`progress-${slide.id}`} // restarts on slide change
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{
