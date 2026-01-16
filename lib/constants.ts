@@ -6,7 +6,7 @@ export const PHONE_TEL = '+37360004260';
 export const EMAIL = 'contact@primemotors.md';
 
 export const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/LgS6EzLbN3YswuvQ7';
-export const RIGHTS_YEARS = '2025 – 2030';
+export const RIGHTS_YEARS = `${new Date().getFullYear()}`;
 
 export const WORKING_HOURS = {
   monFri: '09:00 – 18:00',

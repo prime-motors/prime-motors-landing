@@ -40,14 +40,22 @@ export function SiteHeader({ lang, onLangChange, t }: Props) {
 
   return (
     <header
-      className={`sticky top-0 z-30 border-b border-zinc-800/70 bg-black/80 backdrop-blur ${styles.header}`}
+      className={[
+        'sticky top-0 z-30 border-b border-[color:var(--border)] backdrop-blur',
+        styles.header,
+        styles.headerSurface,
+      ].join(' ')}
     >
       <div className="mx-auto max-w-6xl px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Brand */}
           <a href="#home" onClick={goTo('#home')} className={styles.brand}>
             <div
-              className={`flex h-11 w-11 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/60 text-sm font-semibold tracking-wide text-white ${styles.pmBadge}`}
+              className={[
+                'flex h-11 w-11 items-center justify-center rounded-full border text-sm font-semibold tracking-wide',
+                styles.pmBadge,
+              ].join(' ')}
+              aria-hidden
             >
               PM
             </div>
@@ -68,28 +76,28 @@ export function SiteHeader({ lang, onLangChange, t }: Props) {
             <a
               href="#home"
               onClick={goTo('#home')}
-              className={`text-zinc-400 hover:text-white ${styles.navLink}`}
+              className={`text-[color:var(--muted)] hover:text-[color:var(--foreground)] ${styles.navLink}`}
             >
               {t('nav.home')}
             </a>
             <a
               href="#services"
               onClick={goTo('#services')}
-              className={`text-zinc-400 hover:text-white ${styles.navLink}`}
+              className={`text-[color:var(--muted)] hover:text-[color:var(--foreground)] ${styles.navLink}`}
             >
               {t('nav.services')}
             </a>
             <a
               href="#about"
               onClick={goTo('#about')}
-              className={`text-zinc-400 hover:text-white ${styles.navLink}`}
+              className={`text-[color:var(--muted)] hover:text-[color:var(--foreground)] ${styles.navLink}`}
             >
               {t('nav.about')}
             </a>
             <a
               href="#contact"
               onClick={goTo('#contact')}
-              className={`text-zinc-400 hover:text-white ${styles.navLink}`}
+              className={`text-[color:var(--muted)] hover:text-[color:var(--foreground)] ${styles.navLink}`}
             >
               {t('nav.contact')}
             </a>
@@ -105,17 +113,23 @@ export function SiteHeader({ lang, onLangChange, t }: Props) {
               aria-label={open ? 'Close menu' : 'Open menu'}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-zinc-800 bg-zinc-900/40 text-zinc-200 transition hover:bg-zinc-900/70 md:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[color:var(--border)] bg-white/5 text-[color:var(--foreground)]/85 transition hover:bg-white/10 md:hidden"
             >
               <span className="relative block h-4 w-5">
                 <span
-                  className={`absolute left-0 top-0 h-[2px] w-5 bg-current transition ${open ? 'translate-y-[7px] rotate-45' : ''}`}
+                  className={`absolute left-0 top-0 h-[2px] w-5 bg-current transition ${
+                    open ? 'translate-y-[7px] rotate-45' : ''
+                  }`}
                 />
                 <span
-                  className={`absolute left-0 top-[7px] h-[2px] w-5 bg-current transition ${open ? 'opacity-0' : ''}`}
+                  className={`absolute left-0 top-[7px] h-[2px] w-5 bg-current transition ${
+                    open ? 'opacity-0' : ''
+                  }`}
                 />
                 <span
-                  className={`absolute left-0 bottom-0 h-[2px] w-5 bg-current transition ${open ? '-translate-y-[7px] -rotate-45' : ''}`}
+                  className={`absolute left-0 bottom-0 h-[2px] w-5 bg-current transition ${
+                    open ? '-translate-y-[7px] -rotate-45' : ''
+                  }`}
                 />
               </span>
             </button>
@@ -124,33 +138,33 @@ export function SiteHeader({ lang, onLangChange, t }: Props) {
 
         {/* Mobile menu */}
         {open && (
-          <div className="mt-4 rounded-xl border border-zinc-800/70 bg-black/60 p-3 md:hidden">
+          <div className="mt-4 rounded-xl border border-[color:var(--border)] bg-white/5 p-3 backdrop-blur md:hidden">
             <div className="flex flex-col gap-2 text-sm">
               <a
                 href="#home"
                 onClick={goTo('#home')}
-                className="rounded-md px-3 py-2 text-zinc-300 hover:bg-zinc-900/60 hover:text-white"
+                className="rounded-md px-3 py-2 text-[color:var(--muted)] hover:bg-white/10 hover:text-[color:var(--foreground)] transition"
               >
                 {t('nav.home')}
               </a>
               <a
                 href="#services"
                 onClick={goTo('#services')}
-                className="rounded-md px-3 py-2 text-zinc-300 hover:bg-zinc-900/60 hover:text-white"
+                className="rounded-md px-3 py-2 text-[color:var(--muted)] hover:bg-white/10 hover:text-[color:var(--foreground)] transition"
               >
                 {t('nav.services')}
               </a>
               <a
                 href="#about"
                 onClick={goTo('#about')}
-                className="rounded-md px-3 py-2 text-zinc-300 hover:bg-zinc-900/60 hover:text-white"
+                className="rounded-md px-3 py-2 text-[color:var(--muted)] hover:bg-white/10 hover:text-[color:var(--foreground)] transition"
               >
                 {t('nav.about')}
               </a>
               <a
                 href="#contact"
                 onClick={goTo('#contact')}
-                className="rounded-md px-3 py-2 text-zinc-300 hover:bg-zinc-900/60 hover:text-white"
+                className="rounded-md px-3 py-2 text-[color:var(--muted)] hover:bg-white/10 hover:text-[color:var(--foreground)] transition"
               >
                 {t('nav.contact')}
               </a>

@@ -28,31 +28,34 @@ const BRANDS: Brand[] = [
 
 export function BrandsMarquee({ t }: Props) {
   return (
-    <section className="border-b border-zinc-900 bg-black">
+    <section className="bg-[color:var(--surface-2)] border-b border-[color:var(--border)]">
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
         {/* HEADER */}
         <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div className="space-y-1">
-            <p className="text-[11px] uppercase tracking-[0.26em] text-zinc-500">
+            <p className="text-[11px] uppercase tracking-[0.26em] text-[color:var(--muted)]/70">
               {t('brands.eyebrow')}
             </p>
-            <h3 className="text-lg font-semibold text-zinc-50 md:text-xl">
+            <h3 className="text-lg font-semibold text-[color:var(--foreground)] md:text-xl">
               {t('brands.title')}
             </h3>
           </div>
 
-          <p className="max-w-xl text-sm text-zinc-400">
+          <p className="max-w-xl text-sm text-[color:var(--muted)]">
             {t('brands.subtitle')}
           </p>
         </div>
 
         {/* MARQUEE */}
         <div
-          className={`relative mt-8 overflow-hidden rounded-2xl border border-zinc-900 bg-zinc-950/60 ${styles.marqueeMask}`}
+          className={[
+            'relative mt-8 overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)]',
+            styles.marqueeMask,
+          ].join(' ')}
         >
           <div className="py-6">
             {/* pause on hover is handled by module */}
-            <div className={`${styles.pauseOnHover}`}>
+            <div className={styles.pauseOnHover}>
               <div className={styles.marquee}>
                 <div className={styles.marqueeGroup}>
                   {BRANDS.map((brand) => (
@@ -96,7 +99,9 @@ export function BrandsMarquee({ t }: Props) {
           </div>
         </div>
 
-        <p className="mt-4 text-xs text-zinc-500">{t('brands.note')}</p>
+        <p className="mt-4 text-xs text-[color:var(--muted)]/70">
+          {t('brands.note')}
+        </p>
       </div>
     </section>
   );

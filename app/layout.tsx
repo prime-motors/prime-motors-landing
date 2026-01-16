@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         suppressHydrationWarning // supress Grammarly hydration mismatch warnings
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full`}
       >
         {children}
         <FacebookPixel />
@@ -38,5 +38,5 @@ export default function RootLayout({
 }
 
 export const viewport: Viewport = {
-  themeColor: '#000000', // black status bar in Chrome / Android
+  themeColor: '#111315',
 };

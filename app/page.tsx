@@ -13,7 +13,7 @@ export default function HomePage() {
   const { lang, setLang, t } = useI18n();
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen">
       <SiteHeader lang={lang} onLangChange={setLang} t={t} />
       <HeroCarousel lang={lang} t={t} />
       <BrandsMarquee t={t} />

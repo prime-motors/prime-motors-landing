@@ -39,7 +39,6 @@ function bgForId(id: ServiceId): string {
 function Icon({ id }: { id: ServiceId }) {
   switch (id) {
     case 'general':
-      // tool / wrench
       return (
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
           <path
@@ -162,7 +161,12 @@ export function ServicesSection({ lang, t }: Props) {
   return (
     <section
       id="services"
-      className="scroll-mt-55 md:scroll-mt-24 border-b border-zinc-800 bg-black py-16 md:py-20"
+      className="
+        scroll-mt-55 md:scroll-mt-24
+        bg-[color:var(--surface-2)]
+        border-b border-[color:var(--border)]
+        py-16 md:py-20
+      "
     >
       {/* preload */}
       <div className="hidden" aria-hidden>
@@ -173,10 +177,10 @@ export function ServicesSection({ lang, t }: Props) {
 
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-10 space-y-2 text-center">
-          <h2 className="text-2xl font-semibold md:text-3xl">
+          <h2 className="text-2xl font-semibold md:text-3xl text-[color:var(--foreground)]">
             {t('services.title')}
           </h2>
-          <p className="text-sm text-zinc-400 md:text-base">
+          <p className="text-sm md:text-base text-[color:var(--muted)]">
             {t('services.subtitle')}
           </p>
         </div>
@@ -194,9 +198,9 @@ export function ServicesSection({ lang, t }: Props) {
                 key={id}
                 className={styles.card}
                 data-open={isOpen ? 'true' : 'false'}
-                onClick={toggle}
                 role="button"
                 tabIndex={0}
+                onClick={toggle}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') toggle();
                 }}
@@ -227,7 +231,6 @@ export function ServicesSection({ lang, t }: Props) {
 
                   <p className={styles.short}>{service.short}</p>
 
-                  {/* one full line gap below the short text */}
                   <div className={styles.afterShortGap} />
 
                   <button
@@ -240,7 +243,6 @@ export function ServicesSection({ lang, t }: Props) {
                     aria-controls={`service-${id}`}
                     aria-expanded={isOpen}
                   >
-                    {/* fixed width label (no size jump between read more/less) */}
                     <span className={styles.toggleLabelWrap} aria-hidden="true">
                       <span className={styles.toggleLabelSizer}>
                         {t('services.readMore')}
@@ -264,7 +266,6 @@ export function ServicesSection({ lang, t }: Props) {
                       }
                       aria-hidden="true"
                     >
-                      {/* original chevron */}
                       <svg
                         width="14"
                         height="14"

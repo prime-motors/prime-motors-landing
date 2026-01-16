@@ -101,7 +101,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
     <section
       id="home"
       className={[
-        'relative scroll-mt-55 md:scroll-mt-24 border-b border-zinc-900 px-4 py-16 sm:py-20 md:py-24',
+        'relative scroll-mt-55 md:scroll-mt-24 border-b border-[color:var(--border)] px-4 py-16 sm:py-20 md:py-24',
         styles.heroBase,
         styles.heroGrain,
         styles.heroVignette,
@@ -164,8 +164,8 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                       variants={item}
                       className="flex items-center space-x-3"
                     >
-                      <span className="h-px w-8 bg-zinc-700" />
-                      <span className="text-[11px] uppercase tracking-[0.24em] text-zinc-300/70">
+                      <span className="h-px w-8 bg-white/20" />
+                      <span className="text-[11px] uppercase tracking-[0.24em] text-[color:var(--muted)]">
                         {slide.eyebrow}
                       </span>
                     </motion.div>
@@ -181,7 +181,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                     {/* Description */}
                     <motion.p
                       variants={item}
-                      className={`max-w-lg text-sm leading-relaxed text-zinc-300/70 sm:text-base ${styles.descClamp}`}
+                      className={`max-w-lg text-sm leading-relaxed text-[color:var(--muted)] sm:text-base ${styles.descClamp}`}
                     >
                       {slide.description}
                     </motion.p>
@@ -200,7 +200,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                     whileTap={reduceMotion ? undefined : { scale: 0.99 }}
                     transition={{ duration: 0.2 }}
                     className={[
-                      'inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black shadow-sm hover:bg-zinc-200',
+                      'inline-flex items-center justify-center rounded-full bg-white/90 px-6 py-2.5 text-sm font-medium text-slate-900 shadow-sm hover:bg-white border border-white/20',
                       styles.ctaShine,
                     ].join(' ')}
                   >
@@ -209,9 +209,9 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
 
                   <a
                     href={`tel:${PHONE_TEL}`}
-                    className="block space-y-0.5 text-xs text-zinc-300/70 hover:text-zinc-100 transition"
+                    className="block space-y-0.5 text-xs text-[color:var(--muted)] hover:text-[color:var(--foreground)] transition"
                   >
-                    <div className="font-medium text-zinc-100">
+                    <div className="font-medium text-[color:var(--foreground)]">
                       {COMPANY_NAME}
                     </div>
                     <div>{COMPANY_LOCATION_LINE}</div>
@@ -235,12 +235,12 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                     onClick={() => setIndex(i)}
                     aria-label={`Go to slide ${i + 1}`}
                     className={`relative h-2 overflow-hidden rounded-full transition-all hover:brightness-125 ${
-                      active ? 'w-10 bg-zinc-800/70' : 'w-6 bg-zinc-900/70'
+                      active ? 'w-10 bg-white/15' : 'w-6 bg-white/10'
                     }`}
                   >
                     <span
                       className={`absolute inset-0 rounded-full ${
-                        active ? 'bg-zinc-700/60' : 'bg-zinc-700/35'
+                        active ? 'bg-white/20' : 'bg-white/10'
                       }`}
                     />
 
@@ -254,7 +254,7 @@ export function HeroCarousel({ lang, t }: HeroCarouselProps) {
                           ease: 'linear',
                         }}
                         style={{ transformOrigin: 'left' }}
-                        className="absolute inset-0 rounded-full bg-zinc-100"
+                        className="absolute inset-0 rounded-full bg-white/70"
                       />
                     )}
                   </button>
