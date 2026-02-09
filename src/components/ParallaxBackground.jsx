@@ -59,7 +59,7 @@ export default function ParallaxBackground({
           src={imageSrc}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
           animate={animateProps}
           loading="lazy"
         />

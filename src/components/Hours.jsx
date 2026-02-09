@@ -47,19 +47,9 @@ export default function Hours() {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-2xl sm:text-3xl font-bold text-text-light dark:text-text-dark mb-3">
+      <h2 className="text-2xl sm:text-3xl font-bold text-text-light dark:text-text-dark mb-6">
         {t('hours.title')}
       </h2>
-
-      <div className={`inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full text-xs font-semibold
-        ${open
-          ? 'bg-green-500/10 text-green-600 dark:text-green-400'
-          : 'bg-red-500/10 text-red-500 dark:text-red-400'
-        }`}
-      >
-        <span className={`w-2 h-2 rounded-full ${open ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
-        {open ? t('hours.openNow') : t('hours.closedNow')}
-      </div>
 
       <div className="bg-surface-card-light dark:bg-surface-card-dark rounded-2xl border border-border-light dark:border-border-dark overflow-hidden">
         {schedule.map((item, i) => (
@@ -76,8 +66,21 @@ export default function Hours() {
                 <span className="ml-2 inline-block w-2 h-2 rounded-full bg-primary" />
               )}
             </span>
-            <span className={`${item.hours ? 'text-text-muted-light dark:text-text-muted-dark' : 'text-red-500 dark:text-red-400 font-medium'}`}>
-              {item.hours || t('hours.closed')}
+            <span className="flex items-center gap-2">
+              {i === todayIndex && (
+                <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold
+                  ${open
+                    ? 'bg-green-500/10 text-green-600 dark:text-green-400'
+                    : 'bg-red-500/10 text-red-500 dark:text-red-400'
+                  }`}
+                >
+                  <span className={`w-1.5 h-1.5 rounded-full ${open ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
+                  {open ? t('hours.openNow') : t('hours.closedNow')}
+                </span>
+              )}
+              <span className={`${item.hours ? 'text-text-muted-light dark:text-text-muted-dark' : 'text-red-500 dark:text-red-400 font-medium'}`}>
+                {item.hours || t('hours.closed')}
+              </span>
             </span>
           </div>
         ))}

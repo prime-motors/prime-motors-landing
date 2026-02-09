@@ -7,6 +7,7 @@ import Location from './components/Location'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FloatingCallButton from './components/FloatingCallButton'
+import ParallaxBackground from './components/ParallaxBackground'
 
 function App() {
   const { isDark, toggleTheme } = useTheme()
@@ -23,14 +24,21 @@ function App() {
       <div className="divider-gold" />
 
       {/* Hours & Location */}
-      <section id="hours" className="py-20 bg-surface-card-light dark:bg-surface-card-dark/30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <Hours />
-            <Location />
+      <ParallaxBackground
+        imageSrc={`${import.meta.env.BASE_URL}images/hours-bg.webp`}
+        overlayClassName="bg-surface-card-light/80 dark:bg-surface-dark/80"
+        parallaxSpeed={0.15}
+        effect="none"
+      >
+        <section id="hours" className="py-20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <Hours />
+              <Location />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ParallaxBackground>
 
       <div className="divider-gold" />
 
