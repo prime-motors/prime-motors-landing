@@ -1,17 +1,22 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
+import ParallaxBackground from './ParallaxBackground'
+
+const basePath = import.meta.env.BASE_URL
 
 export default function Hero() {
   const { t } = useTranslation()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 to-teal-50 dark:from-slate-900 dark:to-slate-800">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 dark:bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/5 dark:bg-accent/10 rounded-full blur-3xl" />
-      </div>
-
+    <ParallaxBackground
+      imageSrc={`${basePath}images/hero-bg.webp`}
+      parallaxSpeed={0.3}
+      effect="kenBurns"
+      className="min-h-screen flex items-center justify-center"
+      overlayClassName="bg-gradient-to-b from-[rgba(17,17,19,0.85)] via-[rgba(17,17,19,0.50)] to-[rgba(17,17,19,0.70)]
+                        dark:from-[rgba(17,17,19,0.85)] dark:via-[rgba(17,17,19,0.50)] dark:to-[rgba(17,17,19,0.70)]
+                        light:from-[rgba(245,243,240,0.88)] light:via-[rgba(245,243,240,0.55)] light:to-[rgba(245,243,240,0.75)]"
+    >
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -24,7 +29,8 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.4 }}
             className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full
-                       bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light text-sm font-medium"
+                       bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light text-sm font-medium
+                       backdrop-blur-sm border border-primary/20"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -33,19 +39,19 @@ export default function Hero() {
           </motion.div>
 
           {/* Title */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white dark:text-white mb-6 drop-shadow-lg">
             {t('hero.title')}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10">
+          <p className="text-xl sm:text-2xl text-white/80 dark:text-text-dark/80 max-w-2xl mx-auto mb-10">
             {t('hero.subtitle')}
           </p>
 
           {/* CTA */}
           <motion.a
             href="tel:+37360004260"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-xl text-lg font-semibold
+            className="btn-shimmer inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-xl text-lg font-semibold
                        shadow-lg shadow-primary/25 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30
                        transition-all duration-300 no-underline"
             whileHover={{ scale: 1.05 }}
@@ -58,11 +64,11 @@ export default function Hero() {
           </motion.a>
 
           {/* Phone number display */}
-          <p className="mt-4 text-slate-500 dark:text-slate-400 text-sm">
+          <p className="mt-4 text-white/60 dark:text-text-muted-dark text-sm">
             +373 60 004 260
           </p>
         </motion.div>
       </div>
-    </section>
+    </ParallaxBackground>
   )
 }

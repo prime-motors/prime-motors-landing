@@ -1,5 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
+import ParallaxBackground from './ParallaxBackground'
+
+const basePath = import.meta.env.BASE_URL
 
 const serviceIcons = {
   general: (
@@ -65,53 +68,61 @@ export default function Services() {
   const { t } = useTranslation()
 
   return (
-    <section id="services" className="py-20 bg-white dark:bg-slate-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            {t('services.title')}
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            {t('services.subtitle')}
-          </p>
-        </motion.div>
+    <ParallaxBackground
+      imageSrc={`${basePath}images/services-texture.webp`}
+      parallaxSpeed={0.15}
+      effect="drift"
+      className=""
+      overlayClassName="bg-surface-light/92 dark:bg-surface-dark/92"
+    >
+      <section id="services" className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-text-light dark:text-text-dark mb-4">
+              {t('services.title')}
+            </h2>
+            <p className="text-lg text-text-muted-light dark:text-text-muted-dark max-w-2xl mx-auto">
+              {t('services.subtitle')}
+            </p>
+          </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-        >
-          {services.map((service) => (
-            <motion.div
-              key={service}
-              variants={cardVariants}
-              className="group p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50
-                         hover:border-primary/30 dark:hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5
-                         transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
-                              flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white
-                              transition-all duration-300">
-                {serviceIcons[service]}
-              </div>
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
-                {t(`services.${service}.title`)}
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                {t(`services.${service}.description`)}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+          >
+            {services.map((service) => (
+              <motion.div
+                key={service}
+                variants={cardVariants}
+                className="group p-6 rounded-2xl bg-surface-card-light dark:bg-surface-card-dark border border-border-light dark:border-border-dark
+                           hover:border-primary/30 dark:hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5
+                           transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
+                                flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white
+                                transition-all duration-300">
+                  {serviceIcons[service]}
+                </div>
+                <h3 className="text-lg font-semibold text-text-light dark:text-text-dark mb-2">
+                  {t(`services.${service}.title`)}
+                </h3>
+                <p className="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">
+                  {t(`services.${service}.description`)}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    </ParallaxBackground>
   )
 }

@@ -25,26 +25,26 @@ export default function Hours() {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-6">
+      <h2 className="text-2xl sm:text-3xl font-bold text-text-light dark:text-text-dark mb-6">
         {t('hours.title')}
       </h2>
 
-      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-700/50 overflow-hidden">
+      <div className="bg-surface-card-light dark:bg-surface-card-dark rounded-2xl border border-border-light dark:border-border-dark overflow-hidden">
         {schedule.map((item, i) => (
           <div
             key={item.day}
             className={`flex items-center justify-between px-5 py-3 text-sm
-              ${i !== schedule.length - 1 ? 'border-b border-slate-100 dark:border-slate-700/50' : ''}
+              ${i !== schedule.length - 1 ? 'border-b border-border-light dark:border-border-dark' : ''}
               ${i === todayIndex ? 'bg-primary/5 dark:bg-primary/10' : ''}
             `}
           >
-            <span className={`font-medium ${i === todayIndex ? 'text-primary dark:text-primary-light' : 'text-slate-700 dark:text-slate-300'}`}>
+            <span className={`font-medium ${i === todayIndex ? 'text-primary dark:text-primary-light' : 'text-text-light dark:text-text-dark'}`}>
               {t(`hours.${item.day}`)}
               {i === todayIndex && (
                 <span className="ml-2 inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
               )}
             </span>
-            <span className={`${item.hours ? 'text-slate-600 dark:text-slate-400' : 'text-red-500 dark:text-red-400 font-medium'}`}>
+            <span className={`${item.hours ? 'text-text-muted-light dark:text-text-muted-dark' : 'text-red-500 dark:text-red-400 font-medium'}`}>
               {item.hours || t('hours.closed')}
             </span>
           </div>

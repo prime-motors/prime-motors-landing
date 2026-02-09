@@ -5,7 +5,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="py-8 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700/50">
+    <footer className="py-8 bg-surface-card-light dark:bg-surface-card-dark/50 border-t border-border-light dark:border-border-dark">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-primary font-bold">
@@ -18,12 +18,12 @@ export default function Footer() {
             Prime Motors
           </div>
 
-          <p className="text-sm text-slate-500 dark:text-slate-400 text-center">
+          <p className="text-sm text-text-muted-light dark:text-text-muted-dark text-center">
             {t('footer.tagline')}
           </p>
 
-          <p className="text-sm text-slate-500 dark:text-slate-400">
-            © {year} Prime Motors. {t('footer.rights')}
+          <p className="text-sm text-text-muted-light dark:text-text-muted-dark">
+            &copy; {year} Prime Motors. {t('footer.rights')}
           </p>
         </div>
       </div>

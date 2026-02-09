@@ -5,8 +5,8 @@ export default function ThemeToggle({ isDark, toggleTheme }) {
     <motion.button
       onClick={toggleTheme}
       className="relative w-10 h-10 rounded-lg flex items-center justify-center
-                 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-yellow-300
-                 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors cursor-pointer"
+                 bg-surface-card-light dark:bg-surface-card-dark text-text-light dark:text-yellow-300
+                 hover:bg-border-light dark:hover:bg-asphalt transition-colors cursor-pointer"
       whileTap={{ scale: 0.9 }}
       aria-label="Toggle dark mode"
     >

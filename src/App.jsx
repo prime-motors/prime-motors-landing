@@ -12,13 +12,18 @@ function App() {
   const { isDark, toggleTheme } = useTheme()
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <div className="grain-overlay min-h-screen bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark transition-colors duration-300">
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       <Hero />
+
+      <div className="divider-gold" />
+
       <Services />
 
+      <div className="divider-gold" />
+
       {/* Hours & Location */}
-      <section id="hours" className="py-20 bg-slate-50 dark:bg-slate-800/30">
+      <section id="hours" className="py-20 bg-surface-card-light dark:bg-surface-card-dark/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Hours />
@@ -27,7 +32,12 @@ function App() {
         </div>
       </section>
 
+      <div className="divider-gold" />
+
       <Contact />
+
+      <div className="divider-gold" />
+
       <Footer />
       <FloatingCallButton />
     </div>

@@ -14,11 +14,11 @@ export default function Location() {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-6">
+      <h2 className="text-2xl sm:text-3xl font-bold text-text-light dark:text-text-dark mb-6">
         {t('location.title')}
       </h2>
 
-      <div className="rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700/50 mb-4">
+      <div className="rounded-2xl overflow-hidden border border-border-light dark:border-border-dark mb-4">
         <iframe
           src={MAPS_EMBED}
           width="100%"
@@ -37,7 +37,7 @@ export default function Location() {
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
           <circle cx="12" cy="10" r="3" />
         </svg>
-        <span className="text-slate-600 dark:text-slate-400">
+        <span className="text-text-muted-light dark:text-text-muted-dark">
           {t('location.address')}
         </span>
       </div>
@@ -47,8 +47,8 @@ export default function Location() {
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium
-                   bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200
-                   hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors no-underline"
+                   bg-surface-card-light dark:bg-surface-card-dark text-text-light dark:text-text-dark
+                   hover:bg-border-light dark:hover:bg-asphalt transition-colors no-underline"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />

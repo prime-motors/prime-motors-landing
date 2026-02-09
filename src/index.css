@@ -3,18 +3,22 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #0f766e;
-  --color-primary-light: #14b8a6;
-  --color-primary-dark: #0d9488;
-  --color-accent: #f59e0b;
-  --color-surface-light: #ffffff;
-  --color-surface-dark: #0f172a;
-  --color-surface-card-light: #f8fafc;
-  --color-surface-card-dark: #1e293b;
-  --color-text-light: #0f172a;
-  --color-text-dark: #f1f5f9;
-  --color-text-muted-light: #64748b;
-  --color-text-muted-dark: #94a3b8;
+  --color-primary: #d4a24e;
+  --color-primary-light: #e8b96a;
+  --color-primary-dark: #b8862f;
+  --color-accent: #3b82f6;
+  --color-surface-light: #f5f3f0;
+  --color-surface-dark: #111113;
+  --color-surface-card-light: #eae7e2;
+  --color-surface-card-dark: #1a1a1e;
+  --color-surface-elevated-dark: #222226;
+  --color-text-light: #1a1a1e;
+  --color-text-dark: #e8e6e3;
+  --color-text-muted-light: #6b6560;
+  --color-text-muted-dark: #9b9590;
+  --color-border-light: #d6d2cc;
+  --color-border-dark: #2a2a2e;
+  --color-asphalt: #2a2a2e;
 }
 
 html {
@@ -27,4 +31,64 @@ body {
   font-family: system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Film grain texture overlay */
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+:where(.dark) .grain-overlay::after {
+  opacity: 0.05;
+}
+
+/* Gold gradient divider between sections */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-primary) 30%, var(--color-primary) 70%, transparent);
+  opacity: 0.3;
+}
+
+/* CTA shimmer sweep effect */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+}
+
+.btn-shimmer:hover::after {
+  animation: shimmer 0.6s ease-in-out;
 }

@@ -15,7 +15,7 @@ export default function Navbar({ isDark, toggleTheme }) {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-light/80 dark:bg-surface-elevated-dark/80 backdrop-blur-xl border-b border-border-light dark:border-border-dark">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -35,14 +35,14 @@ export default function Navbar({ isDark, toggleTheme }) {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light transition-colors no-underline"
+                className="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-primary-light transition-colors no-underline"
               >
                 {link.label}
               </a>
             ))}
             <a
               href="tel:+37360004260"
-              className="hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium
+              className="btn-shimmer hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium
                          hover:bg-primary-dark transition-colors no-underline"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -61,7 +61,7 @@ export default function Navbar({ isDark, toggleTheme }) {
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="w-10 h-10 flex items-center justify-center rounded-lg
-                         text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                         text-text-muted-light dark:text-text-muted-dark hover:bg-surface-card-light dark:hover:bg-asphalt transition-colors cursor-pointer"
               aria-label="Toggle menu"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -91,7 +91,7 @@ export default function Navbar({ isDark, toggleTheme }) {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"
+            className="md:hidden overflow-hidden bg-surface-light dark:bg-surface-elevated-dark border-t border-border-light dark:border-border-dark"
           >
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (
@@ -99,7 +99,7 @@ export default function Navbar({ isDark, toggleTheme }) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-base font-medium text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary-light transition-colors no-underline"
+                  className="block text-base font-medium text-text-light dark:text-text-dark hover:text-primary dark:hover:text-primary-light transition-colors no-underline"
                 >
                   {link.label}
                 </a>
@@ -107,7 +107,7 @@ export default function Navbar({ isDark, toggleTheme }) {
               <a
                 href="tel:+37360004260"
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-center gap-2 mt-2 px-4 py-3 bg-primary text-white rounded-lg font-medium
+                className="btn-shimmer flex items-center justify-center gap-2 mt-2 px-4 py-3 bg-primary text-white rounded-lg font-medium
                            hover:bg-primary-dark transition-colors no-underline"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
