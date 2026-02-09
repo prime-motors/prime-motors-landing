@@ -4,7 +4,7 @@ export default function ThemeToggle({ isDark, toggleTheme }) {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="relative w-10 h-10 rounded-lg flex items-center justify-center
+      className="relative px-3 py-2 rounded-lg flex items-center justify-center
                  bg-surface-card-light dark:bg-surface-card-dark text-text-light dark:text-yellow-300
                  hover:bg-border-light dark:hover:bg-asphalt transition-colors cursor-pointer"
       whileTap={{ scale: 0.9 }}

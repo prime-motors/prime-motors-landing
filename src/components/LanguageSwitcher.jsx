@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const languages = [
-  { code: 'en', label: 'EN', flag: '\u{1F1FA}\u{1F1F8}' },
-  { code: 'ro', label: 'RO', flag: '\u{1F1F2}\u{1F1E9}' },
-  { code: 'ru', label: 'RU', flag: '\u{1F1F7}\u{1F1FA}' },
+  { code: 'en', label: 'EN' },
+  { code: 'ro', label: 'RO' },
+  { code: 'ru', label: 'RU' },
 ]
 
 export default function LanguageSwitcher() {
@@ -38,7 +38,6 @@ export default function LanguageSwitcher() {
                    bg-surface-card-light dark:bg-surface-card-dark text-text-light dark:text-text-dark
                    hover:bg-border-light dark:hover:bg-asphalt transition-colors cursor-pointer"
       >
-        <span className="text-base leading-none">{currentLang.flag}</span>
         {currentLang.label}
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}>
           <polyline points="6 9 12 15 18 9" />
@@ -65,7 +64,6 @@ export default function LanguageSwitcher() {
                     : 'text-text-light dark:text-text-dark hover:bg-surface-card-light dark:hover:bg-asphalt'
                   }`}
               >
-                <span className="text-base leading-none">{lang.flag}</span>
                 {lang.label}
               </button>
             ))}

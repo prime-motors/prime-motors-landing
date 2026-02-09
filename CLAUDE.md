@@ -6,7 +6,7 @@
 - react-i18next (EN/RO/RU) with browser language detection
 - Framer Motion (animations)
 - pnpm (package manager)
-- gh-pages (deployment)
+- GitHub Actions (deploy on push to main)
 
 ## Project Structure
 - `src/components/` — All UI components (Navbar, Hero, Services, Hours, Location, Contact, Footer, FloatingCallButton, ThemeToggle, LanguageSwitcher)
@@ -17,7 +17,7 @@
 ## Commands
 - `pnpm dev` — Start dev server
 - `pnpm build` — Production build
-- `pnpm deploy` — Build + deploy to GitHub Pages
+- Deployment is automated via GitHub Actions on push to main
 
 ## Business Data
 - Phone: +373 60004260
@@ -30,5 +30,5 @@
 - Dark mode uses `class` strategy via `@custom-variant dark`
 - Facebook Pixel + GTM load conditionally from env vars (`VITE_FACEBOOK_PIXEL_ID`, `VITE_GTM_ID`)
 - `.env` is gitignored; `.env.example` is the template
-- Vite base path set to `/prime-motors-landing-v2/` for GitHub Pages
+- Vite base path set to `/` (custom domain: primemotors.md)
 - Do not add Co-Authored-By to commits
