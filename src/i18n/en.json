@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "services": "Services",
+    "hours": "Hours & Location",
+    "contact": "Contact",
+    "callNow": "Call Now"
+  },
+  "hero": {
+    "title": "Prime Motors",
+    "subtitle": "Expert care for hybrid, electric & modern vehicles",
+    "cta": "Call Now",
+    "description": "Professional auto repair and diagnostics in Chișinău"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive automotive care for modern vehicles",
+    "general": {
+      "title": "General Maintenance",
+      "description": "Oil changes, filters, fluid checks, and routine maintenance to keep your vehicle running smoothly."
+    },
+    "hybrid": {
+      "title": "Hybrid & Electric Systems",
+      "description": "Specialized diagnostics and repair for hybrid batteries, electric motors, and regenerative braking systems."
+    },
+    "diagnostics": {
+      "title": "Computer Diagnostics",
+      "description": "Advanced OBD-II and manufacturer-specific scanning to pinpoint issues with precision."
+    },
+    "brakes": {
+      "title": "Brake Repairs",
+      "description": "Complete brake service including pads, rotors, calipers, and brake fluid replacement."
+    },
+    "electrical": {
+      "title": "Auto Electrical",
+      "description": "Wiring repairs, alternator service, starter motor replacement, and full electrical system diagnostics."
+    },
+    "suspension": {
+      "title": "Suspension & Drivetrain",
+      "description": "Shock absorbers, struts, CV joints, and drivetrain components for a smooth, safe ride."
+    }
+  },
+  "hours": {
+    "title": "Working Hours",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "closed": "Closed"
+  },
+  "location": {
+    "title": "Find Us",
+    "address": "str. Uzinelor 104, Chișinău, Moldova",
+    "openInMaps": "Open in Google Maps"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Ready to schedule your appointment?",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "cta": "Call to Book an Appointment"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "Expert care for hybrid, electric & modern vehicles"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "services": "Servicii",
+    "hours": "Program & Locație",
+    "contact": "Contact",
+    "callNow": "Sună Acum"
+  },
+  "hero": {
+    "title": "Prime Motors",
+    "subtitle": "Îngrijire expertă pentru vehicule hibride, electrice și moderne",
+    "cta": "Sună Acum",
+    "description": "Reparații auto profesionale și diagnosticare în Chișinău"
+  },
+  "services": {
+    "title": "Serviciile Noastre",
+    "subtitle": "Întreținere auto completă pentru vehicule moderne",
+    "general": {
+      "title": "Întreținere Generală",
+      "description": "Schimb de ulei, filtre, verificarea lichidelor și întreținere de rutină pentru funcționarea optimă a vehiculului."
+    },
+    "hybrid": {
+      "title": "Sisteme Hibride și Electrice",
+      "description": "Diagnosticarea și repararea specializată a bateriilor hibride, motoarelor electrice și sistemelor de frânare regenerativă."
+    },
+    "diagnostics": {
+      "title": "Diagnosticare Computerizată",
+      "description": "Scanare avansată OBD-II și specifică producătorului pentru identificarea precisă a problemelor."
+    },
+    "brakes": {
+      "title": "Reparații Frâne",
+      "description": "Service complet de frâne, inclusiv plăcuțe, discuri, etriere și înlocuirea lichidului de frână."
+    },
+    "electrical": {
+      "title": "Electrică Auto",
+      "description": "Reparații cablaje, service alternator, înlocuire electromotor și diagnosticarea completă a sistemului electric."
+    },
+    "suspension": {
+      "title": "Suspensie și Transmisie",
+      "description": "Amortizoare, arcuri, articulații CV și componente de transmisie pentru o călătorie lină și sigură."
+    }
+  },
+  "hours": {
+    "title": "Program de Lucru",
+    "monday": "Luni",
+    "tuesday": "Marți",
+    "wednesday": "Miercuri",
+    "thursday": "Joi",
+    "friday": "Vineri",
+    "saturday": "Sâmbătă",
+    "sunday": "Duminică",
+    "closed": "Închis"
+  },
+  "location": {
+    "title": "Locația Noastră",
+    "address": "str. Uzinelor 104, Chișinău, Moldova",
+    "openInMaps": "Deschide în Google Maps"
+  },
+  "contact": {
+    "title": "Contactează-ne",
+    "subtitle": "Ești pregătit să programezi o vizită?",
+    "phone": "Telefon",
+    "email": "Email",
+    "address": "Adresă",
+    "cta": "Sună pentru Programare"
+  },
+  "footer": {
+    "rights": "Toate drepturile rezervate.",
+    "tagline": "Îngrijire expertă pentru vehicule hibride, electrice și moderne"
+  }
+}
