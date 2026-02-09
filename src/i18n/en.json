@@ -48,7 +48,9 @@
     "friday": "Friday",
     "saturday": "Saturday",
     "sunday": "Sunday",
-    "closed": "Closed"
+    "closed": "Closed",
+    "openNow": "Open Now",
+    "closedNow": "Closed Now"
   },
   "location": {
     "title": "Find Us",

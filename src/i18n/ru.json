@@ -48,7 +48,9 @@
     "friday": "Пятница",
     "saturday": "Суббота",
     "sunday": "Воскресенье",
-    "closed": "Закрыто"
+    "closed": "Закрыто",
+    "openNow": "Открыто",
+    "closedNow": "Закрыто сейчас"
   },
   "location": {
     "title": "Как Нас Найти",

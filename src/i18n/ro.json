@@ -48,7 +48,9 @@
     "friday": "Vineri",
     "saturday": "Sâmbătă",
     "sunday": "Duminică",
-    "closed": "Închis"
+    "closed": "Închis",
+    "openNow": "Deschis Acum",
+    "closedNow": "Închis Acum"
   },
   "location": {
     "title": "Locația Noastră",

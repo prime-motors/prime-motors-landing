@@ -4,5 +4,5 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/prime-motors-landing-v2/',
+  base: '/prime-motors-landing/',
 })

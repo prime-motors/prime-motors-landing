@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 
 const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=str.+Uzinelor+104,+Chișinău,+Moldova'
-const MAPS_EMBED = 'https://www.google.com/maps?q=str.+Uzinelor+104,+Chișinău,+Moldova&output=embed'
+const MAPS_EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56463177.12415993!2d-88.82251117978925!3d30.258775403593525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97b0039ece0f5%3A0x6024d44ee7e32b46!2sPrime%20Motors!5e0!3m2!1sen!2s!4v1770671291408!5m2!1sen!2s'
 
 export default function Location() {
   const { t } = useTranslation()
@@ -22,13 +22,13 @@ export default function Location() {
         <iframe
           src={MAPS_EMBED}
           width="100%"
-          height="300"
+          height="450"
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Prime Motors Location"
-          className="w-full"
+          className="w-full dark:invert dark:hue-rotate-180"
         />
       </div>
 
