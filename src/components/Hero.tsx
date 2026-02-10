@@ -12,7 +12,7 @@ export default function Hero() {
       imageSrc={`${basePath}images/hero-bg.webp`}
       parallaxSpeed={0.3}
       effect="kenBurns"
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-svh flex items-center justify-center"
       overlayClassName="bg-gradient-to-b from-[rgba(17,17,19,0.85)] via-[rgba(17,17,19,0.50)] to-[rgba(17,17,19,0.70)]
                         dark:from-[rgba(17,17,19,0.85)] dark:via-[rgba(17,17,19,0.50)] dark:to-[rgba(17,17,19,0.70)]
                         light:from-[rgba(245,243,240,0.88)] light:via-[rgba(245,243,240,0.55)] light:to-[rgba(245,243,240,0.75)]"
