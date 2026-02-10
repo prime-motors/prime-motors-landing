@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
+import type { Language, LanguageCode } from '../types'
 
-const languages = [
+const languages: Language[] = [
   { code: 'en', label: 'EN' },
   { code: 'ro', label: 'RO' },
   { code: 'ru', label: 'RU' },
@@ -11,13 +12,13 @@ const languages = [
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
 
-  const currentLang = languages.find((l) => l.code === i18n.language) || languages[0]
+  const currentLang = languages.find((l) => l.code === i18n.language) ?? languages[0]!
 
   useEffect(() => {
-    function handleClickOutside(e) {
-      if (ref.current && !ref.current.contains(e.target)) {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
         setIsOpen(false)
       }
     }
@@ -25,7 +26,7 @@ export default function LanguageSwitcher() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const switchLanguage = (code) => {
+  const switchLanguage = (code: LanguageCode) => {
     i18n.changeLanguage(code)
     setIsOpen(false)
   }

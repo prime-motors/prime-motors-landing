@@ -1,22 +1,28 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+
+interface ParallaxBackgroundProps {
+  children: React.ReactNode
+  imageSrc: string
+  overlayClassName?: string
+  parallaxSpeed?: number
+  effect?: 'kenBurns' | 'drift' | 'pan' | 'none'
+  className?: string
+}
 
 export default function ParallaxBackground({
   children,
   imageSrc,
   overlayClassName = '',
   parallaxSpeed = 0.3,
-  effect = 'none', // 'kenBurns' | 'drift' | 'pan' | 'none'
+  effect = 'none',
   className = '',
-}) {
-  const ref = useRef(null)
-  const [isMobile, setIsMobile] = useState(false)
-  const [prefersReduced, setPrefersReduced] = useState(false)
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768)
-    setPrefersReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  }, [])
+}: ParallaxBackgroundProps) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [isMobile] = useState(() => window.innerWidth < 768)
+  const [prefersReduced] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  )
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -26,7 +32,6 @@ export default function ParallaxBackground({
   const y = useTransform(scrollYProgress, [0, 1], ['0%', `${parallaxSpeed * 100}%`])
   const disabled = isMobile || prefersReduced
 
-  const effectStyle = {}
   let animateProps = {}
 
   if (!disabled) {
@@ -52,7 +57,7 @@ export default function ParallaxBackground({
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
       {/* Background image with parallax */}
       <motion.div
-        className="absolute inset-0 -top-[20%] -bottom-[20%]"
+        className="absolute -left-[10%] -right-[10%] -top-[20%] -bottom-[20%]"
         style={disabled ? {} : { y }}
       >
         <motion.img

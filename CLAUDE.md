@@ -1,7 +1,7 @@
 # Prime Motors Landing Page
 
 ## Tech Stack
-- React 19 + Vite (static SPA)
+- React 19 + TypeScript + Vite (static SPA)
 - Tailwind CSS v4 (with `@tailwindcss/vite` plugin, `@custom-variant dark` for dark mode)
 - react-i18next (EN/RO/RU) with browser language detection
 - Framer Motion (animations)
@@ -10,13 +10,16 @@
 
 ## Project Structure
 - `src/components/` — All UI components (Navbar, Hero, Services, Hours, Location, Contact, Footer, FloatingCallButton, ThemeToggle, LanguageSwitcher)
+- `src/types.ts` — Shared TypeScript types
 - `src/i18n/` — i18next config + translation files (en.json, ro.json, ru.json)
-- `src/hooks/useTheme.js` — Dark/light mode hook with localStorage persistence
-- `public/` — favicon.svg, CNAME
+- `src/hooks/useTheme.ts` — Dark/light mode hook with localStorage persistence
+- `public/` — favicon.svg, favicon.ico, apple-icon.png, android icons, CNAME, site.webmanifest
 
 ## Commands
 - `pnpm dev` — Start dev server
-- `pnpm build` — Production build
+- `pnpm build` — Typecheck + production build
+- `pnpm typecheck` — Run TypeScript type checking
+- `pnpm lint` — Run ESLint
 - Deployment is automated via GitHub Actions on push to main
 
 ## Business Data

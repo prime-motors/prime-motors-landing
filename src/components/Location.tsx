@@ -24,7 +24,7 @@ export default function Location() {
           width="100%"
           height="300"
           style={{ border: 0 }}
-          allowFullScreen=""
+          allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Prime Motors Location"

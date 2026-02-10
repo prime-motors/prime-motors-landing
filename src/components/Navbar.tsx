@@ -4,7 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
 import LanguageSwitcher from './LanguageSwitcher'
 
-export default function Navbar({ isDark, toggleTheme }) {
+interface NavbarProps {
+  isDark: boolean
+  toggleTheme: () => void
+}
+
+export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
   const { t } = useTranslation()
   const [mobileOpen, setMobileOpen] = useState(false)
 

@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion'
 
-export default function ThemeToggle({ isDark, toggleTheme }) {
+interface ThemeToggleProps {
+  isDark: boolean
+  toggleTheme: () => void
+}
+
+export default function ThemeToggle({ isDark, toggleTheme }: ThemeToggleProps) {
   return (
     <motion.button
       onClick={toggleTheme}

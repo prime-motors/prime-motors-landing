@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
+import type { ScheduleItem } from '../types'
 
-const schedule = [
+const schedule: ScheduleItem[] = [
   { day: 'monday', hours: '09:00 – 18:00', open: 9, close: 18 },
   { day: 'tuesday', hours: '09:00 – 18:00', open: 9, close: 18 },
   { day: 'wednesday', hours: '09:00 – 18:00', open: 9, close: 18 },
@@ -21,16 +22,18 @@ function isCurrentlyOpen() {
     hour12: false,
   })
   const parts = formatter.formatToParts(now)
-  const weekday = parts.find(p => p.type === 'weekday').value
-  const hour = parseInt(parts.find(p => p.type === 'hour').value, 10)
-  const minute = parseInt(parts.find(p => p.type === 'minute').value, 10)
+  const weekday = parts.find(p => p.type === 'weekday')?.value
+  const hour = parseInt(parts.find(p => p.type === 'hour')?.value ?? '0', 10)
+  const minute = parseInt(parts.find(p => p.type === 'minute')?.value ?? '0', 10)
 
-  const dayMap = { Mon: 0, Tue: 1, Wed: 2, Thu: 3, Fri: 4, Sat: 5, Sun: 6 }
-  const entry = schedule[dayMap[weekday]]
+  const dayMap: Record<string, number> = { Mon: 0, Tue: 1, Wed: 2, Thu: 3, Fri: 4, Sat: 5, Sun: 6 }
+  const dayIndex = weekday ? dayMap[weekday] : undefined
+  if (dayIndex === undefined) return false
+  const entry = schedule[dayIndex]
 
-  if (!entry.hours) return false
+  if (!entry?.hours) return false
   const currentMinutes = hour * 60 + minute
-  return currentMinutes >= entry.open * 60 && currentMinutes < entry.close * 60
+  return currentMinutes >= entry.open! * 60 && currentMinutes < entry.close! * 60
 }
 
 export default function Hours() {
