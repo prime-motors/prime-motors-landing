@@ -27,9 +27,23 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
           <a href="#" className="flex items-center gap-2 text-primary font-bold text-xl no-underline">
             <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
               <circle cx="50" cy="50" r="45" fill="currentColor" opacity="0.1" />
-              <path d="M50 5 L56 20 L72 8 L68 25 L85 22 L75 37 L92 40 L78 50 L92 60 L75 63 L85 78 L68 75 L72 92 L56 80 L50 95 L44 80 L28 92 L32 75 L15 78 L25 63 L8 60 L22 50 L8 40 L25 37 L15 22 L32 25 L28 8 L44 20 Z" fill="currentColor" opacity="0.15" />
+              <path
+                d="M50 5 L56 20 L72 8 L68 25 L85 22 L75 37 L92 40 L78 50 L92 60 L75 63 L85 78 L68 75 L72 92 L56 80 L50 95 L44 80 L28 92 L32 75 L15 78 L25 63 L8 60 L22 50 L8 40 L25 37 L15 22 L32 25 L28 8 L44 20 Z"
+                fill="currentColor"
+                opacity="0.15"
+              />
               <circle cx="50" cy="50" r="28" fill="currentColor" opacity="0.2" />
-              <text x="50" y="57" textAnchor="middle" fontSize="24" fontWeight="bold" fill="currentColor" fontFamily="system-ui, sans-serif">PM</text>
+              <text
+                x="50"
+                y="57"
+                textAnchor="middle"
+                fontSize="24"
+                fontWeight="bold"
+                fill="currentColor"
+                fontFamily="system-ui, sans-serif"
+              >
+                PM
+              </text>
             </svg>
             Prime Motors
           </a>
@@ -50,7 +64,17 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
               className="btn-shimmer hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium
                          hover:bg-primary-dark transition-colors no-underline"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
               {t('nav.callNow')}
@@ -69,7 +93,17 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                          text-text-muted-light dark:text-text-muted-dark hover:bg-surface-card-light dark:hover:bg-asphalt transition-colors cursor-pointer"
               aria-label="Toggle menu"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 {mobileOpen ? (
                   <>
                     <line x1="18" y1="6" x2="6" y2="18" />
@@ -115,7 +149,17 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
                 className="btn-shimmer flex items-center justify-center gap-2 mt-2 px-4 py-3 bg-primary text-white rounded-lg font-medium
                            hover:bg-primary-dark transition-colors no-underline"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
                 {t('nav.callNow')}

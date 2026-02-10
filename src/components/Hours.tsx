@@ -22,9 +22,9 @@ function isCurrentlyOpen() {
     hour12: false,
   })
   const parts = formatter.formatToParts(now)
-  const weekday = parts.find(p => p.type === 'weekday')?.value
-  const hour = parseInt(parts.find(p => p.type === 'hour')?.value ?? '0', 10)
-  const minute = parseInt(parts.find(p => p.type === 'minute')?.value ?? '0', 10)
+  const weekday = parts.find((p) => p.type === 'weekday')?.value
+  const hour = parseInt(parts.find((p) => p.type === 'hour')?.value ?? '0', 10)
+  const minute = parseInt(parts.find((p) => p.type === 'minute')?.value ?? '0', 10)
 
   const dayMap: Record<string, number> = { Mon: 0, Tue: 1, Wed: 2, Thu: 3, Fri: 4, Sat: 5, Sun: 6 }
   const dayIndex = weekday ? dayMap[weekday] : undefined
@@ -50,9 +50,7 @@ export default function Hours() {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-2xl sm:text-3xl font-bold text-text-light dark:text-text-dark mb-6">
-        {t('hours.title')}
-      </h2>
+      <h2 className="text-2xl sm:text-3xl font-bold text-text-light dark:text-text-dark mb-6">{t('hours.title')}</h2>
 
       <div className="bg-surface-card-light dark:bg-surface-card-dark rounded-2xl border border-border-light dark:border-border-dark overflow-hidden">
         {schedule.map((item, i) => (
@@ -63,25 +61,29 @@ export default function Hours() {
               ${i === todayIndex ? 'bg-primary/5 dark:bg-primary/10' : ''}
             `}
           >
-            <span className={`font-medium ${i === todayIndex ? 'text-primary dark:text-primary-light' : 'text-text-light dark:text-text-dark'}`}>
+            <span
+              className={`font-medium ${i === todayIndex ? 'text-primary dark:text-primary-light' : 'text-text-light dark:text-text-dark'}`}
+            >
               {t(`hours.${item.day}`)}
-              {i === todayIndex && (
-                <span className="ml-2 inline-block w-2 h-2 rounded-full bg-primary" />
-              )}
+              {i === todayIndex && <span className="ml-2 inline-block w-2 h-2 rounded-full bg-primary" />}
             </span>
             <span className="flex items-center gap-2">
               {i === todayIndex && (
-                <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold
-                  ${open
-                    ? 'bg-green-500/10 text-green-600 dark:text-green-400'
-                    : 'bg-red-500/10 text-red-500 dark:text-red-400'
+                <span
+                  className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold
+                  ${
+                    open
+                      ? 'bg-green-500/10 text-green-600 dark:text-green-400'
+                      : 'bg-red-500/10 text-red-500 dark:text-red-400'
                   }`}
                 >
                   <span className={`w-1.5 h-1.5 rounded-full ${open ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
                   {open ? t('hours.openNow') : t('hours.closedNow')}
                 </span>
               )}
-              <span className={`${item.hours ? 'text-text-muted-light dark:text-text-muted-dark' : 'text-red-500 dark:text-red-400 font-medium'}`}>
+              <span
+                className={`${item.hours ? 'text-text-muted-light dark:text-text-muted-dark' : 'text-red-500 dark:text-red-400 font-medium'}`}
+              >
                 {item.hours || t('hours.closed')}
               </span>
             </span>

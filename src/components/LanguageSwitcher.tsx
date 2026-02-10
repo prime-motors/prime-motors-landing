@@ -40,7 +40,18 @@ export default function LanguageSwitcher() {
                    hover:bg-border-light dark:hover:bg-asphalt transition-colors cursor-pointer"
       >
         {currentLang.label}
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
+        >
           <polyline points="6 9 12 15 18 9" />
         </svg>
       </button>
@@ -60,9 +71,10 @@ export default function LanguageSwitcher() {
                 key={lang.code}
                 onClick={() => switchLanguage(lang.code)}
                 className={`w-full px-4 py-2 text-left text-sm transition-colors cursor-pointer flex items-center gap-2
-                  ${i18n.language === lang.code
-                    ? 'bg-primary/10 text-primary font-medium'
-                    : 'text-text-light dark:text-text-dark hover:bg-surface-card-light dark:hover:bg-asphalt'
+                  ${
+                    i18n.language === lang.code
+                      ? 'bg-primary/10 text-primary font-medium'
+                      : 'text-text-light dark:text-text-dark hover:bg-surface-card-light dark:hover:bg-asphalt'
                   }`}
               >
                 {lang.label}

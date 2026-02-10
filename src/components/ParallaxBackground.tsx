@@ -20,9 +20,7 @@ export default function ParallaxBackground({
 }: ParallaxBackgroundProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isMobile] = useState(() => window.innerWidth < 768)
-  const [prefersReduced] = useState(
-    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  )
+  const [prefersReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -56,10 +54,7 @@ export default function ParallaxBackground({
   return (
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
       {/* Background image with parallax */}
-      <motion.div
-        className="absolute -left-[10%] -right-[10%] -top-[20%] -bottom-[20%]"
-        style={disabled ? {} : { y }}
-      >
+      <motion.div className="absolute -left-[10%] -right-[10%] -top-[20%] -bottom-[20%]" style={disabled ? {} : { y }}>
         <motion.img
           src={imageSrc}
           alt=""

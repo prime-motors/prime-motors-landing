@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -28,7 +28,10 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -39,7 +42,7 @@ body {
 }
 
 .grain-overlay::after {
-  content: "";
+  content: '';
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -77,15 +80,10 @@ body {
 }
 
 .btn-shimmer::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.25) 50%,
-    transparent 60%
-  );
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.25) 50%, transparent 60%);
   transform: translateX(-100%);
 }
 

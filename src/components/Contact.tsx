@@ -27,9 +27,7 @@ export default function Contact() {
             <h2 className="text-3xl sm:text-4xl font-bold text-text-light dark:text-text-dark mb-4">
               {t('contact.title')}
             </h2>
-            <p className="text-lg text-text-muted-light dark:text-text-muted-dark">
-              {t('contact.subtitle')}
-            </p>
+            <p className="text-lg text-text-muted-light dark:text-text-muted-dark">{t('contact.subtitle')}</p>
           </motion.div>
 
           <motion.div
@@ -47,9 +45,21 @@ export default function Contact() {
                            border border-border-light dark:border-border-dark
                            hover:border-primary/30 dark:hover:border-primary/30 transition-colors no-underline group"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
-                                flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div
+                  className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
+                                flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                 </div>
@@ -57,9 +67,7 @@ export default function Contact() {
                   <div className="text-xs font-medium text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider">
                     {t('contact.phone')}
                   </div>
-                  <div className="text-text-light dark:text-text-dark font-medium">
-                    +373 60 004 260
-                  </div>
+                  <div className="text-text-light dark:text-text-dark font-medium">+373 60 004 260</div>
                 </div>
               </a>
 
@@ -70,9 +78,21 @@ export default function Contact() {
                            border border-border-light dark:border-border-dark
                            hover:border-primary/30 dark:hover:border-primary/30 transition-colors no-underline group"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
-                                flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div
+                  className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
+                                flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
@@ -81,18 +101,30 @@ export default function Contact() {
                   <div className="text-xs font-medium text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider">
                     {t('contact.email')}
                   </div>
-                  <div className="text-text-light dark:text-text-dark font-medium">
-                    contact@primemotors.md
-                  </div>
+                  <div className="text-text-light dark:text-text-dark font-medium">contact@primemotors.md</div>
                 </div>
               </a>
 
               {/* Address */}
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-surface-card-light dark:bg-surface-card-dark
-                              border border-border-light dark:border-border-dark">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
-                                flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div
+                className="flex items-center gap-4 p-4 rounded-xl bg-surface-card-light dark:bg-surface-card-dark
+                              border border-border-light dark:border-border-dark"
+              >
+                <div
+                  className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
+                                flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
@@ -117,7 +149,17 @@ export default function Contact() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
               {t('contact.cta')}
