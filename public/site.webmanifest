@@ -1,6 +1,9 @@
 {
   "name": "Prime Motors",
   "short_name": "Prime Motors",
+  "description": "Service auto complet pentru toate mărcile în Chișinău",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/android/android-chrome-192x192.png",
