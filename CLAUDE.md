@@ -26,6 +26,13 @@
 - `pnpm format` — Format all files with Prettier
 - Deployment is automated via GitHub Actions on push to main
 
+## Git Workflow
+
+- Always push to a separate branch first, never directly to main
+- Branch naming: `sspatari/feat/<description>` (e.g. `sspatari/feat/add-dark-mode`)
+- Do not add Co-Authored-By to commits
+- Commit messages must follow Conventional Commits (commitlint)
+
 ## Business Data
 
 - Phone: +373 60004260
@@ -40,7 +47,5 @@
 - Facebook Pixel + GTM load conditionally from env vars (`VITE_FACEBOOK_PIXEL_ID`, `VITE_GTM_ID`)
 - `.env` is gitignored; `.env.example` is the template
 - Vite base path set to `/` (custom domain: primemotors.md)
-- Do not add Co-Authored-By to commits
 - Prettier is integrated into ESLint (`eslint-plugin-prettier`), so `pnpm lint` checks formatting too
 - Husky pre-commit runs lint-staged (ESLint fix includes Prettier)
-- Commit messages must follow Conventional Commits (commitlint)
