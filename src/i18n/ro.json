@@ -68,5 +68,10 @@
   "footer": {
     "rights": "Toate drepturile rezervate.",
     "tagline": "Îngrijire expertă pentru vehicule hibride, electrice și moderne"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Pagina pe care o cauți nu există.",
+    "backHome": "Înapoi Acasă"
   }
 }

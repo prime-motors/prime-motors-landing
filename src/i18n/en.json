@@ -68,5 +68,10 @@
   "footer": {
     "rights": "All rights reserved.",
     "tagline": "Expert care for hybrid, electric & modern vehicles"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! The page you're looking for doesn't exist.",
+    "backHome": "Back to Home"
   }
 }

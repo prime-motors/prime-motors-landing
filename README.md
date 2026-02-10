@@ -1,16 +1,94 @@
-# React + Vite
+# Prime Motors
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page for **Prime Motors** — a professional auto repair and diagnostics service in Chișinău, Moldova, specializing in hybrid, electric, and modern vehicles.
 
-Currently, two official plugins are available:
+🌐 **Live site:** [primemotors.md](https://primemotors.md)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Responsive design optimized for all screen sizes
+- Dark / light mode with system preference detection
+- Multilingual support (English, Romanian, Russian)
+- Smooth scroll animations powered by Framer Motion
+- Click-to-call buttons for instant contact
+- Embedded Google Maps location
+- Facebook Pixel & Google Tag Manager (optional, via env vars)
+- SPA routing with a custom 404 page
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) (build tool)
+- [Tailwind CSS v4](https://tailwindcss.com/) (with `@tailwindcss/vite` plugin)
+- [Framer Motion](https://www.framer.com/motion/) (animations)
+- [react-i18next](https://react.i18next.com/) (internationalization)
+- [React Router](https://reactrouter.com/) (client-side routing)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) >= 18
+- [pnpm](https://pnpm.io/) >= 9
+
+### Install & Run
+
+```bash
+pnpm install
+pnpm dev
+```
+
+The dev server starts at `http://localhost:5173`.
+
+## Commands
+
+| Command          | Description                           |
+| ---------------- | ------------------------------------- |
+| `pnpm dev`       | Start development server              |
+| `pnpm build`     | Type-check + production build         |
+| `pnpm typecheck` | Run TypeScript type checking          |
+| `pnpm lint`      | Run ESLint (includes Prettier checks) |
+| `pnpm format`    | Format all files with Prettier        |
+| `pnpm preview`   | Preview the production build locally  |
+
+## Environment Variables
+
+Copy `.env.example` to `.env` and fill in the values:
+
+```
+VITE_FACEBOOK_PIXEL_ID=
+VITE_GTM_ID=
+```
+
+Both are optional — tracking scripts only load when values are provided.
+
+## Deployment
+
+The site deploys automatically via **GitHub Actions** on every push to `main`. It is hosted on **GitHub Pages** with the custom domain `primemotors.md`.
+
+## Project Structure
+
+```
+src/
+├── components/     # UI components (Navbar, Hero, Services, Hours, etc.)
+├── hooks/          # Custom hooks (useTheme)
+├── i18n/           # i18next config + translation files (en, ro, ru)
+├── pages/          # Page components (HomePage, NotFoundPage)
+├── App.tsx         # Router shell
+├── main.tsx        # Entry point
+├── index.css       # Tailwind v4 theme + global styles
+└── types.ts        # Shared TypeScript types
+public/
+├── images/         # Background images
+├── android/        # Android icons
+├── favicon.svg     # SVG favicon
+├── favicon.ico     # ICO favicon
+├── apple-icon.png  # Apple touch icon
+└── site.webmanifest
+```
+
+## Contact
+
+- **Phone:** +373 60004260
+- **Email:** contact@primemotors.md
+- **Address:** str. Uzinelor 104, Chișinău, Moldova

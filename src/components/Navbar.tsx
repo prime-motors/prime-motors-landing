@@ -14,9 +14,9 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const navLinks = [
-    { href: '#services', label: t('nav.services') },
-    { href: '#hours', label: t('nav.hours') },
-    { href: '#contact', label: t('nav.contact') },
+    { href: '/#services', label: t('nav.services') },
+    { href: '/#hours', label: t('nav.hours') },
+    { href: '/#contact', label: t('nav.contact') },
   ]
 
   return (
@@ -24,26 +24,26 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 text-primary font-bold text-xl no-underline">
+          <a href="/" className="flex items-center gap-2 text-primary font-bold text-xl no-underline">
             <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="45" fill="currentColor" opacity="0.1" />
-              <path
-                d="M50 5 L56 20 L72 8 L68 25 L85 22 L75 37 L92 40 L78 50 L92 60 L75 63 L85 78 L68 75 L72 92 L56 80 L50 95 L44 80 L28 92 L32 75 L15 78 L25 63 L8 60 L22 50 L8 40 L25 37 L15 22 L32 25 L28 8 L44 20 Z"
-                fill="currentColor"
-                opacity="0.15"
-              />
-              <circle cx="50" cy="50" r="28" fill="currentColor" opacity="0.2" />
-              <text
-                x="50"
-                y="57"
-                textAnchor="middle"
-                fontSize="24"
-                fontWeight="bold"
-                fill="currentColor"
-                fontFamily="system-ui, sans-serif"
-              >
-                PM
-              </text>
+              {/* Tire */}
+              <circle cx="50" cy="50" r="45" fill="currentColor" opacity="0.08" />
+              <circle cx="50" cy="50" r="42" fill="currentColor" opacity="0.06" />
+              {/* Rim face */}
+              <circle cx="50" cy="50" r="36" fill="currentColor" opacity="0.2" />
+              {/* Spoke windows — cut out to show background */}
+              <g fill="currentColor" opacity="0.05">
+                <path d="M54 18 Q66 21 73 31 L61 39 Q57 32 54 27 Z" />
+                <path d="M75 35 Q79 47 76 57 L65 52 Q67 44 64 38 Z" />
+                <path d="M73 61 Q68 72 58 77 L55 66 Q60 62 63 56 Z" />
+                <path d="M40 77 Q30 72 25 61 L35 56 Q37 62 42 66 Z" />
+                <path d="M23 55 Q20 44 25 34 L36 39 Q33 45 34 52 Z" />
+                <path d="M30 29 Q38 21 49 18 L49 28 Q43 30 38 35 Z" />
+              </g>
+              {/* Hub */}
+              <circle cx="50" cy="50" r="12" fill="currentColor" opacity="0.25" />
+              <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.15" />
+              <circle cx="50" cy="50" r="3" fill="currentColor" opacity="0.08" />
             </svg>
             Prime Motors
           </a>
