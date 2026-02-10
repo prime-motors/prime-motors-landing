@@ -63,7 +63,8 @@
     "phone": "Phone",
     "email": "Email",
     "address": "Address",
-    "cta": "Call to Book an Appointment"
+    "cta": "Call to Book an Appointment",
+    "followUs": "Follow Us"
   },
   "footer": {
     "rights": "All rights reserved.",
