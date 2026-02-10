@@ -10,24 +10,34 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-primary font-bold">
             <svg width="24" height="24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              {/* Tire */}
-              <circle cx="50" cy="50" r="45" fill="currentColor" opacity="0.08" />
-              <circle cx="50" cy="50" r="42" fill="currentColor" opacity="0.06" />
-              {/* Rim face */}
-              <circle cx="50" cy="50" r="36" fill="currentColor" opacity="0.2" />
-              {/* Spoke windows */}
-              <g fill="currentColor" opacity="0.05">
-                <path d="M54 18 Q66 21 73 31 L61 39 Q57 32 54 27 Z" />
-                <path d="M75 35 Q79 47 76 57 L65 52 Q67 44 64 38 Z" />
-                <path d="M73 61 Q68 72 58 77 L55 66 Q60 62 63 56 Z" />
-                <path d="M40 77 Q30 72 25 61 L35 56 Q37 62 42 66 Z" />
-                <path d="M23 55 Q20 44 25 34 L36 39 Q33 45 34 52 Z" />
-                <path d="M30 29 Q38 21 49 18 L49 28 Q43 30 38 35 Z" />
+              {/* Tire sidewall depth */}
+              <ellipse cx="46" cy="52" rx="44" ry="44" fill="currentColor" opacity="0.06" />
+              {/* Tire face */}
+              <ellipse cx="50" cy="50" rx="44" ry="44" fill="currentColor" opacity="0.08" />
+              {/* Rim */}
+              <ellipse cx="50" cy="50" rx="36" ry="36" fill="currentColor" opacity="0.18" />
+              <ellipse cx="50" cy="50" rx="34" ry="34" fill="currentColor" opacity="0.22" />
+              {/* 5 spoke windows */}
+              <g fill="currentColor" opacity="0.04">
+                <path d="M44 20 Q38 24 34 30 L42 38 Q44 34 48 30 Z" />
+                <path d="M66 26 Q72 34 74 42 L64 44 Q63 38 59 33 Z" />
+                <path d="M76 56 Q74 66 68 72 L60 64 Q64 60 65 54 Z" />
+                <path d="M56 80 Q48 82 40 78 L44 68 Q48 70 54 70 Z" />
+                <path d="M24 66 Q20 58 20 48 L30 46 Q30 54 32 60 Z" />
               </g>
               {/* Hub */}
               <circle cx="50" cy="50" r="12" fill="currentColor" opacity="0.25" />
-              <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.15" />
-              <circle cx="50" cy="50" r="3" fill="currentColor" opacity="0.08" />
+              <circle cx="50" cy="50" r="10" fill="currentColor" opacity="0.18" />
+              <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.22" />
+              {/* Lug nuts */}
+              <g fill="currentColor" opacity="0.06">
+                <circle cx="50" cy="42" r="2" />
+                <circle cx="57.6" cy="46.9" r="2" />
+                <circle cx="54.7" cy="55" r="2" />
+                <circle cx="45.3" cy="55" r="2" />
+                <circle cx="42.4" cy="46.9" r="2" />
+              </g>
+              <circle cx="50" cy="50" r="3" fill="currentColor" opacity="0.06" />
             </svg>
             Prime Motors
           </div>

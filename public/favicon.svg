@@ -1,47 +1,66 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" rx="18" fill="#1a1a1e"/>
-  <!-- Tire outer edge -->
-  <circle cx="50" cy="50" r="44" fill="none" stroke="#333" stroke-width="2"/>
-  <!-- Tire ring -->
-  <circle cx="50" cy="50" r="42" fill="#2a2a2e"/>
-  <!-- Rim outer ring -->
-  <circle cx="50" cy="50" r="36" fill="#d4a24e"/>
-  <!-- Rim inner ring (channel) -->
-  <circle cx="50" cy="50" r="34" fill="#c4922e"/>
+
+  <!-- Tire sidewall (depth visible on left/bottom) -->
+  <ellipse cx="46" cy="52" rx="44" ry="44" fill="#222226"/>
+  <!-- Tire face -->
+  <ellipse cx="50" cy="50" rx="44" ry="44" fill="#2a2a2e"/>
+  <!-- Tire tread edge -->
+  <ellipse cx="50" cy="50" rx="44" ry="44" fill="none" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Rim outer lip -->
+  <ellipse cx="50" cy="50" rx="36" ry="36" fill="#c49430"/>
   <!-- Rim face -->
-  <circle cx="50" cy="50" r="32" fill="#d4a24e"/>
-  <!-- Spoke windows (5 cutouts between spokes) -->
+  <ellipse cx="50" cy="50" rx="34" ry="34" fill="#d4a24e"/>
+
+  <!-- 5 spoke windows (dark cutouts between spokes) -->
   <g fill="#1a1a1e">
-    <!-- Window 1 (top-right) -->
-    <path d="M54 20 Q64 22 70 30 L60 38 Q56 33 54 28 Z"/>
-    <!-- Window 2 (right) -->
-    <path d="M72 34 Q76 44 74 54 L64 50 Q65 44 63 39 Z"/>
-    <!-- Window 3 (bottom-right) -->
-    <path d="M72 58 Q68 68 60 74 L56 64 Q60 60 62 55 Z"/>
-    <!-- Window 4 (bottom-left) -->
-    <path d="M38 74 Q28 68 24 58 L34 54 Q36 60 40 64 Z"/>
+    <!-- Window 1 (top) -->
+    <path d="M44 20 Q38 24 34 30 L42 38 Q44 34 48 30 Z"/>
+    <!-- Window 2 (upper-right) -->
+    <path d="M66 26 Q72 34 74 42 L64 44 Q63 38 59 33 Z"/>
+    <!-- Window 3 (lower-right) -->
+    <path d="M76 56 Q74 66 68 72 L60 64 Q64 60 65 54 Z"/>
+    <!-- Window 4 (bottom) -->
+    <path d="M56 80 Q48 82 40 78 L44 68 Q48 70 54 70 Z"/>
     <!-- Window 5 (left) -->
-    <path d="M24 52 Q22 42 28 32 L36 38 Q33 44 34 50 Z"/>
-    <!-- Window 6 (top-left) -->
-    <path d="M32 28 Q38 22 48 20 L48 30 Q43 31 39 35 Z"/>
+    <path d="M24 66 Q20 58 20 48 L30 46 Q30 54 32 60 Z"/>
   </g>
-  <!-- Spoke highlights -->
-  <g fill="#e0b060" opacity="0.4">
-    <path d="M50 18 L52 19 L51 30 L49 30 Z"/>
-    <path d="M71 31 L72 33 L62 40 L61 38 Z"/>
-    <path d="M75 56 L74 58 L64 52 L65 50 Z"/>
-    <path d="M58 75 L56 76 L54 65 L56 64 Z"/>
-    <path d="M30 72 L28 70 L37 62 L38 64 Z"/>
-    <path d="M23 44 L24 42 L34 48 L33 50 Z"/>
+
+  <!-- Spoke highlights (gold-bright edges) -->
+  <g fill="#e8be60" opacity="0.5">
+    <path d="M50 18 L52 18 L50 36 L48 36 Z"/>
+    <path d="M68 24 L70 25 L62 40 L60 39 Z"/>
+    <path d="M78 50 L78 52 L66 52 L66 50 Z"/>
+    <path d="M66 76 L64 78 L58 66 L60 64 Z"/>
+    <path d="M34 78 L32 76 L38 66 L40 68 Z"/>
+    <path d="M20 50 L20 48 L32 48 L32 50 Z"/>
+    <path d="M28 26 L30 24 L38 36 L36 38 Z"/>
   </g>
-  <!-- Hub cap outer -->
+
+  <!-- Rim inner channel -->
+  <ellipse cx="50" cy="50" rx="14" ry="14" fill="#c49430"/>
+
+  <!-- Hub cap -->
   <circle cx="50" cy="50" r="12" fill="#d4a24e"/>
-  <!-- Hub cap highlight ring -->
   <circle cx="50" cy="50" r="10" fill="#e0b060"/>
-  <!-- Hub cap inner -->
   <circle cx="50" cy="50" r="8" fill="#d4a24e"/>
-  <!-- Hub center bolt -->
+
+  <!-- Lug nuts (5-bolt pattern) -->
+  <g fill="#1a1a1e">
+    <circle cx="50" cy="42" r="2"/>
+    <circle cx="57.6" cy="46.9" r="2"/>
+    <circle cx="54.7" cy="55" r="2"/>
+    <circle cx="45.3" cy="55" r="2"/>
+    <circle cx="42.4" cy="46.9" r="2"/>
+  </g>
+
+  <!-- Center bore -->
   <circle cx="50" cy="50" r="3" fill="#1a1a1e"/>
-  <!-- Subtle top highlight for depth -->
-  <ellipse cx="50" cy="34" rx="18" ry="6" fill="white" opacity="0.06"/>
+
+  <!-- Subtle highlight for 3D depth -->
+  <ellipse cx="46" cy="38" rx="16" ry="8" fill="white" opacity="0.06"/>
+
+  <!-- Tire sidewall depth effect (crescent on lower-left) -->
+  <path d="M10 60 Q6 50 8 38 Q12 28 20 20 Q14 30 12 42 Q10 52 14 62 Z" fill="#222226" opacity="0.6"/>
 </svg>
