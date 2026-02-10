@@ -14,6 +14,17 @@
     <link rel="preload" as="image" type="image/webp" href="/images/hero-bg.webp" />
     <title>Prime Motors — Auto Repair & Diagnostics</title>
 
+    <!-- SPA redirect handler for GitHub Pages (spa-github-pages) -->
+    <script>
+      ;(function () {
+        var redirect = sessionStorage.redirect
+        delete sessionStorage.redirect
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect)
+        }
+      })()
+    </script>
+
     <!-- Google Tag Manager (loaded only if GTM ID is set at build time) -->
     <script>
       ;(function () {
