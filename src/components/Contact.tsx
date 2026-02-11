@@ -13,7 +13,7 @@ export default function Contact() {
       parallaxSpeed={0.2}
       effect="pan"
       className=""
-      overlayClassName="bg-gradient-to-br from-surface-light/90 to-surface-light/85 dark:from-[rgba(12,11,6,0.88)] dark:to-[rgba(26,24,8,0.82)]"
+      overlayClassName="bg-gradient-to-br from-surface-light/90 to-surface-light/85 dark:from-[rgba(11,14,8,0.88)] dark:to-[rgba(22,28,16,0.82)]"
     >
       <section id="contact" className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
