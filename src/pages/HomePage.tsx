@@ -17,11 +17,11 @@ export default function HomePage() {
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       <Hero />
 
-      <div className="divider-gold" />
+      <div className="divider-primary" />
 
       <Services />
 
-      <div className="divider-gold" />
+      <div className="divider-primary" />
 
       {/* Hours & Location */}
       <ParallaxBackground
@@ -40,11 +40,11 @@ export default function HomePage() {
         </section>
       </ParallaxBackground>
 
-      <div className="divider-gold" />
+      <div className="divider-primary" />
 
       <Contact />
 
-      <div className="divider-gold" />
+      <div className="divider-primary" />
 
       <Footer />
       <FloatingCallButton />

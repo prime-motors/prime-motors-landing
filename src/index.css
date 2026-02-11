@@ -3,22 +3,22 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #d4a24e;
-  --color-primary-light: #e8b96a;
-  --color-primary-dark: #b8862f;
-  --color-accent: #3b82f6;
-  --color-surface-light: #f5f3f0;
-  --color-surface-dark: #111113;
-  --color-surface-card-light: #eae7e2;
-  --color-surface-card-dark: #1a1a1e;
-  --color-surface-elevated-dark: #222226;
-  --color-text-light: #1a1a1e;
-  --color-text-dark: #e8e6e3;
-  --color-text-muted-light: #6b6560;
-  --color-text-muted-dark: #9b9590;
-  --color-border-light: #d6d2cc;
-  --color-border-dark: #2a2a2e;
-  --color-asphalt: #2a2a2e;
+  --color-primary: #b45309;
+  --color-primary-light: #d97706;
+  --color-primary-dark: #92400e;
+  --color-accent: #b45309;
+  --color-surface-light: #f7f4f0;
+  --color-surface-dark: #0d0b08;
+  --color-surface-card-light: #ede6dd;
+  --color-surface-card-dark: #1a1610;
+  --color-surface-elevated-dark: #24201a;
+  --color-text-light: #1c1710;
+  --color-text-dark: #ede6dd;
+  --color-text-muted-light: #7a7062;
+  --color-text-muted-dark: #a89c8e;
+  --color-border-light: #dbd3c8;
+  --color-border-dark: #2e281e;
+  --color-asphalt: #24201a;
 }
 
 html {
@@ -57,8 +57,8 @@ body {
   opacity: 0.05;
 }
 
-/* Gold gradient divider between sections */
-.divider-gold {
+/* Primary gradient divider between sections */
+.divider-primary {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--color-primary) 30%, var(--color-primary) 70%, transparent);
   opacity: 0.3;
