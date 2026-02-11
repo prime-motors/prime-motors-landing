@@ -3,22 +3,22 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #059669;
-  --color-primary-light: #34d399;
-  --color-primary-dark: #047857;
-  --color-accent: #059669;
-  --color-surface-light: #f5f5f4;
-  --color-surface-dark: #0c0c0b;
-  --color-surface-card-light: #e7e5e4;
-  --color-surface-card-dark: #1a1917;
-  --color-surface-elevated-dark: #252422;
-  --color-text-light: #1c1917;
-  --color-text-dark: #e7e5e4;
-  --color-text-muted-light: #78716c;
-  --color-text-muted-dark: #a8a29e;
-  --color-border-light: #d6d3d1;
-  --color-border-dark: #2c2a26;
-  --color-asphalt: #252422;
+  --color-primary: #9a3b12;
+  --color-primary-light: #c2410c;
+  --color-primary-dark: #7c2d0e;
+  --color-accent: #9a3b12;
+  --color-surface-light: #f5f3f1;
+  --color-surface-dark: #0d0c0a;
+  --color-surface-card-light: #e6e2de;
+  --color-surface-card-dark: #1a1816;
+  --color-surface-elevated-dark: #24221e;
+  --color-text-light: #1c1a16;
+  --color-text-dark: #e6e2de;
+  --color-text-muted-light: #787468;
+  --color-text-muted-dark: #a8a498;
+  --color-border-light: #d4d0ca;
+  --color-border-dark: #2c2a24;
+  --color-asphalt: #24221e;
 }
 
 html {
