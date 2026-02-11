@@ -13,9 +13,9 @@ export default function Hero() {
       parallaxSpeed={0.3}
       effect="kenBurns"
       className="min-h-svh flex items-center justify-center"
-      overlayClassName="bg-gradient-to-b from-[rgba(13,12,10,0.85)] via-[rgba(13,12,10,0.50)] to-[rgba(13,12,10,0.70)]
-                        dark:from-[rgba(13,12,10,0.85)] dark:via-[rgba(13,12,10,0.50)] dark:to-[rgba(13,12,10,0.70)]
-                        light:from-[rgba(245,243,241,0.88)] light:via-[rgba(245,243,241,0.55)] light:to-[rgba(245,243,241,0.75)]"
+      overlayClassName="bg-gradient-to-b from-[rgba(14,14,14,0.85)] via-[rgba(14,14,14,0.50)] to-[rgba(14,14,14,0.70)]
+                        dark:from-[rgba(14,14,14,0.85)] dark:via-[rgba(14,14,14,0.50)] dark:to-[rgba(14,14,14,0.70)]
+                        light:from-[rgba(245,245,245,0.88)] light:via-[rgba(245,245,245,0.55)] light:to-[rgba(245,245,245,0.75)]"
     >
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
