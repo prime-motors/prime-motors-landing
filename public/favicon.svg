@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
   <!-- Background -->
-  <circle cx="12" cy="12" r="12" fill="#0C1A2A"/>
+  <circle cx="12" cy="12" r="12" fill="#1C1B1A"/>
   <!-- Tire -->
   <circle cx="12" cy="12" r="10.5" fill="none" stroke="#333" stroke-width="2.5"/>
   <!-- Rim edge -->
-  <circle cx="12" cy="12" r="8.5" fill="none" stroke="#0284C7" stroke-width="0.8"/>
+  <circle cx="12" cy="12" r="8.5" fill="none" stroke="#EA580C" stroke-width="0.8"/>
   <!-- Spokes -->
-  <line x1="12.00" y1="8.50" x2="12.00" y2="4.00" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="15.33" y1="10.92" x2="19.61" y2="9.53" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="14.06" y1="14.83" x2="16.70" y2="18.47" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="9.94" y1="14.83" x2="7.30" y2="18.47" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round"/>
-  <line x1="8.67" y1="10.92" x2="4.39" y2="9.53" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="12.00" y1="8.50" x2="12.00" y2="4.00" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="15.33" y1="10.92" x2="19.61" y2="9.53" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="14.06" y1="14.83" x2="16.70" y2="18.47" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="9.94" y1="14.83" x2="7.30" y2="18.47" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="8.67" y1="10.92" x2="4.39" y2="9.53" stroke="#EA580C" stroke-width="1.8" stroke-linecap="round"/>
   <!-- Center hub -->
-  <circle cx="12" cy="12" r="2.5" fill="#0284C7"/>
-  <circle cx="12" cy="12" r="1" fill="#0C1A2A"/>
+  <circle cx="12" cy="12" r="2.5" fill="#EA580C"/>
+  <circle cx="12" cy="12" r="1" fill="#1C1B1A"/>
 </svg>
