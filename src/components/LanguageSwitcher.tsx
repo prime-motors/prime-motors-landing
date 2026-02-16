@@ -35,9 +35,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={ref}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium
-                   bg-surface-card-light dark:bg-surface-card-dark text-text-light dark:text-text-dark
-                   hover:bg-border-light dark:hover:bg-asphalt transition-colors cursor-pointer"
+        className="bg-surface-card-light dark:bg-surface-card-dark text-text-light dark:text-text-dark hover:bg-border-light dark:hover:bg-asphalt flex cursor-pointer items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors"
       >
         {currentLang.label}
         <svg
@@ -63,19 +61,17 @@ export default function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 mt-2 w-32 bg-surface-light dark:bg-surface-elevated-dark rounded-lg shadow-lg
-                       border border-border-light dark:border-border-dark overflow-hidden z-50"
+            className="bg-surface-light dark:bg-surface-elevated-dark border-border-light dark:border-border-dark absolute right-0 z-50 mt-2 w-32 overflow-hidden rounded-lg border shadow-lg"
           >
             {languages.map((lang) => (
               <button
                 key={lang.code}
                 onClick={() => switchLanguage(lang.code)}
-                className={`w-full px-4 py-2 text-left text-sm transition-colors cursor-pointer flex items-center gap-2
-                  ${
-                    i18n.language === lang.code
-                      ? 'bg-primary/10 text-primary font-medium'
-                      : 'text-text-light dark:text-text-dark hover:bg-surface-card-light dark:hover:bg-asphalt'
-                  }`}
+                className={`flex w-full cursor-pointer items-center gap-2 px-4 py-2 text-left text-sm transition-colors ${
+                  i18n.language === lang.code
+                    ? 'bg-primary/10 text-primary font-medium'
+                    : 'text-text-light dark:text-text-dark hover:bg-surface-card-light dark:hover:bg-asphalt'
+                }`}
               >
                 {lang.label}
               </button>

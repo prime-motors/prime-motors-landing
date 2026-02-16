@@ -13,7 +13,7 @@ export default function HomePage() {
   const { isDark, toggleTheme } = useTheme()
 
   return (
-    <div className="grain-overlay min-h-screen bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark transition-colors duration-300">
+    <div className="grain-overlay bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark min-h-screen transition-colors duration-300">
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       <Hero />
 
@@ -31,8 +31,8 @@ export default function HomePage() {
         effect="none"
       >
         <section id="hours" className="py-20">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
               <Hours />
               <Location />
             </div>

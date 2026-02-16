@@ -45,30 +45,33 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
   return (
     <nav
       ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50 bg-surface-light/80 dark:bg-surface-elevated-dark/80 backdrop-blur-xl border-b border-border-light dark:border-border-dark"
+      className="bg-surface-light/80 dark:bg-surface-elevated-dark/80 border-border-light dark:border-border-dark fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-xl"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 text-primary font-bold text-xl no-underline">
-            <img src="/images/logo.png" alt="Prime Motors Logo" className="h-12 w-auto" />
-            <span>Prime Motors</span>
+          <a href="/" className="group text-primary flex items-center gap-2 text-xl font-bold no-underline select-none">
+            <img
+              src="/images/logo.png"
+              alt="Prime Motors Logo"
+              className="h-12 w-auto transition-transform duration-200 ease-out group-hover:scale-105"
+            />
+            <span className="transition-opacity duration-200 group-hover:opacity-80">Prime Motors</span>
           </a>
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden items-center gap-6 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-primary-light transition-colors no-underline"
+                className="text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-primary-light text-sm font-medium no-underline transition-colors"
               >
                 {link.label}
               </a>
             ))}
             <a
               href="tel:+37360004260"
-              className="btn-shimmer hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium
-                         hover:bg-primary-dark transition-colors no-underline"
+              className="btn-shimmer bg-primary hover:bg-primary-dark hidden items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white no-underline transition-colors lg:inline-flex"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -95,8 +98,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
             <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="w-10 h-10 flex items-center justify-center rounded-lg
-                         text-text-muted-light dark:text-text-muted-dark hover:bg-surface-card-light dark:hover:bg-asphalt transition-colors cursor-pointer"
+              className="text-text-muted-light dark:text-text-muted-dark hover:bg-surface-card-light dark:hover:bg-asphalt flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg transition-colors"
               aria-label="Toggle menu"
             >
               <svg
@@ -136,15 +138,15 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden bg-surface-light dark:bg-surface-elevated-dark border-t border-border-light dark:border-border-dark"
+            className="bg-surface-light dark:bg-surface-elevated-dark border-border-light dark:border-border-dark overflow-hidden border-t md:hidden"
           >
-            <div className="px-4 py-4 space-y-3">
+            <div className="space-y-3 px-4 py-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-base font-medium text-text-light dark:text-text-dark hover:text-primary dark:hover:text-primary-light transition-colors no-underline"
+                  className="text-text-light dark:text-text-dark hover:text-primary dark:hover:text-primary-light block text-base font-medium no-underline transition-colors"
                 >
                   {link.label}
                 </a>
@@ -152,8 +154,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
               <a
                 href="tel:+37360004260"
                 onClick={() => setMobileOpen(false)}
-                className="btn-shimmer flex items-center justify-center gap-2 mt-2 px-4 py-3 bg-primary text-white rounded-lg font-medium
-                           hover:bg-primary-dark transition-colors no-underline"
+                className="btn-shimmer bg-primary hover:bg-primary-dark mt-2 flex items-center justify-center gap-2 rounded-lg px-4 py-3 font-medium text-white no-underline transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

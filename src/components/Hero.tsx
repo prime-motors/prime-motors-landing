@@ -12,21 +12,19 @@ export default function Hero() {
       imageSrc={`${basePath}images/hero-bg.webp`}
       parallaxSpeed={0.3}
       effect="kenBurns"
-      className="min-h-svh flex items-center justify-center"
+      className="flex min-h-svh items-center justify-center"
       overlayClassName="bg-gradient-to-b from-[rgba(14,14,14,0.85)] via-[rgba(14,14,14,0.50)] to-[rgba(14,14,14,0.70)]
                         dark:from-[rgba(14,14,14,0.85)] dark:via-[rgba(14,14,14,0.50)] dark:to-[rgba(14,14,14,0.70)]
                         light:from-[rgba(245,245,245,0.88)] light:via-[rgba(245,245,245,0.55)] light:to-[rgba(245,245,245,0.75)]"
     >
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 text-center">
+      <div className="relative mx-auto max-w-6xl px-4 py-20 text-center sm:px-6">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full
-                       bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light text-sm font-medium
-                       backdrop-blur-sm border border-primary/20"
+            className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light border-primary/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium backdrop-blur-sm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,21 +43,19 @@ export default function Hero() {
           </motion.div>
 
           {/* Title */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white dark:text-white mb-6 drop-shadow-lg">
+          <h1 className="mb-6 text-5xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl dark:text-white">
             {t('hero.title')}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl sm:text-2xl text-white/80 dark:text-text-dark/80 max-w-2xl mx-auto mb-10">
+          <p className="dark:text-text-dark/80 mx-auto mb-10 max-w-2xl text-xl text-white/80 sm:text-2xl">
             {t('hero.subtitle')}
           </p>
 
           {/* CTA */}
           <motion.a
             href="tel:+37360004260"
-            className="btn-shimmer inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-xl text-lg font-semibold
-                       shadow-lg shadow-primary/25 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30
-                       transition-all duration-300 no-underline"
+            className="btn-shimmer bg-primary shadow-primary/25 hover:bg-primary-dark hover:shadow-primary/30 inline-flex items-center gap-3 rounded-xl px-8 py-4 text-lg font-semibold text-white no-underline shadow-lg transition-all duration-300 hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -80,7 +76,7 @@ export default function Hero() {
           </motion.a>
 
           {/* Phone number display */}
-          <p className="mt-4 text-white/60 dark:text-text-muted-dark text-sm">+373 60 004 260</p>
+          <p className="dark:text-text-muted-dark mt-4 text-sm text-white/60">+373 60 004 260</p>
         </motion.div>
       </div>
     </ParallaxBackground>

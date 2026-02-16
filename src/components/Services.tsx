@@ -137,24 +137,24 @@ export default function Services() {
       overlayClassName="bg-surface-light/92 dark:bg-surface-dark/92"
     >
       <section id="services" className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="mb-16 text-center"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-text-light dark:text-text-dark mb-4">
+            <h2 className="text-text-light dark:text-text-dark mb-4 text-3xl font-bold sm:text-4xl">
               {t('services.title')}
             </h2>
-            <p className="text-lg text-text-muted-light dark:text-text-muted-dark max-w-2xl mx-auto">
+            <p className="text-text-muted-light dark:text-text-muted-dark mx-auto max-w-2xl text-lg">
               {t('services.subtitle')}
             </p>
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -164,18 +164,12 @@ export default function Services() {
               <motion.div
                 key={service}
                 variants={cardVariants}
-                className="group p-6 rounded-2xl bg-surface-card-light dark:bg-surface-card-dark border border-border-light dark:border-border-dark
-                           hover:border-primary/30 dark:hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5
-                           transition-all duration-300"
+                className="group bg-surface-card-light dark:bg-surface-card-dark border-border-light dark:border-border-dark hover:border-primary/30 dark:hover:border-primary/30 hover:shadow-primary/5 rounded-2xl border p-6 transition-all duration-300 hover:shadow-lg"
               >
-                <div
-                  className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
-                                flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white
-                                transition-all duration-300"
-                >
+                <div className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light group-hover:bg-primary mb-4 flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:text-white">
                   {serviceIcons[service]}
                 </div>
-                <h3 className="text-lg font-semibold text-text-light dark:text-text-dark mb-2">
+                <h3 className="text-text-light dark:text-text-dark mb-2 text-lg font-semibold">
                   {t(`services.${service}.title`)}
                 </h3>
                 <p className="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">

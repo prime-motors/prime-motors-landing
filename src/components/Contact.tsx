@@ -16,18 +16,18 @@ export default function Contact() {
       overlayClassName="bg-gradient-to-br from-surface-light/90 to-surface-light/85 dark:from-[rgba(14,14,14,0.88)] dark:to-[rgba(28,28,28,0.82)]"
     >
       <section id="contact" className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            className="mb-12 text-center"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-text-light dark:text-text-dark mb-4">
+            <h2 className="text-text-light dark:text-text-dark mb-4 text-3xl font-bold sm:text-4xl">
               {t('contact.title')}
             </h2>
-            <p className="text-lg text-text-muted-light dark:text-text-muted-dark">{t('contact.subtitle')}</p>
+            <p className="text-text-muted-light dark:text-text-muted-dark text-lg">{t('contact.subtitle')}</p>
           </motion.div>
 
           <motion.div
@@ -35,20 +35,15 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="max-w-lg mx-auto"
+            className="mx-auto max-w-lg"
           >
-            <div className="space-y-4 mb-8">
+            <div className="mb-8 space-y-4">
               {/* Phone */}
               <a
                 href="tel:+37360004260"
-                className="flex items-center gap-4 p-4 rounded-xl bg-surface-card-light dark:bg-surface-card-dark
-                           border border-border-light dark:border-border-dark
-                           hover:border-primary/30 dark:hover:border-primary/30 transition-colors no-underline group"
+                className="bg-surface-card-light dark:bg-surface-card-dark border-border-light dark:border-border-dark hover:border-primary/30 dark:hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 no-underline transition-colors"
               >
-                <div
-                  className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
-                                flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all"
-                >
+                <div className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light group-hover:bg-primary flex h-10 w-10 items-center justify-center rounded-lg transition-all group-hover:text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -64,7 +59,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-xs font-medium text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider">
+                  <div className="text-text-muted-light dark:text-text-muted-dark text-xs font-medium tracking-wider uppercase">
                     {t('contact.phone')}
                   </div>
                   <div className="text-text-light dark:text-text-dark font-medium">+373 60 004 260</div>
@@ -74,14 +69,9 @@ export default function Contact() {
               {/* Email */}
               <a
                 href="mailto:contact@primemotors.md"
-                className="flex items-center gap-4 p-4 rounded-xl bg-surface-card-light dark:bg-surface-card-dark
-                           border border-border-light dark:border-border-dark
-                           hover:border-primary/30 dark:hover:border-primary/30 transition-colors no-underline group"
+                className="bg-surface-card-light dark:bg-surface-card-dark border-border-light dark:border-border-dark hover:border-primary/30 dark:hover:border-primary/30 group flex items-center gap-4 rounded-xl border p-4 no-underline transition-colors"
               >
-                <div
-                  className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
-                                flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all"
-                >
+                <div className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light group-hover:bg-primary flex h-10 w-10 items-center justify-center rounded-lg transition-all group-hover:text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -98,7 +88,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-xs font-medium text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider">
+                  <div className="text-text-muted-light dark:text-text-muted-dark text-xs font-medium tracking-wider uppercase">
                     {t('contact.email')}
                   </div>
                   <div className="text-text-light dark:text-text-dark font-medium">contact@primemotors.md</div>
@@ -106,14 +96,8 @@ export default function Contact() {
               </a>
 
               {/* Address */}
-              <div
-                className="flex items-center gap-4 p-4 rounded-xl bg-surface-card-light dark:bg-surface-card-dark
-                              border border-border-light dark:border-border-dark"
-              >
-                <div
-                  className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
-                                flex items-center justify-center"
-                >
+              <div className="bg-surface-card-light dark:bg-surface-card-dark border-border-light dark:border-border-dark flex items-center gap-4 rounded-xl border p-4">
+                <div className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light flex h-10 w-10 items-center justify-center rounded-lg">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -130,7 +114,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-xs font-medium text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider">
+                  <div className="text-text-muted-light dark:text-text-muted-dark text-xs font-medium tracking-wider uppercase">
                     {t('contact.address')}
                   </div>
                   <div className="text-text-light dark:text-text-dark font-medium">
@@ -141,8 +125,8 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <span className="text-xs font-medium text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <span className="text-text-muted-light dark:text-text-muted-dark text-xs font-medium tracking-wider uppercase">
                 {t('contact.followUs')}
               </span>
               <a
@@ -150,8 +134,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-9 h-9 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
-                           flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light hover:bg-primary flex h-9 w-9 items-center justify-center rounded-lg transition-all hover:text-white"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -162,8 +145,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="w-9 h-9 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light
-                           flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light hover:bg-primary flex h-9 w-9 items-center justify-center rounded-lg transition-all hover:text-white"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.19a8.16 8.16 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.62z" />
@@ -174,9 +156,7 @@ export default function Contact() {
             {/* CTA */}
             <motion.a
               href="tel:+37360004260"
-              className="btn-shimmer flex items-center justify-center gap-3 w-full px-6 py-4 bg-primary text-white rounded-xl
-                         text-lg font-semibold shadow-lg shadow-primary/25 hover:bg-primary-dark
-                         hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 no-underline"
+              className="btn-shimmer bg-primary shadow-primary/25 hover:bg-primary-dark hover:shadow-primary/30 flex w-full items-center justify-center gap-3 rounded-xl px-6 py-4 text-lg font-semibold text-white no-underline shadow-lg transition-all duration-300 hover:shadow-xl"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

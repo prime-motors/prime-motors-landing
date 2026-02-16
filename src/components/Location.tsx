@@ -15,9 +15,9 @@ export default function Location() {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <h2 className="text-2xl sm:text-3xl font-bold text-text-light dark:text-text-dark mb-6">{t('location.title')}</h2>
+      <h2 className="text-text-light dark:text-text-dark mb-6 text-2xl font-bold sm:text-3xl">{t('location.title')}</h2>
 
-      <div className="rounded-2xl overflow-hidden border border-border-light dark:border-border-dark mb-4">
+      <div className="border-border-light dark:border-border-dark mb-4 overflow-hidden rounded-2xl border">
         <iframe
           src={MAPS_EMBED}
           width="100%"
@@ -27,11 +27,11 @@ export default function Location() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Prime Motors Location"
-          className="w-full dark:invert dark:hue-rotate-180"
+          className="w-full dark:hue-rotate-180 dark:invert"
         />
       </div>
 
-      <div className="flex items-start gap-3 mb-4">
+      <div className="mb-4 flex items-start gap-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -54,9 +54,7 @@ export default function Location() {
         href={MAPS_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium
-                   bg-surface-card-light dark:bg-surface-card-dark text-text-light dark:text-text-dark
-                   hover:bg-border-light dark:hover:bg-asphalt transition-colors no-underline"
+        className="bg-surface-card-light dark:bg-surface-card-dark text-text-light dark:text-text-dark hover:bg-border-light dark:hover:bg-asphalt inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium no-underline transition-colors"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

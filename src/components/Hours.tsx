@@ -50,39 +50,35 @@ export default function Hours() {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-2xl sm:text-3xl font-bold text-text-light dark:text-text-dark mb-6">{t('hours.title')}</h2>
+      <h2 className="text-text-light dark:text-text-dark mb-6 text-2xl font-bold sm:text-3xl">{t('hours.title')}</h2>
 
-      <div className="bg-surface-card-light dark:bg-surface-card-dark rounded-2xl border border-border-light dark:border-border-dark overflow-hidden">
+      <div className="bg-surface-card-light dark:bg-surface-card-dark border-border-light dark:border-border-dark overflow-hidden rounded-2xl border">
         {schedule.map((item, i) => (
           <div
             key={item.day}
-            className={`flex items-center justify-between px-5 py-3 text-sm
-              ${i !== schedule.length - 1 ? 'border-b border-border-light dark:border-border-dark' : ''}
-              ${i === todayIndex ? 'bg-primary/5 dark:bg-primary/10' : ''}
-            `}
+            className={`flex items-center justify-between px-5 py-3 text-sm ${i !== schedule.length - 1 ? 'border-border-light dark:border-border-dark border-b' : ''} ${i === todayIndex ? 'bg-primary/5 dark:bg-primary/10' : ''} `}
           >
             <span
               className={`font-medium ${i === todayIndex ? 'text-primary dark:text-primary-light' : 'text-text-light dark:text-text-dark'}`}
             >
               {t(`hours.${item.day}`)}
-              {i === todayIndex && <span className="ml-2 inline-block w-2 h-2 rounded-full bg-primary" />}
+              {i === todayIndex && <span className="bg-primary ml-2 inline-block h-2 w-2 rounded-full" />}
             </span>
             <span className="flex items-center gap-2">
               {i === todayIndex && (
                 <span
-                  className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold
-                  ${
+                  className={`inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-xs font-semibold ${
                     open
                       ? 'bg-green-500/10 text-green-600 dark:text-green-400'
                       : 'bg-red-500/10 text-red-500 dark:text-red-400'
                   }`}
                 >
-                  <span className={`w-1.5 h-1.5 rounded-full ${open ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
+                  <span className={`h-1.5 w-1.5 rounded-full ${open ? 'animate-pulse bg-green-500' : 'bg-red-500'}`} />
                   {open ? t('hours.openNow') : t('hours.closedNow')}
                 </span>
               )}
               <span
-                className={`${item.hours ? 'text-text-muted-light dark:text-text-muted-dark' : 'text-red-500 dark:text-red-400 font-medium'}`}
+                className={`${item.hours ? 'text-text-muted-light dark:text-text-muted-dark' : 'font-medium text-red-500 dark:text-red-400'}`}
               >
                 {item.hours || t('hours.closed')}
               </span>
