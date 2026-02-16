@@ -81,7 +81,7 @@ src/
 public/
 ├── images/         # Background images
 ├── android/        # Android icons
-├── favicon.svg     # SVG favicon
+├── favicon.png     # PNG favicon
 ├── favicon.ico     # ICO favicon
 ├── apple-icon.png  # Apple touch icon
 └── site.webmanifest
