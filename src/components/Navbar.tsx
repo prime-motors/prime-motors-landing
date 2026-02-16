@@ -50,10 +50,10 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="text-primary font-bold text-xl no-underline">
-            Prime Motors
+          <a href="/" className="flex items-center gap-2 text-primary font-bold text-xl no-underline">
+            <img src="/images/logo.png" alt="Prime Motors Logo" className="h-12 w-auto" />
+            <span>Prime Motors</span>
           </a>
-
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
