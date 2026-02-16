@@ -54,12 +54,12 @@ export default function ParallaxBackground({
   return (
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
       {/* Background image with parallax */}
-      <motion.div className="absolute -left-[10%] -right-[10%] -top-[20%] -bottom-[20%]" style={disabled ? {} : { y }}>
+      <motion.div className="absolute -top-[20%] -right-[10%] -bottom-[20%] -left-[10%]" style={disabled ? {} : { y }}>
         <motion.img
           src={imageSrc}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover object-center"
+          className="h-full w-full object-cover object-center"
           animate={animateProps}
           loading="lazy"
         />

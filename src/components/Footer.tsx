@@ -5,8 +5,8 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="py-4 border-t border-border-light dark:border-border-dark text-center">
-      <p className="text-sm text-text-muted-light dark:text-text-muted-dark">
+    <footer className="border-border-light dark:border-border-dark border-t py-4 text-center">
+      <p className="text-text-muted-light dark:text-text-muted-dark text-sm">
         &copy; {year} Prime Motors. {t('footer.rights')}
       </p>
     </footer>

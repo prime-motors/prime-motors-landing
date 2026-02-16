@@ -4,10 +4,7 @@ export default function FloatingCallButton() {
   return (
     <motion.a
       href="tel:+37360004260"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-white rounded-full
-                 flex items-center justify-center shadow-lg shadow-primary/30
-                 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/40
-                 transition-all duration-300 no-underline"
+      className="bg-primary shadow-primary/30 hover:bg-primary-dark hover:shadow-primary/40 fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full text-white no-underline shadow-lg transition-all duration-300 hover:shadow-xl"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       initial={{ scale: 0, opacity: 0 }}
@@ -16,7 +13,7 @@ export default function FloatingCallButton() {
       aria-label="Call Prime Motors"
     >
       {/* Pulse ring */}
-      <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20" />
+      <span className="bg-primary absolute inset-0 animate-ping rounded-full opacity-20" />
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
