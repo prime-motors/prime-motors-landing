@@ -52,7 +52,7 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
           {/* Logo */}
           <a href="/" className="group text-primary flex items-center gap-2 text-xl font-bold no-underline select-none">
             <img
-              src="/images/logo.png"
+              src={`${import.meta.env.BASE_URL}images/logo.png`}
               alt="Prime Motors Logo"
               className="h-12 w-auto transition-transform duration-200 ease-out group-hover:scale-105"
             />
