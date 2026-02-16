@@ -15,7 +15,7 @@
 - `src/types.ts` — Shared TypeScript types
 - `src/i18n/` — i18next config + translation files (en.json, ro.json, ru.json)
 - `src/hooks/useTheme.ts` — Dark/light mode hook with localStorage persistence
-- `public/` — favicon.svg, favicon.ico, apple-icon.png, android icons, CNAME, site.webmanifest
+- `public/` — favicon.png, favicon.ico, apple-icon.png, android icons, CNAME, site.webmanifest
 
 ## Commands
 
