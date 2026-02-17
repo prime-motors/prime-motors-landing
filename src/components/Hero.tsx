@@ -1,18 +1,28 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
+import { useLayoutEffect } from 'react'
 import ParallaxBackground from './ParallaxBackground'
 
 const basePath = import.meta.env.BASE_URL
 
+function useLockHeroHeight() {
+  useLayoutEffect(() => {
+    const h = window.visualViewport?.height ?? window.innerHeight
+    document.documentElement.style.setProperty('--heroH', `${h}px`)
+  }, [])
+}
+
 export default function Hero() {
   const { t } = useTranslation()
+
+  useLockHeroHeight()
 
   return (
     <ParallaxBackground
       imageSrc={`${basePath}images/hero-bg.webp`}
       parallaxSpeed={0.3}
       effect="kenBurns"
-      className="flex min-h-svh items-center justify-center"
+      className="flex h-[var(--heroH)] items-center justify-center"
       overlayClassName="bg-gradient-to-b from-[rgba(14,14,14,0.85)] via-[rgba(14,14,14,0.50)] to-[rgba(14,14,14,0.70)]
                         dark:from-[rgba(14,14,14,0.85)] dark:via-[rgba(14,14,14,0.50)] dark:to-[rgba(14,14,14,0.70)]
                         light:from-[rgba(245,245,245,0.88)] light:via-[rgba(245,245,245,0.55)] light:to-[rgba(245,245,245,0.75)]"
