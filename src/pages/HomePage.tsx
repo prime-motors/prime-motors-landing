@@ -13,7 +13,7 @@ export default function HomePage() {
   const { isDark, toggleTheme } = useTheme()
 
   return (
-    <div className="grain-overlay bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark min-h-screen transition-colors duration-300">
+    <div className="bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark min-h-screen transition-colors duration-300">
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
       <Hero />
 
