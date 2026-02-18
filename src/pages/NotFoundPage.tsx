@@ -10,7 +10,7 @@ export default function NotFoundPage() {
   const { t } = useTranslation()
 
   return (
-    <div className="grain-overlay bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark flex min-h-screen flex-col transition-colors duration-300">
+    <div className="bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark flex min-h-screen flex-col transition-colors duration-300">
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
 
       <main className="flex flex-1 items-center justify-center px-4">
