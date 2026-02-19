@@ -18,6 +18,13 @@ export default defineConfig(({ mode }) => {
               },
             ]
           : [],
+        pixel: env.VITE_FACEBOOK_PIXEL_ID
+          ? [
+              {
+                id: env.VITE_FACEBOOK_PIXEL_ID,
+              },
+            ]
+          : [],
       }),
     ],
     base: '/',
