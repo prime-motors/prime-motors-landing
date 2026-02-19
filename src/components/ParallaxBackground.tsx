@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 
 type ScrollOffset = NonNullable<Parameters<typeof useScroll>[0]>['offset']
 
@@ -41,15 +41,14 @@ export default function ParallaxBackground({
     window.addEventListener('resize', update)
     window.addEventListener('orientationchange', update)
 
-    // matchMedia change handler (Safari supports addEventListener in newer versions)
-    if (mq.addEventListener) mq.addEventListener('change', update)
-    else mq.addListener(update)
+    const onChange = () => update()
+
+    mq.addEventListener('change', onChange)
 
     return () => {
       window.removeEventListener('resize', update)
       window.removeEventListener('orientationchange', update)
-      if (mq.removeEventListener) mq.removeEventListener('change', update)
-      else mq.removeListener(update)
+      mq.removeEventListener('change', onChange)
     }
   }, [])
 
@@ -58,7 +57,10 @@ export default function ParallaxBackground({
     offset: scrollOffset,
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', `${parallaxSpeed * 100}%`])
+  // Use px instead of % (more stable), and smooth it with a spring
+  const maxShiftPx = parallaxSpeed * 60 // tweak 200 -> 120/160/240 to taste
+  const yRaw = useTransform(scrollYProgress, [0, 1], [0, maxShiftPx])
+  const y = useSpring(yRaw, { stiffness: 100, damping: 35, mass: 0.6 })
   const disabled = isMobile || prefersReduced
 
   let animateProps = {}
