@@ -13,8 +13,9 @@ function setHeroHeightVar() {
 
 function useLockHeroHeight() {
   useLayoutEffect(() => {
-    // initial lock
     setHeroHeightVar()
+    setTimeout(setHeroHeightVar, 120)
+    setTimeout(setHeroHeightVar, 300)
 
     const vv = window.visualViewport
     let lastW = vv?.width ?? window.innerWidth
@@ -22,15 +23,12 @@ function useLockHeroHeight() {
     let raf2 = 0
 
     const run = () => {
-      // iOS Safari often reports the old visualViewport size for a bit after rotation.
-      // Do a couple of delayed passes to catch the final stable height.
       cancelAnimationFrame(raf1)
       cancelAnimationFrame(raf2)
 
       raf1 = requestAnimationFrame(() => {
         raf2 = requestAnimationFrame(() => {
           setHeroHeightVar()
-          // extra passes after rotation settle
           setTimeout(setHeroHeightVar, 120)
           setTimeout(setHeroHeightVar, 300)
         })
@@ -39,9 +37,6 @@ function useLockHeroHeight() {
 
     const onResize = () => {
       const w = vv?.width ?? window.innerWidth
-
-      // Only react to meaningful width changes (rotation),
-      // ignore height-only changes from address/menu bars.
       if (Math.abs(w - lastW) > 10) {
         lastW = w
         run()
@@ -49,16 +44,19 @@ function useLockHeroHeight() {
     }
 
     vv?.addEventListener('resize', onResize)
-    window.addEventListener('orientationchange', run) // extra safety on iOS
+    window.addEventListener('orientationchange', run)
+    window.addEventListener('pageshow', run)
 
     return () => {
       vv?.removeEventListener('resize', onResize)
       window.removeEventListener('orientationchange', run)
+      window.removeEventListener('pageshow', run)
       cancelAnimationFrame(raf1)
       cancelAnimationFrame(raf2)
     }
   }, [])
 }
+
 export default function Hero() {
   const { t } = useTranslation()
 
