@@ -1,5 +1,7 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+
+type ScrollOffset = NonNullable<Parameters<typeof useScroll>[0]>['offset']
 
 interface ParallaxBackgroundProps {
   children: React.ReactNode
@@ -8,6 +10,7 @@ interface ParallaxBackgroundProps {
   parallaxSpeed?: number
   effect?: 'kenBurns' | 'drift' | 'pan' | 'none'
   className?: string
+  scrollOffset?: ScrollOffset
 }
 
 export default function ParallaxBackground({
@@ -17,14 +20,42 @@ export default function ParallaxBackground({
   parallaxSpeed = 0.3,
   effect = 'none',
   className = '',
+  scrollOffset = ['start end', 'end start'],
 }: ParallaxBackgroundProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [isMobile] = useState(() => window.innerWidth < 768)
-  const [prefersReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768)
+  const [prefersReduced, setPrefersReduced] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  )
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+    const update = () => {
+      setIsMobile(window.innerWidth < 768)
+      setPrefersReduced(mq.matches)
+    }
+
+    update()
+
+    window.addEventListener('resize', update)
+    window.addEventListener('orientationchange', update)
+
+    // matchMedia change handler (Safari supports addEventListener in newer versions)
+    if (mq.addEventListener) mq.addEventListener('change', update)
+    else mq.addListener(update)
+
+    return () => {
+      window.removeEventListener('resize', update)
+      window.removeEventListener('orientationchange', update)
+      if (mq.removeEventListener) mq.removeEventListener('change', update)
+      else mq.removeListener(update)
+    }
+  }, [])
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start end', 'end start'],
+    offset: scrollOffset,
   })
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', `${parallaxSpeed * 100}%`])
@@ -69,7 +100,7 @@ export default function ParallaxBackground({
       <div className={`absolute inset-0 ${overlayClassName}`} />
 
       {/* Content */}
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 h-full w-full">{children}</div>
     </div>
   )
 }
