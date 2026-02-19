@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
+type ScrollOffset = NonNullable<Parameters<typeof useScroll>[0]>['offset']
+
 interface ParallaxBackgroundProps {
   children: React.ReactNode
   imageSrc: string
@@ -8,7 +10,7 @@ interface ParallaxBackgroundProps {
   parallaxSpeed?: number
   effect?: 'kenBurns' | 'drift' | 'pan' | 'none'
   className?: string
-  scrollOffset?: [string, string]
+  scrollOffset?: ScrollOffset
 }
 
 export default function ParallaxBackground({
