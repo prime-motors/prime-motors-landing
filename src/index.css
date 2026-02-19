@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant mobileLandscape (@media (max-width: 1024px) and (orientation: landscape));
 
 @theme {
   --color-primary: #d97706;

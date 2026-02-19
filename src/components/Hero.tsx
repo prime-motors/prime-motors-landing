@@ -73,15 +73,15 @@ export default function Hero() {
                         dark:from-[rgba(14,14,14,0.85)] dark:via-[rgba(14,14,14,0.50)] dark:to-[rgba(14,14,14,0.70)]
                         light:from-[rgba(245,245,245,0.88)] light:via-[rgba(245,245,245,0.55)] light:to-[rgba(245,245,245,0.75)]"
     >
-      <div className="flex h-full items-center justify-center pt-16 landscape:pt-12">
-        <div className="relative mx-auto w-full max-w-6xl px-4 py-20 text-center sm:px-6 landscape:py-8">
+      <div className="mobileLandscape:pt-12 flex h-full items-center justify-center pt-16">
+        <div className="mobileLandscape:py-8 relative mx-auto w-full max-w-6xl px-4 py-20 text-center sm:px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.4 }}
-              className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light border-primary/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium backdrop-blur-sm landscape:mb-3 landscape:gap-1 landscape:px-2 landscape:py-1 landscape:text-[10px]"
+              className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light border-primary/20 mobileLandscape:mb-3 mobileLandscape:gap-1 mobileLandscape:px-2 mobileLandscape:py-1 mobileLandscape:text-[10px] mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium backdrop-blur-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,19 +100,19 @@ export default function Hero() {
             </motion.div>
 
             {/* Title */}
-            <h1 className="mb-6 text-5xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl landscape:text-3xl landscape:sm:text-4xl dark:text-white">
+            <h1 className="mobileLandscape:mb-4 mobileLandscape:text-3xl mb-6 text-5xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl lg:text-7xl dark:text-white">
               {t('hero.title')}
             </h1>
 
             {/* Subtitle */}
-            <p className="dark:text-text-dark/80 mx-auto mb-10 max-w-2xl text-xl text-white/80 sm:text-2xl landscape:mb-5 landscape:text-sm">
+            <p className="mobileLandscape:mb-5 mobileLandscape:text-sm dark:text-text-dark/80 mx-auto mb-10 max-w-2xl text-xl text-white/80 sm:text-2xl">
               {t('hero.subtitle')}
             </p>
 
             {/* CTA */}
             <motion.a
               href="tel:+37360004260"
-              className="btn-shimmer bg-primary shadow-primary/25 hover:bg-primary-dark hover:shadow-primary/30 inline-flex items-center gap-3 rounded-xl px-8 py-4 text-lg font-semibold text-white no-underline shadow-lg transition-all duration-300 hover:shadow-xl landscape:gap-2 landscape:px-5 landscape:py-2 landscape:text-sm"
+              className="btn-shimmer bg-primary shadow-primary/25 hover:bg-primary-dark hover:shadow-primary/30 mobileLandscape:gap-2 mobileLandscape:px-5 mobileLandscape:py-2 mobileLandscape:text-sm inline-flex items-center gap-3 rounded-xl px-8 py-4 text-lg font-semibold text-white no-underline shadow-lg transition-all duration-300 hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -133,7 +133,7 @@ export default function Hero() {
             </motion.a>
 
             {/* Phone number display */}
-            <p className="dark:text-text-muted-dark mt-4 text-sm text-white/60 landscape:mt-2 landscape:text-xs">
+            <p className="dark:text-text-muted-dark mobileLandscape:mt-2 mobileLandscape:text-xs mt-4 text-sm text-white/60">
               +373 60 004 260
             </p>
           </motion.div>
