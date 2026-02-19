@@ -68,6 +68,7 @@ export default function Hero() {
       parallaxSpeed={0.3}
       effect="kenBurns"
       className="h-[var(--heroH)]"
+      scrollOffset={['start start', 'end start']}
       overlayClassName="bg-gradient-to-b from-[rgba(14,14,14,0.85)] via-[rgba(14,14,14,0.50)] to-[rgba(14,14,14,0.70)]
                         dark:from-[rgba(14,14,14,0.85)] dark:via-[rgba(14,14,14,0.50)] dark:to-[rgba(14,14,14,0.70)]
                         light:from-[rgba(245,245,245,0.88)] light:via-[rgba(245,245,245,0.55)] light:to-[rgba(245,245,245,0.75)]"

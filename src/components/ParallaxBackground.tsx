@@ -8,6 +8,7 @@ interface ParallaxBackgroundProps {
   parallaxSpeed?: number
   effect?: 'kenBurns' | 'drift' | 'pan' | 'none'
   className?: string
+  scrollOffset?: [string, string]
 }
 
 export default function ParallaxBackground({
@@ -17,6 +18,7 @@ export default function ParallaxBackground({
   parallaxSpeed = 0.3,
   effect = 'none',
   className = '',
+  scrollOffset = ['start end', 'end start'],
 }: ParallaxBackgroundProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768)
@@ -51,7 +53,7 @@ export default function ParallaxBackground({
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start end', 'end start'],
+    offset: scrollOffset,
   })
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', `${parallaxSpeed * 100}%`])
