@@ -118,35 +118,9 @@
         }
       })()
     </script>
-
-    <!-- Google Tag Manager (loaded only if GTM ID is set at build time) -->
-    <script>
-      ;(function () {
-        var gtmId = '%VITE_GTM_ID%'
-        if (!gtmId || gtmId === '' || gtmId.indexOf('VITE_') === 0) return
-        var s = document.createElement('script')
-        s.innerHTML =
-          "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','" +
-          gtmId +
-          "');"
-        document.head.appendChild(s)
-      })()
-    </script>
   </head>
 
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe src="" id="gtm-noscript" style="display: none; visibility: hidden" height="0" width="0"></iframe>
-    </noscript>
-    <script>
-      ;(function () {
-        var gtmId = '%VITE_GTM_ID%'
-        if (!gtmId || gtmId === '' || gtmId.indexOf('VITE_') === 0) return
-        document.getElementById('gtm-noscript').src = 'https://www.googletagmanager.com/ns.html?id=' + gtmId
-      })()
-    </script>
-
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
