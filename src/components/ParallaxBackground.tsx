@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 interface ParallaxBackgroundProps {
@@ -19,8 +19,35 @@ export default function ParallaxBackground({
   className = '',
 }: ParallaxBackgroundProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [isMobile] = useState(() => window.innerWidth < 768)
-  const [prefersReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768)
+  const [prefersReduced, setPrefersReduced] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  )
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+    const update = () => {
+      setIsMobile(window.innerWidth < 768)
+      setPrefersReduced(mq.matches)
+    }
+
+    update()
+
+    window.addEventListener('resize', update)
+    window.addEventListener('orientationchange', update)
+
+    // matchMedia change handler (Safari supports addEventListener in newer versions)
+    if (mq.addEventListener) mq.addEventListener('change', update)
+    else mq.addListener(update)
+
+    return () => {
+      window.removeEventListener('resize', update)
+      window.removeEventListener('orientationchange', update)
+      if (mq.removeEventListener) mq.removeEventListener('change', update)
+      else mq.removeListener(update)
+    }
+  }, [])
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -69,7 +96,7 @@ export default function ParallaxBackground({
       <div className={`absolute inset-0 ${overlayClassName}`} />
 
       {/* Content */}
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 h-full w-full">{children}</div>
     </div>
   )
 }
