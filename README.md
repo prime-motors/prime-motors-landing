@@ -28,8 +28,19 @@ Landing page for **Prime Motors** — a professional auto repair and diagnostics
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) >= 18
-- [pnpm](https://pnpm.io/) >= 9
+This project uses strict version pinning:
+
+- [Node.js](https://nodejs.org/) **22.22.0**
+- [pnpm](https://pnpm.io/) **10.30.1**
+
+Corepack (built into Node) is used to manage the pnpm version.
+
+### First Time Setup (per machine)
+
+```bash
+nvm use
+corepack enable
+```
 
 ### Install & Run
 
