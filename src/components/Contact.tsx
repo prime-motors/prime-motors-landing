@@ -117,9 +117,7 @@ export default function Contact() {
                   <div className="text-text-muted-light dark:text-text-muted-dark text-xs font-medium tracking-wider uppercase">
                     {t('contact.address')}
                   </div>
-                  <div className="text-text-light dark:text-text-dark font-medium">
-                    str. Uzinelor 104, Chișinău, Moldova
-                  </div>
+                  <div className="text-text-light dark:text-text-dark font-medium">{t('location.address')}</div>
                 </div>
               </div>
             </div>

@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 
-const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=str.+Uzinelor+104,+Chișinău,+Moldova'
+const MAPS_URL = 'https://maps.app.goo.gl/NfZ7xRngK2STrsMr7'
 const MAPS_EMBED =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d34133.68483598991!2d28.87762473205037!3d46.99751343106169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97b0039ece0f5%3A0x6024d44ee7e32b46!2sPrime%20Motors!5e0!3m2!1sen!2s!4v1770674522272!5m2!1sen!2s'
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2721.0549498012206!2d28.90932400000001!3d46.99989399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97b0039ece0f5%3A0x6024d44ee7e32b46!2sPrime%20Motors!5e0!3m2!1sen!2s!4v1773765696258!5m2!1sen!2s'
 
 export default function Location() {
   const { t } = useTranslation()
@@ -21,7 +21,7 @@ export default function Location() {
         <iframe
           src={MAPS_EMBED}
           width="100%"
-          height="300"
+          height="320"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
