@@ -102,4 +102,4 @@ public/
 
 - **Phone:** +373 60004260
 - **Email:** contact@primemotors.md
-- **Address:** str. Uzinelor 104, Chișinău, Moldova
+- **Address:** str. Uzinelor 201/11, Chișinău, Moldova

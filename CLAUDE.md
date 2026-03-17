@@ -37,7 +37,7 @@
 
 - Phone: +373 60004260
 - Email: contact@primemotors.md
-- Address: str. Uzinelor 104, Chișinău, Moldova
+- Address: str. Uzinelor 201/11, Chișinău, Moldova
 - Hours: Mon–Fri 09:00–18:00, Sat 09:00–13:00, Sun Closed
 
 ## Notes
