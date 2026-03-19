@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const MAPS_URL = 'https://maps.app.goo.gl/NfZ7xRngK2STrsMr7'
 const MAPS_EMBED =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2721.0549498012206!2d28.90932400000001!3d46.99989399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97b0039ece0f5%3A0x6024d44ee7e32b46!2sPrime%20Motors!5e0!3m2!1sen!2s!4v1773765696258!5m2!1sen!2s'
+  'https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d1590.5506887046984!2d28.90899001033395!3d47.00000275828564!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x40c97b0039ece0f5%3A0x6024d44ee7e32b46!2sPrime%20Motors%2C%20Uzinelor%20St%20201%2F11%2C%20Chi%C8%99in%C4%83u%2C%20Moldova!3m2!1d46.999894!2d28.909323999999998!5e0!3m2!1sen!2s!4v1773938360452!5m2!1sen!2s'
 
 export default function Location() {
   const { t } = useTranslation()
